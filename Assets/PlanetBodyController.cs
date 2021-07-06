@@ -1,27 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlanetBodyController : MonoBehaviour
 {
   [SerializeField] float shakingSeconds;
   [SerializeField] float shakingSpeed;
   [SerializeField] float shakingAmplitude;
+  [SerializeField] float slurpSeconds;
 
+  Vector3 cursorOffset;
   Material material;
   Joint2D springJoint;
   float shakingStartedAt;
   bool shaking = false;
+  bool slurping = false;
+
+  Transform egeoMouthInside;
 
   void Awake()
   {
     springJoint = GetComponent<SpringJoint2D>();
+    egeoMouthInside = EgeoController.Instance.MouthInside;
   }
 
   void Start()
   {
     material = GetComponent<Renderer>().material;
     // StartShaking();
+  }
+
+  void Update()
+  {
+    if(shaking)
+    {
+      UpdateShakingValues();
+      if(Time.time - shakingStartedAt >= shakingSeconds)
+      {
+        StopShaking();
+        StartSlurping();
+      }
+    }
+
+    if(slurping)
+    {
+      if(transform.position == egeoMouthInside.position) {
+        StopSlurping();
+      }
+    }
   }
 
   void StartShaking()
@@ -56,11 +83,7 @@ public class PlanetBodyController : MonoBehaviour
     material.SetFloat("ShakingAmplitude", shakingAmplitudeLerp);
   }
 
-  void Update()
-  {
-    if(shaking)
-      UpdateShakingValues();
-  }
+
 
   void OnTriggerEnter2D(Collider2D other)
   {
@@ -82,12 +105,22 @@ public class PlanetBodyController : MonoBehaviour
 
   void OnMouseDown()
   {
+    // Debug.Log("Draggable.OnMouseDown()");
+    cursorOffset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     StopSpringJoint();
+  }
+
+  void OnMouseDrag()
+  {
+    // Debug.Log("Draggable.OnMouseDrag()");
+    if(!slurping)
+      transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + cursorOffset;
   }
 
   void OnMouseUp()
   {
-    StartSpringJoint();
+    if(!slurping)
+      StartSpringJoint();
   }
 
   void StartSpringJoint()
@@ -99,5 +132,18 @@ public class PlanetBodyController : MonoBehaviour
   void StopSpringJoint()
   {
     springJoint.enabled = false;
+  }
+
+  void StartSlurping()
+  {
+    slurping = true;
+
+    transform.DOScale(0.4f, slurpSeconds / 10).SetEase(Ease.InBounce);
+    transform.DOMove(egeoMouthInside.position, slurpSeconds);
+  }
+
+  void StopSlurping()
+  {
+    Debug.Log("StopSlurping");
   }
 }

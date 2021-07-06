@@ -5,10 +5,12 @@ using DG.Tweening;
 
 public class PlanetBodyController : MonoBehaviour
 {
-  [SerializeField] float shakingSeconds;
+  [SerializeField] float shakingDuration;
   [SerializeField] float shakingSpeed;
   [SerializeField] float shakingAmplitude;
-  [SerializeField] float slurpSeconds;
+  [SerializeField] float slurpDuration;
+  [SerializeField] float bornDuration;
+  [SerializeField] GameObject planet;
 
   Vector3 cursorOffset;
   Material material;
@@ -16,19 +18,21 @@ public class PlanetBodyController : MonoBehaviour
   float shakingStartedAt;
   bool shaking = false;
   bool slurping = false;
+  bool borning = false;
 
   Transform egeoMouthInside;
 
   void Awake()
   {
     springJoint = GetComponent<SpringJoint2D>();
-    egeoMouthInside = EgeoController.Instance.MouthInside;
   }
 
   void Start()
   {
+    egeoMouthInside = EgeoController.Instance.MouthInside;
     material = GetComponent<Renderer>().material;
-    // StartShaking();
+    bornDuration = Random.Range(bornDuration - (bornDuration / 2f), bornDuration + (bornDuration / 2f));
+    StartBorning();
   }
 
   void Update()
@@ -36,7 +40,7 @@ public class PlanetBodyController : MonoBehaviour
     if(shaking)
     {
       UpdateShakingValues();
-      if(Time.time - shakingStartedAt >= shakingSeconds)
+      if(Time.time - shakingStartedAt >= shakingDuration)
       {
         StopShaking();
         StartSlurping();
@@ -66,7 +70,7 @@ public class PlanetBodyController : MonoBehaviour
   {
     float secondsShaking = Time.time - shakingStartedAt;
 
-    float lerpInterpolationValue = secondsShaking / shakingSeconds;
+    float lerpInterpolationValue = secondsShaking / shakingDuration;
     float shakingSpeedLerp = Mathf.Lerp(0, shakingSpeed, lerpInterpolationValue);
     float shakingAmplitudeLerp = Mathf.Lerp(0, shakingAmplitude, lerpInterpolationValue);
 
@@ -105,15 +109,25 @@ public class PlanetBodyController : MonoBehaviour
   void OnMouseDown()
   {
     // Debug.Log("Draggable.OnMouseDown()");
-    cursorOffset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    StopSpringJoint();
+    if(!slurping)
+    {
+      cursorOffset = transform.position - MouseCursor2D();
+      StopSpringJoint();
+    }
   }
 
   void OnMouseDrag()
   {
     // Debug.Log("Draggable.OnMouseDrag()");
     if(!slurping)
-      transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + cursorOffset;
+      transform.position = MouseCursor2D() + cursorOffset;
+  }
+
+  Vector3 MouseCursor2D()
+  {
+    Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    cursorPosition.z = 0;
+    return cursorPosition;
   }
 
   void OnMouseUp()
@@ -136,8 +150,8 @@ public class PlanetBodyController : MonoBehaviour
   {
     slurping = true;
 
-    transform.DOScale(0.4f, slurpSeconds / 10).SetEase(Ease.InBounce);
-    transform.DOMove(egeoMouthInside.position, slurpSeconds);
+    transform.DOScale(0.4f, slurpDuration / 10);
+    transform.DOMove(egeoMouthInside.position, slurpDuration);
 
     EgeoController.Instance.StartEating();
   }
@@ -146,6 +160,19 @@ public class PlanetBodyController : MonoBehaviour
   {
     Debug.Log("StopSlurping");
     EgeoController.Instance.StopEating();
-    Destroy(gameObject);
+    PlanetSpawnerController.Instance.RemovePlanet(planet);
+    Destroy(planet, 1.0f);
+  }
+
+  void StartBorning()
+  {
+    borning = true;
+    transform.localScale = new Vector3(0f, 0f, transform.localScale.z);
+    transform.DOScale(1.0f, bornDuration).OnComplete(StopBorning);
+  }
+
+  void StopBorning()
+  {
+    borning = false;
   }
 }

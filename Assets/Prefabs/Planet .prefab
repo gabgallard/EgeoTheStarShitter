@@ -188,10 +188,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdb5e83f4fc349aa8eac3ad6f7b69ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakingSeconds: 3
+  shakingDuration: 3
   shakingSpeed: 60
   shakingAmplitude: 0.01
-  slurpSeconds: 1
+  slurpDuration: 1
+  bornDuration: 2
+  planet: {fileID: 1947866007815934419}
 --- !u!1 &1947866007645955926
 GameObject:
   m_ObjectHideFlags: 0

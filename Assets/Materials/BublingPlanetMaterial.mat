@@ -49,10 +49,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Seed: 1
+    - ShakingAmplitude: 0
+    - Vector1_2bf6c4f297064ab69d95c5e76c51e25d: 0.5
     - Vector1_655541274cf443c2a31a9b5b2d9b1ade: 5
+    - Vector1_6886a3ef39704ee5bfe8a3e2e3df52a6: 0
     - Vector1_719809709c8442ee8f115d221fe03164: 10
     - Vector1_7b4169e0e2274374a39f9de104d3e6e7: 10
     - Vector1_cf170f7e9a444066897b421a9e5d1610: 0.1
+    - Vector1_fd087c6985c94702bd56fb46caaee1c3: 1
     - _EnableExternalAlpha: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

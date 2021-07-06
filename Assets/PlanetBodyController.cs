@@ -10,6 +10,8 @@ public class PlanetBodyController : MonoBehaviour
 
   Material material;
   Joint2D springJoint;
+  float shakingStartedAt;
+  bool shaking = false;
 
   void Awake()
   {
@@ -24,18 +26,40 @@ public class PlanetBodyController : MonoBehaviour
 
   void StartShaking()
   {
-    material.SetFloat("ShakingSpeed", shakingSpeed);
-    material.SetFloat("ShakingAmplitude", shakingAmplitude);
+    shakingStartedAt = Time.time;
+    shaking = true;
+
+    UpdateShakingValues();
   }
 
   void StopShaking()
   {
     material.SetFloat("ShakingSpeed", 0);
     material.SetFloat("ShakingAmplitude", 0);
+
+    shaking = false;
+  }
+
+  void UpdateShakingValues()
+  {
+    float secondsShaking = Time.time - shakingStartedAt;
+
+    float lerpInterpolationValue = secondsShaking / shakingSeconds;
+    float shakingSpeedLerp = Mathf.Lerp(0, shakingSpeed, lerpInterpolationValue);
+    float shakingAmplitudeLerp = Mathf.Lerp(0, shakingAmplitude, lerpInterpolationValue);
+
+    // Debug.Log("XXX: shakingSpeedLerp: " + shakingSpeedLerp);
+    // Debug.Log("XXX: shakingAmplitudeLerp: " + shakingAmplitudeLerp);
+    // Debug.Log("XXX: lerpInterpolationValue: " + lerpInterpolationValue);
+
+    material.SetFloat("ShakingSpeed", shakingSpeedLerp);
+    material.SetFloat("ShakingAmplitude", shakingAmplitudeLerp);
   }
 
   void Update()
   {
+    if(shaking)
+      UpdateShakingValues();
   }
 
   void OnTriggerEnter2D(Collider2D other)

@@ -6,13 +6,13 @@ public class Draggable : MonoBehaviour
 
     void OnMouseDown()
     {
-      Debug.Log("Draggable.OnMouseDown()");
+      // Debug.Log("Draggable.OnMouseDown()");
       offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void OnMouseDrag()
     {
-      Debug.Log("Draggable.OnMouseDrag()");
+      // Debug.Log("Draggable.OnMouseDrag()");
       transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
     }
 }

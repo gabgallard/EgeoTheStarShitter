@@ -1853,7 +1853,7 @@
     },
     "m_Name": "ShakingSpeed",
     "m_DefaultReferenceName": "Vector1_6886a3ef39704ee5bfe8a3e2e3df52a6",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "ShakingSpeed",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

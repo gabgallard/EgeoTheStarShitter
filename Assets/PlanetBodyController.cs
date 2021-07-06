@@ -57,6 +57,7 @@ public class PlanetBodyController : MonoBehaviour
     shaking = true;
 
     UpdateShakingValues();
+    EgeoController.Instance.StartSmeling();
   }
 
   void StopShaking()
@@ -65,6 +66,7 @@ public class PlanetBodyController : MonoBehaviour
     material.SetFloat("ShakingAmplitude", 0);
 
     shaking = false;
+    EgeoController.Instance.StopSmeling();
   }
 
   void UpdateShakingValues()
@@ -140,10 +142,14 @@ public class PlanetBodyController : MonoBehaviour
 
     transform.DOScale(0.4f, slurpSeconds / 10).SetEase(Ease.InBounce);
     transform.DOMove(egeoMouthInside.position, slurpSeconds);
+
+    EgeoController.Instance.StartEating();
   }
 
   void StopSlurping()
   {
     Debug.Log("StopSlurping");
+    EgeoController.Instance.StopEating();
+    Destroy(gameObject);
   }
 }

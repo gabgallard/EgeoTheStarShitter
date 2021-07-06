@@ -59,15 +59,15 @@ public class EgeoController : MonoBehaviour
   public void StartEating()
   {
     eating = true;
-    lipUpTarget.DOMove(lipUpOpened.position, 1f);
-    lipDownTarget.DOMove(lipDownOpened.position, 1f);
+    lipUpTarget.DOMove(lipUpOpened.position, 0.5f);
+    lipDownTarget.DOMove(lipDownOpened.position, 0.5f);
   }
 
   public void StopEating()
   {
     eating = false;
     actualLipMovementAmplitude = lipMovementAmplitude;
-    lipUpTarget.DOMove(lipUpClosed.position, 1f);
-    lipDownTarget.DOMove(lipDownClosed.position, 1f);
+    lipUpTarget.DOMove(lipUpClosed.position, 0.5f);
+    lipDownTarget.DOMove(lipDownClosed.position, 0.5f);
   }
 }

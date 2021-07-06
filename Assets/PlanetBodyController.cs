@@ -42,13 +42,6 @@ public class PlanetBodyController : MonoBehaviour
         StartSlurping();
       }
     }
-
-    if(slurping)
-    {
-      if(transform.position == egeoMouthInside.position) {
-        StopSlurping();
-      }
-    }
   }
 
   void StartShaking()
@@ -86,13 +79,17 @@ public class PlanetBodyController : MonoBehaviour
   }
 
 
-
   void OnTriggerEnter2D(Collider2D other)
   {
     if(other.CompareTag("Mouth"))
     {
       Debug.Log("Collision with Mouth :: Start");
       StartShaking();
+    }
+
+    if(other.CompareTag("MouthInside") && slurping)
+    {
+      StopSlurping();
     }
   }
 
@@ -127,7 +124,6 @@ public class PlanetBodyController : MonoBehaviour
 
   void StartSpringJoint()
   {
-
     springJoint.enabled = true;
   }
 

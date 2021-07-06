@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mouth
+  - MouthInside
   layers:
   - Default
   - TransparentFX

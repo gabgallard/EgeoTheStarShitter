@@ -29,7 +29,7 @@ public class PlanetBodyController : MonoBehaviour
 
   void Start()
   {
-    egeoMouthInside = MouthController.Instance.MouthInside;
+    egeoMouthInside = EgeoController.Instance.MouthInside;
     material = GetComponent<Renderer>().material;
     bornDuration = Random.Range(bornDuration - (bornDuration / 2f), bornDuration + (bornDuration / 2f));
     StartBorning();
@@ -54,7 +54,7 @@ public class PlanetBodyController : MonoBehaviour
     shaking = true;
 
     UpdateShakingValues();
-    MouthController.Instance.StartSmeling();
+    EgeoController.Instance.StartSmeling();
   }
 
   void StopShaking()
@@ -63,7 +63,7 @@ public class PlanetBodyController : MonoBehaviour
     material.SetFloat("ShakingAmplitude", 0);
 
     shaking = false;
-    MouthController.Instance.StopSmeling();
+    EgeoController.Instance.StopSmeling();
   }
 
   void UpdateShakingValues()
@@ -153,13 +153,14 @@ public class PlanetBodyController : MonoBehaviour
     transform.DOScale(0.4f, slurpDuration / 10);
     transform.DOMove(egeoMouthInside.position, slurpDuration);
 
-    MouthController.Instance.StartEating();
+    EgeoController.Instance.StartEating();
   }
 
   void StopSlurping()
   {
     Debug.Log("StopSlurping");
-    MouthController.Instance.StopEating();
+    EgeoController.Instance.StopEating();
+    EgeoController.Instance.AddPlanetToStomach();
     PlanetSpawnerController.Instance.RemovePlanet(planet);
     Destroy(planet, 1.0f);
   }

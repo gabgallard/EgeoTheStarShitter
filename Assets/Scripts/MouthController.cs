@@ -5,8 +5,6 @@ using DG.Tweening;
 
 public class MouthController : MonoBehaviour
 {
-  public static MouthController Instance;
-  [SerializeField] public Transform MouthInside;
   [SerializeField] Transform lipUpTarget;
   [SerializeField] Transform lipDownTarget;
   [SerializeField] Transform lipUpClosed;
@@ -20,11 +18,7 @@ public class MouthController : MonoBehaviour
 
   float actualLipMovementAmplitude;
   bool eating = false;
-
-  void Awake()
-  {
-    Instance = this;
-  }
+  bool closing = false;
 
   void Start()
   {
@@ -33,26 +27,32 @@ public class MouthController : MonoBehaviour
 
   void Update()
   {
-    if(!eating)
+    if(!eating && !closing)
       MouthClosedAnimation();
   }
 
   void MouthClosedAnimation()
   {
-    float height = actualLipMovementAmplitude * Mathf.PerlinNoise(Time.time * lipMovementSpeed, 0.0f);
-    Vector3 pos = lipUpClosed.position;
-    pos.y = pos.y + (height - (actualLipMovementAmplitude / 2.0f));
-    lipUpTarget.transform.position = pos;
+    float movement = actualLipMovementAmplitude * Mathf.PerlinNoise(Time.time * lipMovementSpeed, 0.0f);
+    movement = movement - (actualLipMovementAmplitude / 2.0f);
+
+    Vector3 position = lipUpClosed.position;
+    position.y = position.y + movement;
+    lipUpTarget.transform.position = position;
+
+    position = lipDownClosed.position;
+    position.y = position.y - movement;
+    lipDownTarget.transform.position = position;
   }
 
   public void StartSmeling()
   {
-    actualLipMovementAmplitude = lipMovementAmplitudeWhenSmeling;
+    DOTween.To(() => actualLipMovementAmplitude, x => actualLipMovementAmplitude = x, lipMovementAmplitudeWhenSmeling, 1);
   }
 
   public void StopSmeling()
   {
-    actualLipMovementAmplitude = lipMovementAmplitude;
+    DOTween.To(() => actualLipMovementAmplitude, x => actualLipMovementAmplitude = x, lipMovementAmplitude, 1);
   }
 
   public void StartEating()
@@ -65,10 +65,19 @@ public class MouthController : MonoBehaviour
   public void StopEating()
   {
     eating = false;
-    actualLipMovementAmplitude = lipMovementAmplitude;
-    lipUpTarget.DOMove(lipUpClosed.position, 0.5f);
-    lipDownTarget.DOMove(lipDownClosed.position, 0.5f);
+    DOTween.To(() => actualLipMovementAmplitude, x => actualLipMovementAmplitude = x, lipMovementAmplitude, 1);
+    StartClosing();
+  }
 
-    EgeoController.Instance.AddPlanetToStomach();
+  void StartClosing()
+  {
+    closing = true;
+    lipUpTarget.DOMove(lipUpClosed.position, 0.5f);
+    lipDownTarget.DOMove(lipDownClosed.position, 0.5f).OnComplete(StopClosing);
+  }
+
+  void StopClosing()
+  {
+    closing = false;
   }
 }

@@ -812,13 +812,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779645591}
-  m_LocalRotation: {x: -0, y: -0, z: 0.17641814, w: 0.9843154}
+  m_LocalRotation: {x: -0, y: -0, z: 0.106346324, w: 0.9943292}
   m_LocalPosition: {x: 0.338, y: -0.004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2012242260}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20.322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.209}
 --- !u!4 &792798413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5311205697070375568, guid: 66181a2c31d06474cb94077c19440888, type: 3}
@@ -933,16 +933,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de21fdafe40304085b9a72949bd65798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouthInside: {fileID: 2142400425}
   lipUpTarget: {fileID: 1831773253}
   lipDownTarget: {fileID: 896575481}
   lipUpClosed: {fileID: 1781285669}
   lipDownClosed: {fileID: 1342225190}
   lipUpOpened: {fileID: 1969600028}
   lipDownOpened: {fileID: 2012398670}
-  lipMovementAmplitude: 0.3
+  lipMovementAmplitude: 0.1
   lipMovementSpeed: 1
-  lipMovementAmplitudeWhenSmeling: 0.6
+  lipMovementAmplitudeWhenSmeling: 0.3
 --- !u!1 &896575480
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +966,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896575480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.048, y: -0.616, z: 0}
+  m_LocalPosition: {x: 0.102, y: -0.456, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 38532145}
@@ -1172,7 +1171,7 @@ GameObject:
   m_Layer: 7
   m_Name: LipDownClosed
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1184,7 +1183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342225189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.108, y: -0.346, z: 0}
+  m_LocalPosition: {x: 0.108, y: -0.462, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2191682}
@@ -1199,7 +1198,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8422068582972842632, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9843154
+      value: 0.9943292
       objectReference: {fileID: 0}
     - target: {fileID: -8422068582972842632, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1211,7 +1210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8422068582972842632, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.17641814
+      value: -0.106346324
       objectReference: {fileID: 0}
     - target: {fileID: -8422068582972842632, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1219,11 +1218,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6879965807727053135, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9175033
+      value: -0.9535574
       objectReference: {fileID: 0}
     - target: {fileID: -6879965807727053135, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -6879965807727053135, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1231,7 +1230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6879965807727053135, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.39772835
+      value: 0.30121136
       objectReference: {fileID: 0}
     - target: {fileID: -6879965807727053135, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1514,13 +1513,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620831546}
-  m_LocalRotation: {x: -0, y: -0, z: -0.39772835, w: -0.9175033}
+  m_LocalRotation: {x: -0, y: -0, z: -0.3012114, w: -0.95355743}
   m_LocalPosition: {x: 0.323, y: -0.006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5239888}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 46.872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.061}
 --- !u!1 &1694824037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1694824038}
   - component: {fileID: 1694824039}
+  - component: {fileID: 1694824040}
   m_Layer: 0
   m_Name: Bottom
   m_TagString: Untagged
@@ -1566,6 +1566,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564b645430f5545f4be01a731872d779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1694824040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694824037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de21fdafe40304085b9a72949bd65798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lipUpTarget: {fileID: 1293565774}
+  lipDownTarget: {fileID: 1050596698}
+  lipUpClosed: {fileID: 120744230}
+  lipDownClosed: {fileID: 1832044422}
+  lipUpOpened: {fileID: 439794784}
+  lipDownOpened: {fileID: 1869764397}
+  lipMovementAmplitude: 0.6
+  lipMovementSpeed: 1
+  lipMovementAmplitudeWhenSmeling: 1
 --- !u!1 &1781285668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1599,7 @@ GameObject:
   m_Layer: 7
   m_Name: LipUpClosed
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1590,7 +1611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781285668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.218, y: -0.106, z: 0}
+  m_LocalPosition: {x: 0.256, y: -0.144, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2191682}
@@ -1683,7 +1704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831773252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.194, y: -0.237, z: 0}
+  m_LocalPosition: {x: 0.254, y: -0.145, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 604797873}
@@ -1893,7 +1914,7 @@ GameObject:
   m_Layer: 7
   m_Name: LipUpOpened
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1928,7 +1949,7 @@ GameObject:
   m_Layer: 7
   m_Name: LipDownOpened
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1994,6 +2015,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad00589660b54494dbc1e48cd1e2fc7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MouthInside: {fileID: 2142400425}
+  mouthController: {fileID: 874558788}
+  bottomController: {fileID: 1694824040}
+  bottomFullDuration: 3
+  shittingDuration: 1
+  afterShittingDuration: 2
 --- !u!114 &2018083225
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -256,11 +256,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &292424425 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1947866007815934419, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-  m_PrefabInstance: {fileID: 771014954}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &350693857
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,8 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbba801a48275430b88e778719158dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfPlanetsAtStart: 20
-  maxNumOfPlanets: 30
+  numOfPlanetsAtStart: 0
+  maxNumOfPlanets: 0
   planetPrefab: {fileID: 1947866007815934419, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
   betweenSpawnsDuration: 2
   numOfPlanetsOnSpawn: 4
@@ -588,7 +583,7 @@ GameObject:
   m_Layer: 0
   m_Name: StarSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -600,7 +595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627688579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.15, y: -2.35, z: 0}
+  m_LocalPosition: {x: -0.92, y: -1.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1909779322}
@@ -622,6 +617,7 @@ MonoBehaviour:
   skyCollider: {fileID: 363488986}
   starPrefab: {fileID: 1947866007815934419, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
   target: {fileID: 1909779322}
+  force: 3
 --- !u!1 &708794692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3764447261037380751, guid: 66181a2c31d06474cb94077c19440888, type: 3}
@@ -632,67 +628,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4261415652605455196, guid: 66181a2c31d06474cb94077c19440888, type: 3}
   m_PrefabInstance: {fileID: 1365049253}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &771014954
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934418, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934419, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_Name
-      value: 'Planet '
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947866007815934419, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
 --- !u!1 &779645591
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,8 +690,6 @@ MonoBehaviour:
   _scenePrefabInstances:
   - _gameObject: {fileID: 708794692}
     _prefab: Assets/Images/Egeo.psb
-  - _gameObject: {fileID: 292424425}
-    _prefab: Assets/Prefabs/Planet .prefab
 --- !u!4 &821789041
 Transform:
   m_ObjectHideFlags: 11
@@ -1141,6 +1074,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Egeo
       objectReference: {fileID: 0}
+    - target: {fileID: 3764447261037380751, guid: 66181a2c31d06474cb94077c19440888, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4400482344640532600, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -1313,7 +1250,7 @@ GameObject:
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

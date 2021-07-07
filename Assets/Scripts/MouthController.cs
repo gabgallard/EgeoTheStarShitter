@@ -16,7 +16,7 @@ public class MouthController : MonoBehaviour
   [SerializeField] float lipMovementSpeed;
   [SerializeField] float lipMovementAmplitudeWhenSmeling;
 
-  float actualLipMovementAmplitude;
+  [SerializeField] float actualLipMovementAmplitude;
   bool eating = false;
   bool closing = false;
 

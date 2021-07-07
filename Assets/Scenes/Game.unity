@@ -336,8 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbba801a48275430b88e778719158dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfPlanetsAtStart: 0
-  maxNumOfPlanets: 0
+  numOfPlanetsAtStart: 10
+  maxNumOfPlanets: 30
   planetPrefab: {fileID: 1947866007815934419, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
   betweenSpawnsDuration: 2
   numOfPlanetsOnSpawn: 4
@@ -615,9 +615,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skyCollider: {fileID: 363488986}
-  starPrefab: {fileID: 1947866007815934419, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
+  starPrefab: {fileID: 245593547182851033, guid: 70c79a2e6de86494999c3d079c0b3f83, type: 3}
   target: {fileID: 1909779322}
-  force: 3
+  force: 2
+  firstProjectionDuration: 2
+  temporalMass: 10
+  temporalMassDuration: 1
 --- !u!1 &708794692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3764447261037380751, guid: 66181a2c31d06474cb94077c19440888, type: 3}

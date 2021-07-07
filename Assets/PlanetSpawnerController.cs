@@ -53,7 +53,6 @@ public class PlanetSpawnerController : MonoBehaviour
       Vector3 position = randomPointInCollider.RandomPoint();
       GameObject planet = Instantiate(planetPrefab, position, Quaternion.identity);
       planets.Add(planet);
-      Debug.Log("AtBorn: " + planet.GetInstanceID());
     }
     theCollider.enabled = false;
 

@@ -940,9 +940,9 @@ MonoBehaviour:
   lipDownClosed: {fileID: 1342225190}
   lipUpOpened: {fileID: 1969600028}
   lipDownOpened: {fileID: 2012398670}
-  lipMovementAmplitude: 10
-  lipMovementSpeed: 10
-  lipMovementAmplitudeWhenSmeling: 20
+  lipMovementAmplitude: 0.3
+  lipMovementSpeed: 1
+  lipMovementAmplitudeWhenSmeling: 0.6
 --- !u!1 &896575480
 GameObject:
   m_ObjectHideFlags: 0

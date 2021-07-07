@@ -31,13 +31,13 @@ public class StartSpawnerController : MonoBehaviour
     StartCoroutine("SpawnStarCoroutine");
   }
 
-  void Update()
-  {
-      if (Input.GetKeyDown("space"))
-      {
-          SpawnStar();
-      }
-  }
+  // void Update()
+  // {
+  //     if (Input.GetKeyDown("space"))
+  //     {
+  //         SpawnStar();
+  //     }
+  // }
 
   IEnumerator SpawnStarCoroutine()
   {

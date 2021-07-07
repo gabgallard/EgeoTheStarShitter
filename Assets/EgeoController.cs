@@ -20,6 +20,8 @@ public class EgeoController : MonoBehaviour
   float actualLipMovementAmplitude;
 
   bool eating = false;
+  int numOfPlanetsEaten = 0;
+  int numOfPlanetsOnStomach = 0;
 
 
   void Awake()
@@ -69,5 +71,18 @@ public class EgeoController : MonoBehaviour
     actualLipMovementAmplitude = lipMovementAmplitude;
     lipUpTarget.DOMove(lipUpClosed.position, 0.5f);
     lipDownTarget.DOMove(lipDownClosed.position, 0.5f);
+
+    numOfPlanetsOnStomach ++;
+    numOfPlanetsEaten ++;
+
+    if(numOfPlanetsOnStomach >= 3) {
+      ShitStar();
+    }
+  }
+
+  void ShitStar()
+  {
+    StartSpawnerController.Instance.SpawnStar();
+    numOfPlanetsOnStomach = 0;
   }
 }

@@ -775,6 +775,7 @@ MonoBehaviour:
   skyCollider: {fileID: 363488986}
   starPrefab: {fileID: 245593547182851033, guid: 70c79a2e6de86494999c3d079c0b3f83, type: 3}
   target: {fileID: 1909779322}
+  numStars: 4
   force: 2
   firstProjectionDuration: 2
   temporalMass: 10

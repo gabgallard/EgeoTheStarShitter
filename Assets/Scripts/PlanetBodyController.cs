@@ -25,13 +25,18 @@ public class PlanetBodyController : MonoBehaviour
   void Awake()
   {
     springJoint = GetComponent<SpringJoint2D>();
+
+    shakingDuration = RandomDeviation(shakingDuration);
+    shakingSpeed = RandomDeviation(shakingSpeed);
+    shakingAmplitude = RandomDeviation(shakingAmplitude);
+    slurpDuration = RandomDeviation(slurpDuration);
+    bornDuration = RandomDeviation(bornDuration);
   }
 
   void Start()
   {
     egeoMouthInside = EgeoController.Instance.MouthInside;
     material = GetComponent<Renderer>().material;
-    bornDuration = Random.Range(bornDuration - (bornDuration / 2f), bornDuration + (bornDuration / 2f));
     StartBorning();
   }
 
@@ -175,5 +180,9 @@ public class PlanetBodyController : MonoBehaviour
   void StopBorning()
   {
     borning = false;
+  }
+
+  float RandomDeviation(float number) {
+    return Random.Range(number - (number / 2), number + (number / 2));
   }
 }

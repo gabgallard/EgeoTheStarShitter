@@ -14,6 +14,7 @@ public class StarSpawnerController : MonoBehaviour
 
 
   [Header("Settings")]
+  [SerializeField] int numStars = 2;
   [SerializeField] float force = 2.0f;
   [SerializeField] float firstProjectionDuration = 3.0f;
   [SerializeField] float temporalMass = 10.0f;
@@ -28,19 +29,16 @@ public class StarSpawnerController : MonoBehaviour
   [ContextMenu("SpawnStar")]
   public void SpawnStar()
   {
-    StartCoroutine("SpawnStarCoroutine");
+    for (int i = 0; i < RandomDeviation(numStars); i++)
+    {
+      StartCoroutine("SpawnStarCoroutine");
+    }
   }
-
-  // void Update()
-  // {
-  //     if (Input.GetKeyDown("space"))
-  //     {
-  //         SpawnStar();
-  //     }
-  // }
 
   IEnumerator SpawnStarCoroutine()
   {
+    yield return new WaitForSeconds(Random.Range(0.0f, 2.0f));
+
     skyCollider.enabled = true;
     Vector3 position = randomPointInCollider.RandomPoint();
     skyCollider.enabled = false;
@@ -64,6 +62,10 @@ public class StarSpawnerController : MonoBehaviour
   }
 
   float RandomDeviation(float number) {
+    return Random.Range(number - (number / 2), number + (number / 2));
+  }
+
+  int RandomDeviation(int number) {
     return Random.Range(number - (number / 2), number + (number / 2));
   }
 

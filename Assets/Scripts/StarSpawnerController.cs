@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class StartSpawnerController : MonoBehaviour
+public class StarSpawnerController : MonoBehaviour
 {
-  public static StartSpawnerController Instance;
+  public static StarSpawnerController Instance;
   RandomPointInCollider randomPointInCollider;
 
   [SerializeField] Collider2D skyCollider;

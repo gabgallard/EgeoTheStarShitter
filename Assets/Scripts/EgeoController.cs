@@ -82,7 +82,7 @@ public class EgeoController : MonoBehaviour
 
   void ShitStar()
   {
-    StartSpawnerController.Instance.SpawnStar();
+    StarSpawnerController.Instance.SpawnStar();
     numOfPlanetsOnStomach = 0;
   }
 }

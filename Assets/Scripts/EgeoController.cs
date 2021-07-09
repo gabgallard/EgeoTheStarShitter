@@ -75,6 +75,11 @@ public class EgeoController : MonoBehaviour
     bottomController.StopEating();
   }
 
+  public void Blow(PlanetBodyController planetBodyController)
+  {
+    mouthController.StartBlowing();
+  }
+
   float RandomDeviation(float number) {
     return Random.Range(number - (number / 2), number + (number / 2));
   }

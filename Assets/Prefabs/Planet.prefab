@@ -193,6 +193,8 @@ MonoBehaviour:
   slurpDuration: 1
   bornDuration: 2
   planet: {fileID: 1947866007815934419}
+  bodyType: planet
+  blowForce: 30
 --- !u!1 &1947866007645955926
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1947866007815934418}
   m_Layer: 0
-  m_Name: 'Planet '
+  m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

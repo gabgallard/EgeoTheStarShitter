@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class PlanetBodyController : MonoBehaviour
+public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
   [SerializeField] float shakingDuration;
   [SerializeField] float shakingSpeed;
@@ -11,20 +12,27 @@ public class PlanetBodyController : MonoBehaviour
   [SerializeField] float slurpDuration;
   [SerializeField] float bornDuration;
   [SerializeField] GameObject planet;
+  [SerializeField] string bodyType;
+  [SerializeField] float blowForce = 10;
 
   Vector3 cursorOffset;
   Material material;
   Joint2D springJoint;
   float shakingStartedAt;
   bool shaking = false;
-  bool slurping = false;
+  bool underForces = false;
   bool borning = false;
+  bool dragging = false;
+  Rigidbody2D theRigidbody;
+
+  PointerEventData pointerEventData;
 
   Transform egeoMouthInside;
 
   void Awake()
   {
     springJoint = GetComponent<SpringJoint2D>();
+    theRigidbody = GetComponent<Rigidbody2D>();
 
     shakingDuration = RandomDeviation(shakingDuration);
     shakingSpeed = RandomDeviation(shakingSpeed);
@@ -48,9 +56,16 @@ public class PlanetBodyController : MonoBehaviour
       if(Time.time - shakingStartedAt >= shakingDuration)
       {
         StopShaking();
-        StartSlurping();
+        if(bodyType == "planet")
+          BlowAway();
+          // StartSlurping();
+        else
+          BlowAway();
       }
     }
+
+    if(!underForces && dragging)
+      transform.position = MouseCursor2D() + cursorOffset;
   }
 
   void StartShaking()
@@ -96,7 +111,7 @@ public class PlanetBodyController : MonoBehaviour
       StartShaking();
     }
 
-    if(other.CompareTag("MouthInside") && slurping)
+    if(other.CompareTag("MouthInside") && underForces)
     {
       StopSlurping();
     }
@@ -111,22 +126,58 @@ public class PlanetBodyController : MonoBehaviour
     }
   }
 
-  void OnMouseDown()
+  // Drag and Drop :: INI
+  public void OnPointerDown(PointerEventData eventData)
   {
-    // Debug.Log("Draggable.OnMouseDown()");
-    if(!slurping)
+    Debug.Log("OnPointerDown");
+    if(!underForces)
     {
       cursorOffset = transform.position - MouseCursor2D();
       StopSpringJoint();
+      dragging = true;
     }
   }
 
-  void OnMouseDrag()
+  public void OnPointerUp(PointerEventData eventData)
   {
-    // Debug.Log("Draggable.OnMouseDrag()");
-    if(!slurping)
-      transform.position = MouseCursor2D() + cursorOffset;
+    Debug.Log("OnPointerUp");
+    if(!underForces)
+    {
+      StartSpringJoint();
+      dragging = false;
+    }
   }
+
+  // public void OnPointerExit(PointerEventData eventData)
+  // {
+  //   Debug.Log("OnPointerExit");
+  //   dragging = false;
+  // }
+
+  // void OnMouseDown()
+  // {
+  //   // Debug.Log("Draggable.OnMouseDown()");
+  //   if(!underForces)
+  //   {
+  //     cursorOffset = transform.position - MouseCursor2D();
+  //     StopSpringJoint();
+  //   }
+  // }
+
+  // void OnMouseDrag()
+  // {
+  //   // Debug.Log("Draggable.OnMouseDrag()");
+  //   if(!underForces)
+  //     transform.position = MouseCursor2D() + cursorOffset;
+  // }
+
+  // void OnMouseUp()
+  // {
+  //   if(!underForces)
+  //     StartSpringJoint();
+  // }
+  // // Drag and Drop :: END
+
 
   Vector3 MouseCursor2D()
   {
@@ -135,10 +186,9 @@ public class PlanetBodyController : MonoBehaviour
     return cursorPosition;
   }
 
-  void OnMouseUp()
+  void StopDragging()
   {
-    if(!slurping)
-      StartSpringJoint();
+    dragging = false;
   }
 
   void StartSpringJoint()
@@ -153,7 +203,7 @@ public class PlanetBodyController : MonoBehaviour
 
   void StartSlurping()
   {
-    slurping = true;
+    underForces = true;
 
     transform.DOScale(0.4f, slurpDuration / 10);
     transform.DOMove(egeoMouthInside.position, slurpDuration);
@@ -184,5 +234,31 @@ public class PlanetBodyController : MonoBehaviour
 
   float RandomDeviation(float number) {
     return Random.Range(number - (number / 2), number + (number / 2));
+  }
+
+  void BlowAway()
+  {
+    StartCoroutine("BlowAwayCoroutine");
+    EgeoController.Instance.Blow(this);
+  }
+
+  IEnumerator BlowAwayCoroutine()
+  {
+    yield return new WaitForSeconds(0.5f);
+    Vector3 direction = (egeoMouthInside.transform.position - transform.position).normalized;
+    theRigidbody.AddForce(direction * -1 * blowForce, ForceMode2D.Impulse);
+    float temporalMass = 10.0f;
+    float previousMass = theRigidbody.mass;
+    theRigidbody.drag = temporalMass;
+    underForces = true;
+    StopSpringJoint();
+    StopDragging();
+
+    yield return new WaitForSeconds(0.4f);
+    StartSpringJoint();
+    underForces = false;
+
+    yield return new WaitForSeconds(0.5f);
+    theRigidbody.drag = previousMass;
   }
 }

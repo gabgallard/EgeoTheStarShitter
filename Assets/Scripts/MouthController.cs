@@ -19,6 +19,7 @@ public class MouthController : MonoBehaviour
   [SerializeField] float actualLipMovementAmplitude;
   bool eating = false;
   bool closing = false;
+  bool blowing = false;
 
   void Start()
   {
@@ -27,7 +28,7 @@ public class MouthController : MonoBehaviour
 
   void Update()
   {
-    if(!eating && !closing)
+    if(!eating && !closing && !blowing)
       MouthClosedAnimation();
   }
 
@@ -79,5 +80,21 @@ public class MouthController : MonoBehaviour
   void StopClosing()
   {
     closing = false;
+  }
+
+  public void StartBlowing()
+  {
+    blowing = true;
+    Sequence sequence = DOTween.Sequence();
+    sequence.Append(lipUpTarget.DOMove(lipDownClosed.position, 0.5f));
+    sequence.Append(lipUpTarget.DOMove(lipUpOpened.position, 0.1f));
+    sequence.Append(lipUpTarget.DOMove(lipUpClosed.position, 0.1f));
+    sequence.OnComplete(StopBlowing);
+  }
+
+  void StopBlowing()
+  {
+    StartClosing();
+    blowing = false;
   }
 }

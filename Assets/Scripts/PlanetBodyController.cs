@@ -57,8 +57,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       {
         StopShaking();
         if(bodyType == "planet")
-          BlowAway();
-          // StartSlurping();
+          StartSlurping();
         else
           BlowAway();
       }
@@ -147,37 +146,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       dragging = false;
     }
   }
-
-  // public void OnPointerExit(PointerEventData eventData)
-  // {
-  //   Debug.Log("OnPointerExit");
-  //   dragging = false;
-  // }
-
-  // void OnMouseDown()
-  // {
-  //   // Debug.Log("Draggable.OnMouseDown()");
-  //   if(!underForces)
-  //   {
-  //     cursorOffset = transform.position - MouseCursor2D();
-  //     StopSpringJoint();
-  //   }
-  // }
-
-  // void OnMouseDrag()
-  // {
-  //   // Debug.Log("Draggable.OnMouseDrag()");
-  //   if(!underForces)
-  //     transform.position = MouseCursor2D() + cursorOffset;
-  // }
-
-  // void OnMouseUp()
-  // {
-  //   if(!underForces)
-  //     StartSpringJoint();
-  // }
-  // // Drag and Drop :: END
-
 
   Vector3 MouseCursor2D()
   {

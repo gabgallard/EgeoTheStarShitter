@@ -15,9 +15,11 @@ public class PlanetSpawnerController : MonoBehaviour
   [SerializeField] float betweenSpawnsDuration;
   [SerializeField] int numOfPlanetsOnSpawn;
 
+
   List<GameObject> planets;
 
   float nextSpawnAt;
+  bool loading = true;
 
   void Awake()
   {
@@ -29,7 +31,7 @@ public class PlanetSpawnerController : MonoBehaviour
 
   void Update()
   {
-    if(Time.time > nextSpawnAt && planets.Count < maxNumOfPlanets)
+    if(!loading && Time.time > nextSpawnAt && planets.Count < maxNumOfPlanets)
       SpawnPlanet(Random.Range(1, numOfPlanetsOnSpawn));
   }
 
@@ -39,10 +41,10 @@ public class PlanetSpawnerController : MonoBehaviour
   }
 
 
-  // Start is called before the first frame update
-  void Start()
+  public void FirstSpawn()
   {
     SpawnPlanet(numOfPlanetsAtStart);
+    loading = false;
   }
 
   void SpawnPlanet(int numPlanets = 1)

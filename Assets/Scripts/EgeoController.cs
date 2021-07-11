@@ -7,6 +7,7 @@ public class EgeoController : MonoBehaviour
 {
   public static EgeoController Instance;
 
+  [SerializeField] GameObject egeoBody;
   [SerializeField] public Transform MouthInside;
   [SerializeField] MouthController mouthController;
   [SerializeField] MouthController bottomController;
@@ -22,6 +23,11 @@ public class EgeoController : MonoBehaviour
   void Awake()
   {
     Instance = this;
+  }
+
+  public void ShowEgeo()
+  {
+    egeoBody.SetActive(true);
   }
 
   void ShitStar()

@@ -9,6 +9,8 @@ public class UIController : MonoBehaviour
 {
   Animator animator;
 
+  [SerializeField] GameObject infoPage;
+
   void Awake()
   {
     animator = GetComponent<Animator>();
@@ -24,5 +26,10 @@ public class UIController : MonoBehaviour
   {
     Debug.Log("StartSky()");
     PlanetSpawnerController.Instance.FirstSpawn();
+  }
+
+  public void ToggleInfoPage()
+  {
+    infoPage.SetActive(!infoPage.activeSelf);
   }
 }

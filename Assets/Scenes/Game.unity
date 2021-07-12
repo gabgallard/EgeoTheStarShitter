@@ -291,7 +291,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 33554431
+    rgba: 201326591
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -598,18 +598,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 6.4056196, y: 6.0396695}
+    - - {x: 5.4445076, y: 6.190432}
       - {x: -1.8486404, y: 7.088726}
-      - {x: -11.724505, y: 5.912264}
-      - {x: -12.400347, y: 4.6425962}
-      - {x: -12.377216, y: 0.6315445}
+      - {x: -10.801084, y: 6.515315}
+      - {x: -11.49577, y: 4.5483694}
+      - {x: -11.359568, y: 0.7446164}
       - {x: -7.3469315, y: 0.93574476}
       - {x: -5.27602, y: 5.096633}
       - {x: -0.30507088, y: 5.1222415}
       - {x: 0.45124984, y: 3.2444298}
       - {x: 1.1937146, y: 3.087939}
       - {x: 2.1113787, y: 0.74659264}
-      - {x: 6.3343143, y: 1.2597708}
+      - {x: 5.392047, y: 1.3539973}
 --- !u!4 &363488987
 Transform:
   m_ObjectHideFlags: 0
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 771751935
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 10
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -1607,7 +1607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &720184169
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2397,7 +2397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4507730367343109236, guid: 5beb31bfeb88449f5b06465f57b5d00c, type: 3}
+  m_Sprite: {fileID: 5946513779068302260, guid: 5beb31bfeb88449f5b06465f57b5d00c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -28,8 +28,13 @@ public class UIController : MonoBehaviour
     PlanetSpawnerController.Instance.FirstSpawn();
   }
 
+  void IntroFinished()
+  {
+  }
+
   public void ToggleInfoPage()
   {
     infoPage.SetActive(!infoPage.activeSelf);
+    infoPage.transform.Find("Scroll").GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
   }
 }

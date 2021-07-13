@@ -2097,6 +2097,7 @@ GameObject:
   - component: {fileID: 953353737}
   - component: {fileID: 953353739}
   - component: {fileID: 953353738}
+  - component: {fileID: 953353740}
   m_Layer: 0
   m_Name: Text_05_Fin
   m_TagString: Untagged
@@ -2143,7 +2144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fin
+  m_text: Universe #UNIVERSENAME finished
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b3132256e79cd4663850d968a5fadfc2, type: 2}
   m_sharedMaterial: {fileID: -5217915002131764241, guid: b3132256e79cd4663850d968a5fadfc2, type: 2}
@@ -2170,8 +2171,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2220,6 +2221,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953353736}
   m_CullTransparentMesh: 1
+--- !u!114 &953353740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953353736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6488195bf0ecc404a9d2af41569d7b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1050596697
 GameObject:
   m_ObjectHideFlags: 0

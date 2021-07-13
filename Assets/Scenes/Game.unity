@@ -1913,7 +1913,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: The original illustration is an interpretation from a Berlin street art
-    graffity
+    graffiti
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b3132256e79cd4663850d968a5fadfc2, type: 2}
   m_sharedMaterial: {fileID: -5217915002131764241, guid: b3132256e79cd4663850d968a5fadfc2, type: 2}
@@ -3406,10 +3406,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fork the projec at <link="http://example.com/">github</link>
+  m_text: 'Fork the project at <link="https://github.com/fguillen/EgeoTheStarShitter">github</link>
 
     Like
-    the game at <link="http://example.com/">itch.io</link>'
+    the game at <link="https://arturitoproductions.itch.io/egeo-the-star-shitter">itch.io</link>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b3132256e79cd4663850d968a5fadfc2, type: 2}
   m_sharedMaterial: {fileID: -5217915002131764241, guid: b3132256e79cd4663850d968a5fadfc2, type: 2}

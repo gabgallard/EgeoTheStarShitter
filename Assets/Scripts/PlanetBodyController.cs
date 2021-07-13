@@ -129,7 +129,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   public void OnPointerDown(PointerEventData eventData)
   {
     Debug.Log("OnPointerDown");
-    if(!underForces)
+    if(!underForces && !EgeoController.Instance.UniverseFinished)
     {
       cursorOffset = transform.position - MouseCursor2D();
       StopSpringJoint();

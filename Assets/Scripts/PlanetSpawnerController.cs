@@ -31,7 +31,7 @@ public class PlanetSpawnerController : MonoBehaviour
 
   void Update()
   {
-    if(!loading && Time.time > nextSpawnAt && planets.Count < maxNumOfPlanets)
+    if(!loading && !EgeoController.Instance.UniverseFinished && Time.time > nextSpawnAt && planets.Count < maxNumOfPlanets)
       SpawnPlanet(Random.Range(1, numOfPlanetsOnSpawn));
   }
 

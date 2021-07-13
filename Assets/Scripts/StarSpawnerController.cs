@@ -14,7 +14,6 @@ public class StarSpawnerController : MonoBehaviour
 
 
   [Header("Settings")]
-  [SerializeField] int numStars = 2;
   [SerializeField] float force = 2.0f;
   [SerializeField] float firstProjectionDuration = 3.0f;
   [SerializeField] float temporalMass = 10.0f;
@@ -26,10 +25,9 @@ public class StarSpawnerController : MonoBehaviour
     randomPointInCollider = new RandomPointInCollider(skyCollider);
   }
 
-  [ContextMenu("SpawnStar")]
-  public void SpawnStar()
+  public void SpawnStar(int numStars)
   {
-    for (int i = 0; i < RandomDeviation(numStars); i++)
+    for (int i = 0; i < numStars; i++)
     {
       StartCoroutine("SpawnStarCoroutine");
     }

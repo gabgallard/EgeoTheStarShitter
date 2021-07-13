@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using DG.Tweening;
 
 public class UIController : MonoBehaviour
 {
+  public static UIController Instance;
   Animator animator;
 
   [SerializeField] GameObject infoPage;
@@ -14,6 +11,7 @@ public class UIController : MonoBehaviour
   void Awake()
   {
     animator = GetComponent<Animator>();
+    Instance = this;
   }
 
   // Start is called before the first frame update
@@ -36,5 +34,10 @@ public class UIController : MonoBehaviour
   {
     infoPage.SetActive(!infoPage.activeSelf);
     infoPage.transform.Find("Scroll").GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
+  }
+
+  public void ShowWonderfulUniverseMessage()
+  {
+    animator.SetTrigger("Wonderful");
   }
 }

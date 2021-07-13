@@ -13,16 +13,6 @@ public class LinkOpener : MonoBehaviour, IPointerClickHandler {
             string url = linkInfo.GetLinkID();
             // Application.OpenURL(url);
             Application.ExternalEval("window.open(\"" + url + "\")");
-            // OpenURLInExternalWindow(url);
         }
     }
-
-    // [DllImport("__Internal")]
-    //  private static extern void OpenURLInExternalWindow(string url);
-
-    //  public void OpenMyUrl()
-    //  {
-    //      OpenURLInExternalWindow(url);
-    //  }
-
 }

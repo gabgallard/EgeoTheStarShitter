@@ -21,7 +21,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   float shakingStartedAt;
   bool shaking = false;
   bool underForces = false;
-  bool borning = false;
   bool dragging = false;
   Rigidbody2D theRigidbody;
 
@@ -181,14 +180,12 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   void StartBorning()
   {
-    borning = true;
     transform.localScale = new Vector3(0f, 0f, transform.localScale.z);
     transform.DOScale(1.0f, bornDuration).OnComplete(StopBorning);
   }
 
   void StopBorning()
   {
-    borning = false;
   }
 
   float RandomDeviation(float number) {

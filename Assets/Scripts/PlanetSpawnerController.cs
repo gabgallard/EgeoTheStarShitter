@@ -63,11 +63,6 @@ public class PlanetSpawnerController : MonoBehaviour
 
   public void RemovePlanet(GameObject planet)
   {
-    Debug.Log("PlanetSpawnerController.RemovePlanet()");
-    Debug.Log("AtRemove: " + planet.GetInstanceID());
-    Debug.Log("Index at: " + planets.IndexOf(planet));
-    Debug.Log("Before: " + planets.Count);
     planets.Remove(planet);
-    Debug.Log("After: " + planets.Count);
   }
 }

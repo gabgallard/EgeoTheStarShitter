@@ -93,10 +93,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     float shakingSpeedLerp = Mathf.Lerp(0, shakingSpeed, lerpInterpolationValue);
     float shakingAmplitudeLerp = Mathf.Lerp(0, shakingAmplitude, lerpInterpolationValue);
 
-    // Debug.Log("XXX: shakingSpeedLerp: " + shakingSpeedLerp);
-    // Debug.Log("XXX: shakingAmplitudeLerp: " + shakingAmplitudeLerp);
-    // Debug.Log("XXX: lerpInterpolationValue: " + lerpInterpolationValue);
-
     material.SetFloat("ShakingSpeed", shakingSpeedLerp);
     material.SetFloat("ShakingAmplitude", shakingAmplitudeLerp);
   }
@@ -106,7 +102,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   {
     if(other.CompareTag("Mouth"))
     {
-      Debug.Log("Collision with Mouth :: Start");
       StartShaking();
     }
 
@@ -120,7 +115,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   {
     if(other.CompareTag("Mouth"))
     {
-      Debug.Log("Collision with Mouth :: Stop");
       StopShaking();
     }
   }
@@ -128,7 +122,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   // Drag and Drop :: INI
   public void OnPointerDown(PointerEventData eventData)
   {
-    Debug.Log("OnPointerDown");
     if(!underForces && !EgeoController.Instance.UniverseFinished)
     {
       cursorOffset = transform.position - MouseCursor2D();
@@ -139,7 +132,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   public void OnPointerUp(PointerEventData eventData)
   {
-    Debug.Log("OnPointerUp");
     if(!underForces)
     {
       StartSpringJoint();
@@ -181,7 +173,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   void StopSlurping()
   {
-    Debug.Log("StopSlurping");
     EgeoController.Instance.StopEating();
     EgeoController.Instance.AddPlanetToStomach();
     PlanetSpawnerController.Instance.RemovePlanet(planet);

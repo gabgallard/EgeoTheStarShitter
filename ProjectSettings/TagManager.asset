@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Mouth
   - MouthInside
+  - Planet
+  - Star
   layers:
   - Default
   - TransparentFX

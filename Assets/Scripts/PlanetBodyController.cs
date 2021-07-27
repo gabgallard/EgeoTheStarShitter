@@ -118,6 +118,15 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     }
   }
 
+  void OnCollisionEnter2D(Collision2D collisionInfo)
+  {
+    string objectAType = this.tag;
+    string objectBType = collisionInfo.gameObject.tag;
+    float magnitude = collisionInfo.relativeVelocity.magnitude;
+
+    Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
+  }
+
   // Drag and Drop :: INI
   public void OnPointerDown(PointerEventData eventData)
   {

@@ -135,6 +135,8 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       cursorOffset = transform.position - MouseCursor2D();
       StopSpringJoint();
       dragging = true;
+
+      Debug.Log($"OnPointerDown(), tag: {gameObject.tag}");
     }
   }
 

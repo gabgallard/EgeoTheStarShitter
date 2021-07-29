@@ -266,7 +266,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117637629}
-  - component: {fileID: 117637630}
   m_Layer: 0
   m_Name: PlanetSounds
   m_TagString: Untagged
@@ -288,66 +287,6 @@ Transform:
   m_Father: {fileID: 103079705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &117637630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117637628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0ce2dccc6965e4aa27a8a88fb13703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundGraph: {fileID: 11400000, guid: 335a543dbae21444caae2f479095908d, type: 2}
-  playOnAwake: 0
-  dontDestroyOnLoad: 0
-  localEventsList:
-  - eventName: ClickPlanet
-    onGraphEventCalled:
-      m_PersistentCalls:
-        m_Calls: []
-      m_CallsDirty: 1
-    onGraphEventCalledEphemeral:
-      m_PersistentCalls:
-        m_Calls: []
-      m_CallsDirty: 1
-    expose: 0
-    expanded: 0
-    eventID: a01f8369-08e0-4d52-bcbf-4c0388036a66
-    parameters: []
-  - eventName: SpawnPlanet
-    onGraphEventCalled:
-      m_PersistentCalls:
-        m_Calls: []
-      m_CallsDirty: 1
-    onGraphEventCalledEphemeral:
-      m_PersistentCalls:
-        m_Calls: []
-      m_CallsDirty: 1
-    expose: 0
-    expanded: 0
-    eventID: c0b28c73-3ca7-473b-a0e9-29c879a10458
-    parameters: []
-  localVariablesList:
-  - name: TypeOfObject
-    variableID: e363ced7-e8a0-4a96-8fa0-10ec69d8b046
-    expose: 1
-    typeName: System.String
-    expanded: 0
-    synchronizeWithGraphVariable: 1
-    serializedObjectValue: Planet
-    unityObjectValue: {fileID: 0}
-    defaultSerializedObjectValue: Planet
-    defaultUnityObjectValue: {fileID: 0}
-    arrayType: 
-    arrayElements: []
-    defaultArrayElements: []
-  startingEvents: []
-  variablesExpanded: 1
-  eventsExpanded: 1
-  <runtimeGraphCopy>k__BackingField: {fileID: 0}
 --- !u!1 &120744229
 GameObject:
   m_ObjectHideFlags: 0

@@ -148,7 +148,10 @@ MonoBehaviour:
       _node: {fileID: -6400367753170340393}
       _typeQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: 08425d07-1217-4357-b269-c25415e38d8f
+        node: {fileID: 139348532009116602}
+        reroutePoints: []
       _direction: 0
       _connectionType: 1
       _typeConstraint: 2
@@ -243,7 +246,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 2
       _dynamic: 0
-  lastDrawSize: {x: 300, y: 714}
+  lastDrawSize: {x: 300, y: 674}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: 1426e32b-6b7b-43f7-90d2-1b0221500538
@@ -1949,7 +1952,7 @@ MonoBehaviour:
   isCurrentlyInPool: 0
   subgraphNode: {fileID: 0}
   comment: 
-  lastAccessDSPTime: 1557.2053333333333
+  lastAccessDSPTime: 2242.517333333333
   _graphID: 335a543dbae21444caae2f479095908d
 --- !u!114 &139348532009116602
 MonoBehaviour:
@@ -1972,6 +1975,7 @@ MonoBehaviour:
     - a01f8369-08e0-4d52-bcbf-4c0388036a66
     - c0b28c73-3ca7-473b-a0e9-29c879a10458
     - e363ced7-e8a0-4a96-8fa0-10ec69d8b046
+    - 08425d07-1217-4357-b269-c25415e38d8f
     values:
     - _fieldName: update
       _node: {fileID: 139348532009116602}
@@ -2030,7 +2034,19 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 1
       _dynamic: 1
-  lastDrawSize: {x: 356, y: 489}
+    - _fieldName: 08425d07-1217-4357-b269-c25415e38d8f
+      _node: {fileID: 139348532009116602}
+      _typeQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: playAtTransform
+        node: {fileID: -6400367753170340393}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 1
+  lastDrawSize: {x: 356, y: 624}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: 
@@ -2041,9 +2057,22 @@ MonoBehaviour:
     typeName: System.String
     expanded: 1
     synchronizeWithGraphVariable: 1
-    serializedObjectValue: Star
+    serializedObjectValue: Planet
     unityObjectValue: {fileID: 0}
-    defaultSerializedObjectValue: Star
+    defaultSerializedObjectValue: Planet
+    defaultUnityObjectValue: {fileID: 0}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
+  - name: Location
+    variableID: 08425d07-1217-4357-b269-c25415e38d8f
+    expose: 1
+    typeName: UnityEngine.Transform
+    expanded: 1
+    synchronizeWithGraphVariable: 1
+    serializedObjectValue: 
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: 
     defaultUnityObjectValue: {fileID: 0}
     arrayType: 
     arrayElements: []
@@ -2890,7 +2919,7 @@ MonoBehaviour:
   combinedVolume: 1
   combinedPan: 0
   playFinishedWhen: 0
-  endTime: 0.24
+  endTime: 0
   audioOut: {fileID: 0}
   audioFlowOutID: 
   currentState: 2

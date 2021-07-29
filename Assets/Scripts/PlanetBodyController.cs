@@ -28,6 +28,9 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   Transform egeoMouthInside;
 
+  public SingleObjectSounds singleObjectSounds;
+  //private string objectTag;
+
   void Awake()
   {
     springJoint = GetComponent<SpringJoint2D>();
@@ -45,7 +48,8 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     egeoMouthInside = EgeoController.Instance.MouthInside;
     material = GetComponent<Renderer>().material;
     StartBorning();
-  }
+    singleObjectSounds = GetComponent<SingleObjectSounds>();
+    }
 
   void Update()
   {
@@ -135,6 +139,12 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       cursorOffset = transform.position - MouseCursor2D();
       StopSpringJoint();
       dragging = true;
+
+            //sound events
+            //objectTag = gameObject.tag;
+            singleObjectSounds.TypeOfObject = gameObject.tag;
+            singleObjectSounds.Click();
+      
 
       Debug.Log($"OnPointerDown(), tag: {gameObject.tag}");
 

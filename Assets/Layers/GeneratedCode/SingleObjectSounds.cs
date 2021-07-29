@@ -49,6 +49,14 @@ public class SingleObjectSounds: SoundGraphPlayer
             SetVariable("TypeOfObject",value);
         }
     }
+    public UnityEngine.Transform Location{
+        get {
+            return (UnityEngine.Transform)GetVariable("Location");
+        }
+        set {
+            SetVariable("Location",value);
+        }
+    }
     public void Click( ){
         Dictionary<string, object> parameters = new Dictionary<string, object>();
         TriggerEvent("Click", AudioSettings.dspTime, parameters);

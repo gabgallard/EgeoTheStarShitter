@@ -1,0 +1,18 @@
+{
+    "name": "SymphonyRuntime",
+    "references": [
+        "GUID:a434bc53a0af14141b4fdbe4a5091d06",
+        "GUID:bfc810635a7572a4eaed6e5ee578b138",
+        "GUID:287dec81aa976a143a318a7e38398690",
+        "GUID:478a2357cc57436488a56e564b08d223"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

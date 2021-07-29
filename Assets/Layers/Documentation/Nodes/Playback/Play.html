@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /*! ADAPTED
+    Typeplate : Starter Kit
+    URL ........... http://typeplate.com
+    Version ....... 3.0.2
+    Github ........ https://github.com/typeplate/starter-kit
+    Authors ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
+    License ....... Creative Commmons Attribution 3.0
+    License URL ... https://github.com/typeplate/starter-kit/blob/master/license.txt
+    */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-rendering: optimizeLegibility;
+        line-height: 1;
+        margin-top: 0;
+        color: #222;
+      }
+
+      blockquote + figcaption cite {
+        display: block;
+        font-size: inherit;
+        text-align: right;
+      }
+
+      body {
+        word-wrap: break-word;
+      }
+
+      pre code {
+        word-wrap: normal;
+      }
+
+      body {
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        color: #444;
+      }
+
+      h1 {
+        font-size: 2em;
+        /* 2*16 = 32 */
+      }
+
+      h2 {
+        font-size: 1.5em;
+        /* 1.5*16 = 24 */
+      }
+
+      h3 {
+        font-size: 1.17em;
+        /* 1.17*16 = 18.72 */
+      }
+
+      h4 {
+        font-size: 1em;
+        /* 1*16 = 16 */
+      }
+
+      h5 {
+        font-size: 0.83em;
+        /* 0.83*16 = 13.28 */
+      }
+
+      h6 {
+        font-size: 0.75em;
+        /* 0.75*16 = 12 */
+      }
+
+      h1 {
+        margin: 2.42424rem 0 1.454544rem;
+      }
+
+      h2 {
+        margin: 2.0202rem 0 1.21212rem;
+      }
+
+      h3 {
+        margin: 1.61616rem 0 1rem;
+      }
+
+      h4 {
+        margin: 1.21212rem 0 1;
+      }
+
+      h5 {
+        margin: 0.80808rem 0;
+      }
+
+      h6 {
+        margin: 0.70707rem 0;
+      }
+
+      p {
+        margin: auto auto 1.5rem;
+      }
+
+      small {
+        font-size: 65%;
+      }
+
+      input,
+      abbr,
+      acronym,
+      blockquote,
+      code,
+      kbd,
+      q,
+      samp,
+      var {
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+
+      pre {
+        white-space: pre;
+      }
+
+      pre code {
+        white-space: -moz-pre-wrap;
+        white-space: pre-wrap;
+      }
+
+      code {
+        white-space: pre;
+        font-family: SF Mono, Consolas, Dejavu Sans Mono, Menlo, monospace;
+      }
+
+      abbr {
+        -webkit-font-variant: small-caps;
+        -moz-font-variant: small-caps;
+        -ms-font-variant: small-caps;
+        font-variant: small-caps;
+        font-weight: 600;
+        text-transform: lowercase;
+        color: gray;
+      }
+
+      abbr[title]:hover {
+        cursor: help;
+      }
+
+      /* FROM http://purecss.io/layouts/side-menu/  adapted to remove pure classes*/
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        color: #444;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+      }
+
+      code,
+      pre {
+        background-color: #f5f5f5;
+        color: #444;
+        border-radius: 2px;
+        text-shadow: 0px 1px 0px white;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+      }
+
+      pre code {
+        border: none;
+        box-shadow: none;
+      }
+
+      pre {
+        padding: 0.5em;
+      }
+
+      code {
+        display: inline-block;
+        padding: 0 0.5em;
+        line-height: 1.4;
+        font-size: 0.9em;
+      }
+
+      table {
+        border-spacing: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      table th,
+      table td {
+        padding: 0.3em 0.7em;
+      }
+
+      table th {
+        background-color: #f4f4f4;
+        border-bottom: 2px solid #444;
+      }
+
+      table td {
+        border: 1px solid #f5f5f5;
+      }
+
+      /* Add transition to containers so they can push in and out. */
+
+      #layout,
+      #menu,
+      .menu-link {
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -ms-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+      }
+
+      /* This is the parent `<div>` that contains the menu and the content area. */
+
+      #layout {
+        position: relative;
+        padding-left: 0;
+      }
+
+      #layout.active #menu {
+        left: 250px;
+        width: 250px;
+      }
+
+      #layout.active .menu-link {
+        left: 250px;
+      }
+
+      /* The content `<div>` is where all your content goes. */
+
+      .content {
+        margin: 50px auto;
+        padding: 0 2em;
+        max-width: 80ex;
+        line-height: 1.6em;
+      }
+
+      /*
+      The `#menu` `<div>` is the parent `<div>` that contains the menu that
+      appears on the left side of the page.
+      */
+
+      #menu {
+        margin-left: -250px;
+        /* "#menu" width */
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        /* so the menu or its navicon stays above all content */
+        background: #f4f4f4;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 0.9em;
+      }
+
+      @media print {
+        #menu,
+        .menu-link {
+          display: none !important;
+        }
+      }
+
+      a,
+      a * {
+        text-decoration: none;
+        color: #2483cc;
+      }
+
+      a:visited {
+        text-decoration: none;
+        color: #2483cc;
+      }
+
+      /* All anchors inside the menu should be styled like this. */
+
+      #menu a {
+        display: block;
+        padding: 0.5em 0.5em;
+      }
+
+      #menu a:first-letter {
+        text-transform: capitalize;
+      }
+
+      #menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 1em 0.5em;
+      }
+
+      #menu ul ul {
+        margin-top: 0.5em;
+        margin-left: 0.5em;
+        border-left: 4px solid rgba(255, 255, 255, 0.5);
+      }
+
+      /* Change color of the anchor links on hover/focus. */
+
+      #menu li a:hover,
+      #menu li a:focus {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      /* This styles the selected menu item `<li>`. */
+
+      #menu li a.active {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      /* This styles a link within a selected menu item `<li>`. */
+
+      #menu li a.active {
+        color: #222;
+      }
+
+      /* This styles the menu heading. */
+
+      #menu li.heading {
+        font-size: 0.9em;
+        text-transform: uppercase;
+        color: #000;
+      }
+
+      #menu li.heading > * {
+        padding: 0.5em;
+        display: block;
+      }
+
+      #menu li.heading a {
+        color: #0c68af;
+      }
+
+      /* -- Dynamic Button For Responsive Menu -------------------------------------*/
+
+      /*
+      `.menu-link` represents the responsive menu toggle that shows/hides on
+      small screens.
+      */
+
+      .menu-link {
+        position: fixed;
+        display: block;
+        /* show this only on small screens */
+        top: 0;
+        left: 0;
+        /* "#menu width" */
+        font-size: 10px;
+        /* change this value to increase/decrease button size */
+        z-index: 10;
+        width: 2em;
+        height: auto;
+        padding: 1.6em 1.2em;
+        border-radius: 0 2px 2px 0;
+      }
+
+      .menu-link:hover {
+        background: #f4f4f4;
+      }
+
+      .menu-link span {
+        position: relative;
+        display: block;
+      }
+
+      .menu-link span,
+      .menu-link span:before,
+      .menu-link span:after {
+        background-color: #555;
+        width: 100%;
+        height: 0.2em;
+        border-radius: 1em;
+      }
+
+      .menu-link span:before,
+      .menu-link span:after {
+        position: absolute;
+        margin-top: -0.6em;
+        content: " ";
+      }
+
+      .menu-link span:after {
+        margin-top: 0.6em;
+      }
+
+      /* Hides the menu at `48em`, but modify this based on your app's needs. */
+
+      @media (min-width: 48em) {
+        .header,
+        .content {
+          padding-left: 2em;
+          padding-right: 2em;
+        }
+
+        #layout {
+          padding-left: 250px;
+          /* left col width "#menu" */
+          left: 0;
+        }
+        #menu {
+          left: 250px;
+        }
+
+        .menu-link {
+          position: fixed;
+          left: 250px;
+          display: none;
+        }
+
+        #layout.active .menu-link {
+          left: 250px;
+        }
+      }
+
+      @media (max-width: 48em) {
+        /* Only apply this when the window is small. Otherwise, the following case results in extra padding on the left:
+         * Make the window small.
+         * Tap the menu to trigger the active state.
+         * Make the window large again.
+         */
+        #layout.active {
+          position: relative;
+          left: 250px;
+        }
+      }
+
+      /* Heading anchors and permalinks */
+      h1[id],
+      h2[id],
+      h3[id],
+      h4[id],
+      h5[id],
+      h6[id] {
+        position: relative;
+      }
+      .heading-anchor-permalink {
+        /* Position the permalink to the left of the title */
+        position: absolute;
+        right: 100%;
+        /* Add some spacing as padding to not lose the hover */
+        padding-right: 0.6rem;
+        /* Make it only visible on heading hover, see below */
+        opacity: 0;
+      }
+      h1[id]:hover .heading-anchor-permalink,
+      h2[id]:hover .heading-anchor-permalink,
+      h3[id]:hover .heading-anchor-permalink,
+      h4[id]:hover .heading-anchor-permalink,
+      h5[id]:hover .heading-anchor-permalink,
+      h6[id]:hover .heading-anchor-permalink {
+        opacity: 0.5;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <div id="layout">
+      <!-- Menu toggle -->
+      <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+      </a>
+      <nav id="menu">
+        <ul>
+<li class="heading"><span>Getting Started</span></li>
+<ul>
+<li><a class="" href="..\..\Getting-Started\1-Getting-Started.html">Getting Started</a></li>
+<li><a class="" href="..\..\Getting-Started\2-Installing-Layers.html">Installing Layers</a></li>
+<li><a class="" href="..\..\Getting-Started\3-Setting-Up-Audio.html">Setting Up Audio</a></li>
+<li><a class="" href="..\..\Getting-Started\4-Creating-Sound-Graphs.html">Creating Sound Graphs</a></li>
+<li><a class="" href="..\..\Getting-Started\5-Playing-Audio.html">Playing Audio</a></li>
+<li><a class="" href="..\..\Getting-Started\6-Adding-Logic.html">Adding Logic</a></li>
+<li><a class="" href="..\..\Getting-Started\7-Playing-in-the-Scene.html">Playing in the Scene</a></li>
+</ul>
+<li><a class="" href="..\..\Home.html">Home</a></li>
+<li class="heading"><span>Layers Key Concepts</span></li>
+<ul>
+<li><a class="" href="..\..\Layers-Key-Concepts\0-Layers-Key-Concepts.html">Layers Key Concepts</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\1-Sound-Graphs.html">Sound Graphs</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\10-MIDI-Editing.html">MIDI Editing</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\11-Mixing.html">Mixing</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\12-Globals.html">Globals</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\2-Events.html">Events</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\3-Variables.html">Variables</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\4-Play-Nodes.html">Play Nodes</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\5-Audio-Outs.html">Audio Outs</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\6-Sub-Graphs.html">Sub Graphs</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\7-Sound-Graph-Playback.html">Sound Graph Playback</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\8-Code-Generation.html">Code Generation</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\9-API.html">API</a></li>
+</ul>
+<li class="heading"><span>Nodes</span></li>
+<ul>
+<li class="heading"><span>Automation</span></li>
+<ul>
+<li><a class="" href="..\Automation\Animate.html">Animate</a></li>
+<li><a class="" href="..\Automation\Find-Snapshot.html">Find Snapshot</a></li>
+<li><a class="" href="..\Automation\Get-Mixer-Parameter.html">Get Mixer Parameter</a></li>
+<li><a class="" href="..\Automation\Move-Towards.html">Move Towards</a></li>
+<li><a class="" href="..\Automation\Set-Mixer-Parameter.html">Set Mixer Parameter</a></li>
+<li><a class="" href="..\Automation\Transition-To-Snapshots.html">Transition To Snapshots</a></li>
+</ul>
+<li class="heading"><span>Flow</span></li>
+<ul>
+<li><a class="" href="..\Flow\Do-If.html">Do If</a></li>
+<li><a class="" href="..\Flow\Do-While.html">Do While</a></li>
+<li><a class="" href="..\Flow\If.html">If</a></li>
+<li><a class="" href="..\Flow\MIDI-Channel-Filter.html">MIDI Channel Filter</a></li>
+<li><a class="" href="..\Flow\MIDI-Note-Range-Filter.html">MIDI Note Range Filter</a></li>
+<li><a class="" href="..\Flow\Pick-Branch.html">Pick Branch</a></li>
+<li><a class="" href="..\Flow\Pick-Random-Branch.html">Pick Random Branch</a></li>
+<li><a class="" href="..\Flow\Pin.html">Pin</a></li>
+<li><a class="" href="..\Flow\Wait-For-All.html">Wait For All</a></li>
+<li><a class="" href="..\Flow\Wait-For-Condition.html">Wait For Condition</a></li>
+<li><a class="" href="..\Flow\Wait-For-Event.html">Wait For Event</a></li>
+<li><a class="" href="..\Flow\Wait-For-Scene-Load.html">Wait For Scene Load</a></li>
+<li><a class="" href="..\Flow\Wait.html">Wait</a></li>
+</ul>
+<li class="heading"><span>Logic</span></li>
+<ul>
+<li><a class="" href="..\Logic\And.html">And</a></li>
+<li><a class="" href="..\Logic\Comparison.html">Comparison</a></li>
+<li><a class="" href="..\Logic\Not.html">Not</a></li>
+<li><a class="" href="..\Logic\Or.html">Or</a></li>
+</ul>
+<li class="heading"><span>MIDI Input</span></li>
+<ul>
+<li><a class="" href="..\MIDI-Input\Get-Key.html">Get Key</a></li>
+<li><a class="" href="..\MIDI-Input\Get-knob.html">Get knob</a></li>
+<li><a class="" href="..\MIDI-Input\MIDI-Input.html">MIDI Input</a></li>
+</ul>
+<li class="heading"><span>Math Operations</span></li>
+<ul>
+<li><a class="" href="..\Math-Operations\Add.html">Add</a></li>
+<li><a class="" href="..\Math-Operations\Clamp.html">Clamp</a></li>
+<li><a class="" href="..\Math-Operations\Divide.html">Divide</a></li>
+<li><a class="" href="..\Math-Operations\Inverse-Lerp.html">Inverse Lerp</a></li>
+<li><a class="" href="..\Math-Operations\Lerp.html">Lerp</a></li>
+<li><a class="" href="..\Math-Operations\Magnitude.html">Magnitude</a></li>
+<li><a class="" href="..\Math-Operations\Multiply.html">Multiply</a></li>
+<li><a class="" href="..\Math-Operations\Random-Number.html">Random Number</a></li>
+<li><a class="" href="..\Math-Operations\Remap-to-Curve.html">Remap to Curve</a></li>
+<li><a class="" href="..\Math-Operations\Remap.html">Remap</a></li>
+<li><a class="" href="..\Math-Operations\Repeat.html">Repeat</a></li>
+<li><a class="" href="..\Math-Operations\Subtract.html">Subtract</a></li>
+</ul>
+<li class="heading"><span>Playback</span></li>
+<ul>
+<li><a class="" href="Audio-Out.html">Audio Out</a></li>
+<li><a class="active" href="Play.html">Play</a></li>
+<li><a class="" href="Sampler-Track.html">Sampler Track</a></li>
+<li><a class="" href="State-Machine.html">State Machine</a></li>
+<li><a class="" href="Sub-Graph.html">Sub Graph</a></li>
+</ul>
+<li class="heading"><span>Signal Sources</span></li>
+<ul>
+<li><a class="" href="..\Signal-Sources\Click-Track.html">Click Track</a></li>
+<li><a class="" href="..\Signal-Sources\End-All-Playback.html">End All Playback</a></li>
+<li><a class="" href="..\Signal-Sources\Event.html">Event</a></li>
+<li><a class="" href="..\Signal-Sources\Graph-Inputs.html">Graph Inputs</a></li>
+<li><a class="" href="..\Signal-Sources\Raise-Event-On-Condition.html">Raise Event On Condition</a></li>
+<li><a class="" href="..\Signal-Sources\Trigger-Event.html">Trigger Event</a></li>
+<li><a class="" href="..\Signal-Sources\Update.html">Update</a></li>
+</ul>
+<li class="heading"><span>Utilities</span></li>
+<ul>
+<li><a class="" href="..\Utilities\Debug-Log.html">Debug Log</a></li>
+<li><a class="" href="..\Utilities\To-String.html">To String</a></li>
+</ul>
+<li class="heading"><span>Variables</span></li>
+<ul>
+<li><a class="" href="..\Variables\Boolean-Value-Selector.html">Boolean Value Selector</a></li>
+<li><a class="" href="..\Variables\Combine.html">Combine</a></li>
+<li><a class="" href="..\Variables\Digital-Signal-Processor-Time.html">Digital Signal Processor Time</a></li>
+<li><a class="" href="..\Variables\Split.html">Split</a></li>
+<li><a class="" href="..\Variables\Switch-Value-Selector.html">Switch Value Selector</a></li>
+<li><a class="" href="..\Variables\Value-Selector.html">Value Selector</a></li>
+<li><a class="" href="..\Variables\Variable.html">Variable</a></li>
+<li><a class="" href="..\Variables\Write.html">Write</a></li>
+</ul>
+</ul>
+</ul>
+      </nav>
+      <article id="main" class="content">
+        <h1 id="play-node">Play Node <a class="heading-anchor-permalink" href="#play-node">#</a></h1>
+<p><img src="../../IMG/Play-Node.png" alt="Play Node"></p>
+<h2 id="about">About <a class="heading-anchor-permalink" href="#about">#</a></h2>
+<p>The Play node is the primary method of sequencing and playing audio and MIDI. It is also capable of sequencing events.</p>
+<h2 id="the-play-node-timeline">The Play Node Timeline <a class="heading-anchor-permalink" href="#the-play-node-timeline">#</a></h2>
+<p><img src="../../IMG/Play-Node-Timeline.png" alt="Play-Node-Timeline"></p>
+<p>The Play node timeline is where sequencing for the Play Node takes place. Press the Open button on the Play node to open the timeline.</p>
+<h3 id="the-track-area">The Track Area <a class="heading-anchor-permalink" href="#the-track-area">#</a></h3>
+<p>In the middle of the Play Node Timeline window is the track area for the Play Node. These tracks behave similarly to tracks in a Digital Audio Workstation. Timeline elements can be dragged around the timeline, resized, and looped.</p>
+<p>On the left hand side of each track are the track controls. The volume and pan can be adjusted per track. Tracks can also be named for organization purposes. Clicking on the Eye icon, users can set the track to visible, which displays the track and its audio and event outputs on the Play Node.</p>
+<h3 id="timeline-elements">Timeline elements <a class="heading-anchor-permalink" href="#timeline-elements">#</a></h3>
+<p>The timeline window support several different element types.</p>
+<h4 id="audio-clip">Audio Clip <a class="heading-anchor-permalink" href="#audio-clip">#</a></h4>
+<p>Audio clips can be dragged into the timeline from the Unity Project browser, or by right clicking on the timeline and selecting Add Audio Clip. Audio Clips play through the Audio Out output in the Play node’s Combined Audio Bus, as well as the track’s Audio Out if the track is exposed in the Play node. Advanced options for the audio clip can be accessed by right clicking and selecting edit. The following options are available:</p>
+<ul>
+<li>Audio Clip -The audio clip attached to this timeline element. This field lets you swap out the audio clip for this timeline element.</li>
+<li>Expose in node - Enables dynamic data swapping by exposing this audio clip in the play node. See Dynamic Data Swapping, below.</li>
+<li>Start time - The time the audio clip starts playing</li>
+<li>Length - The amount of time the audio clip will play for. If Length is longer then the source audio clip’s length, the audio will loop. If it is shorter, the clip will end playback early.
+Time Offset - Shifts the playback time of the audio clip within the timeline element. For example, if Time Offset is set to 1 second, the “beginning” of the timeline element will be 1 second into the audio clip’s playback.</li>
+</ul>
+<h4 id="midi-file">MIDI File <a class="heading-anchor-permalink" href="#midi-file">#</a></h4>
+<p>MIDI Files can be dragged into the timeline from the Unity Project browser, or by right clicking on the timeline and selecting Add MIDI File. Each MIDI note plays as an event through the Event Out output in the Play node’s Combined Audio Bus, as well as the track’s Event Out if the track is exposed in the Play node. Each event will have the note number, channel, and velocity of the note that created it.</p>
+<p>Advanced options for the MIDI File can be accessed by right clicking and selecting edit. The following options are available:</p>
+<ul>
+<li>MIDI File -The MIDI File attached to this timeline element. This field lets you swap out the MIDI File for this timeline element.</li>
+<li>Expose in node - Enables dynamic data swapping by exposing this MIDI file in the play node. See Dynamic Data Swapping, below.</li>
+<li>Start time - The time the MIDI file starts playing</li>
+<li>Length - The amount of time the MIDI file will play for. If Length is longer then the source file’s length, it will loop. If it is shorter, the file will end playback early.
+Time Offset - Shifts the playback time of the MIDI file within the timeline element. For example, if Time Offset is set to 1 second, the “beginning” of the timeline element will be 1 second into the MIDI file’s playback.</li>
+</ul>
+<h4 id="event">Event <a class="heading-anchor-permalink" href="#event">#</a></h4>
+<p>Event timeline elements provide a simple way of triggering events from the timeline. To add an event, right click on the timeline and select Add Event. Timeline events are played back on the Event Out in Play node’s Combined Audio Bus, as well as the Track Event out if the track is exposed. To access the Event element’s options, right click on the event and select Edit. The following options are available:</p>
+<ul>
+<li>Label - The label used to identify this event on the timeline</li>
+<li>Time - The time this event occurs.</li>
+<li>Event Parameters - The event parameters to pass on with this event when triggered. Note that parameter names must be unique for each event.</li>
+</ul>
+<h4 id="loop">Loop <a class="heading-anchor-permalink" href="#loop">#</a></h4>
+<p>Loop timeline elements enable looping within the timeline. To add a loop, right click on the timeline and select Add Loop. Loops add a boolean input to the Play node called Can Exit Loop. When the Can Exit Loop input is false, playback loops within the range of the Loop element. When Can Exit Loop is true, playback will proceed.</p>
+<p>Advanced options for the loop can be accessed by right clicking on the loop range and selecting Edit. The following options are available:</p>
+<ul>
+<li>Label - The name used to identify the loop in the timeline and the Play node</li>
+<li>Time - The start time for the loop</li>
+<li>Length - The length of the loop’s time range.</li>
+</ul>
+<h3 id="the-end-of-playback-marker">The End of Playback Marker <a class="heading-anchor-permalink" href="#the-end-of-playback-marker">#</a></h3>
+<p>In addition to timeline elements, the Track Area also contains the end of playback marker. This marker is a vertical line representing the time of playback where the Play Finished Output of the Play node is called.</p>
+<p>Note that timeline elements that extend past the end of playback marker will continue to play, even if the end of playback marker has been reached. This is useful in situations where, for example, reverb is baked into the audio file being played and needs to be accounted for. The next node in the sequence needs to be triggered, but the audio clip needs to keep playing to avoid cutting off the reverb.</p>
+<h3 id="time-signature-and-bpm-area">Time Signature and BPM Area <a class="heading-anchor-permalink" href="#time-signature-and-bpm-area">#</a></h3>
+<p>At the top of the window is the BPM and Time signature bar. Time signatures and BPMs can be used in conjunction with snapping to align timeline elements. The left side of the bar contains the starting BPM and the starting time signature for the timeline. BPM and time signature change markesrs can be used to change the BPM or time signature mid-track. To add a new marker right click on the bar (at the top for BPM, at the bottom for time signatures) and add the marker.</p>
+<h3 id="snapping">Snapping <a class="heading-anchor-permalink" href="#snapping">#</a></h3>
+<p>At the bottom right of the Play Node Timeline are the snapping controls. Snapping can be performed using a variety of time divisions, all based on the BPM and Time signatures set in the time signature and BPM area. Timeline elements can also snap to the start and end of other timeline elements. To activate snapping, hold CTRL while dragging.</p>
+<h3 id="playback-controls">Playback controls <a class="heading-anchor-permalink" href="#playback-controls">#</a></h3>
+<p>The bottom left of the timeline window contains the timeline’s playback controls. Playback can be previewed both in edit mode and play mode.</p>
+<p>Next to the play back controls are settings for Audio Preview and Event Preview. These options perform the following functions:</p>
+<ul>
+<li>Audio Preview - If Play Audio Using Node Settings is selected, audio will play through the Audio Outs connected to the play node when previewing. If the user wants to preview audio without playing it through Audio Outs, they can set the window to Play All Audio.</li>
+<li>Event Preview - By default, Events are disabled when previewing playback in the timeline window. This is to prevent unintended activation of subsequent nodes in the sound graph. If the user wishes preview playback including subsequent nodes, set this dropdown to Play On Node.</li>
+</ul>
+<h3 id="dynamic-data-swapping">Dynamic Data Swapping <a class="heading-anchor-permalink" href="#dynamic-data-swapping">#</a></h3>
+<p>Dynamic data swapping enables the user to swap out Audio Clips and MIDI files at runtime. To enable this feature, add a Audio Clip or MIDI file to the timeline, right click on it, select edit, and check the Expose In Node option. The Play node will now have an input for swapping out the Audio Clip or MIDI file. When Expose In Node is checked, a Label option is also displayed in the timeline element options. This label identifies this item in the Play node and the Timeline.</p>
+<h3 id="other-controls">Other controls <a class="heading-anchor-permalink" href="#other-controls">#</a></h3>
+<ul>
+<li>Hold shift and click to select multiple items</li>
+<li>Hold ctrl and drag to enable snapping</li>
+<li>The delete key deletes items</li>
+<li>Hold ctrl and scroll to zoom</li>
+</ul>
+<h2 id="combined-audio-bus">Combined Audio Bus <a class="heading-anchor-permalink" href="#combined-audio-bus">#</a></h2>
+<p><img src="../../IMG/Combined-Audio-Bus.png" alt="Combined-Audio-Bus"></p>
+<p>The Combined Audio Bus controls playback for the entire node, and outputs all audio and events for the node. Here are the inputs and outputs for the Combine Audio Bus</p>
+<h3 id="inputs">Inputs <a class="heading-anchor-permalink" href="#inputs">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Play</td>
+<td>Event</td>
+<td>When triggered, this event begins playback of the node. Note that if the Play node is already playing, calling this event will not stop that previous playback. Instead, they will play in parallel.</td>
+</tr>
+<tr>
+<td>Pause</td>
+<td>Event</td>
+<td>When triggered, this event pauses the node</td>
+</tr>
+<tr>
+<td>Resume</td>
+<td>Event</td>
+<td>If this node is paused, triggering this event resumes playback</td>
+</tr>
+<tr>
+<td>Stop</td>
+<td>Event</td>
+<td>When triggered, this event stops all playback on this node.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="outputs">Outputs <a class="heading-anchor-permalink" href="#outputs">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Play Finished</td>
+<td>Event</td>
+<td>This event is called when the timeline reaches the End of Playback Marker.</td>
+</tr>
+<tr>
+<td>Audio Out</td>
+<td>Audio</td>
+<td>All audio output from this node (across all tracks) flows through this output. Note that this output can be connected directly to an Audio Out, or audio can be “sent” by clicking the dropdown next to this output and selecting a target Audio Out. This function helps unclutter the Sound Graph.</td>
+</tr>
+<tr>
+<td>Event Out</td>
+<td>Event</td>
+<td>All Events (including MIDI events) triggered in this node (across all tracks) are sent through this output</td>
+</tr>
+</tbody>
+</table>
+<h3 id="options">Options <a class="heading-anchor-permalink" href="#options">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volume</td>
+<td>Float</td>
+<td>The main volume across all tracks, ranging from 0 to 1</td>
+</tr>
+<tr>
+<td>Pan</td>
+<td>Float</td>
+<td>The main pan across all tracks ranging from -1 (left) to 1 (right)</td>
+</tr>
+<tr>
+<td>Play finished</td>
+<td>Dropdown</td>
+<td>Chooses when the Play Finished output event is triggered. When “At Specified Time is selected”, the node will trigger the event once the End of Playback Marker is reached in the timeline. When “When All Clips Are Finished is selected”, the event is triggered when all playback items in the timeline have finished playing</td>
+</tr>
+</tbody>
+</table>
+<h2 id="play-node-track-controls">Play Node Track Controls <a class="heading-anchor-permalink" href="#play-node-track-controls">#</a></h2>
+<p><img src="../../IMG/Play-Node-Track-Controls.png" alt="Play-Node-Track-Controls"></p>
+<p>When tracks in the Timeline are marked as exposed, they display some options and outputs in the play node</p>
+<h3 id="inputs-2">Inputs <a class="heading-anchor-permalink" href="#inputs-2">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volume</td>
+<td>Float</td>
+<td>The volume of the audio of this individual track</td>
+</tr>
+<tr>
+<td>Pan</td>
+<td>Float</td>
+<td>The panning of this individual track</td>
+</tr>
+</tbody>
+</table>
+<h3 id="outputs-2">Outputs <a class="heading-anchor-permalink" href="#outputs-2">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audio Out</td>
+<td>Audio</td>
+<td>All audio output from this track flows through this output. Note that this output can be connected directly to an Audio Out, or audio can be “sent” by clicking the dropdown next to this output and selecting a target Audio Out. This function helps unclutter the Sound Graph.</td>
+</tr>
+<tr>
+<td>Event Out</td>
+<td>Event</td>
+<td>All Events (including MIDI events) triggered in this track are sent through this output</td>
+</tr>
+</tbody>
+</table>
+<h3 id="options-2">Options <a class="heading-anchor-permalink" href="#options-2">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volume</td>
+<td>Float</td>
+<td>The volume for this track, ranging from 0 to 1</td>
+</tr>
+<tr>
+<td>Pan</td>
+<td>Float</td>
+<td>The pan for this track ranging from -1 (left) to 1 (right)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="play-node-loop-controls">Play Node Loop Controls <a class="heading-anchor-permalink" href="#play-node-loop-controls">#</a></h2>
+<p><img src="../../IMG/Play-Node-Loop-Controls.png" alt="Play-Node-Loop-Controls"></p>
+<p>When a loop is added to the timeline, the loop is exposed in the Play node. Set the input Boolean to True to exit the loop</p>
+<h2 id="play-node-exposed-track-items">Play Node Exposed Track Items <a class="heading-anchor-permalink" href="#play-node-exposed-track-items">#</a></h2>
+<p><img src="../../IMG/Play-Node-Exposed-Track-Items.png" alt="Play-Node-Exposed-Track-Items"></p>
+<p>When an exposed MIDI or Audio clip is added to the timeline, an input appears on the Play node. Set the value of the input to control what is played back in the timeline.</p>
+
+      </article>
+    </div>
+    <script>
+      // Load contents.json if you need it
+    </script>
+    <script>
+      // FROM http://purecss.io/js/ui.js
+      (function(window, document) {
+        var layout = document.getElementById("layout"),
+          menu = document.getElementById("menu"),
+          menuLink = document.getElementById("menuLink");
+
+        function toggleClass(element, className) {
+          var classes = element.className.split(/\s+/),
+            length = classes.length,
+            i = 0;
+
+          for (; i < length; i++) {
+            if (classes[i] === className) {
+              classes.splice(i, 1);
+              break;
+            }
+          }
+          // The className is not found
+          if (length === classes.length) {
+            classes.push(className);
+          }
+
+          element.className = classes.join(" ");
+        }
+
+        menuLink.onclick = function(e) {
+          var active = "active";
+
+          e.preventDefault();
+          toggleClass(layout, active);
+          toggleClass(menu, active);
+          toggleClass(menuLink, active);
+        };
+      })(this, this.document);
+    </script>
+  </body>
+</html>

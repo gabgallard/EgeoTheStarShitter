@@ -1,0 +1,741 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c732b7ca623984290ed573673d53ac, type: 3}
+  m_Name: Piano Sampler
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4810009543893304390}
+  - {fileID: 3765464629158113776}
+  - {fileID: 8071809231888227461}
+  _owningMono: {fileID: 0}
+  isCurrentlyInPool: 0
+  subgraphNode: {fileID: 0}
+  comment: 
+  lastAccessDSPTime: 265.2373333333333
+  _graphID: bef6f8cd8e567ca4c8047920ca80aaf1
+--- !u!114 &3765464629158113776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b46ec4da9c4d74d832c2dbfe63ded9, type: 3}
+  m_Name: Sampler Track
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 120, y: -296}
+  ports:
+    keys:
+    - MidiIn
+    - AudioOut
+    - playFinished
+    values:
+    - _fieldName: MidiIn
+      _node: {fileID: 3765464629158113776}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: 289b6ea4-c496-411e-a157-0643fd662ae8
+        node: {fileID: 4810009543893304390}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: AudioOut
+      _node: {fileID: 3765464629158113776}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.AudioFlow, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: audioIn
+        node: {fileID: 8071809231888227461}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: playFinished
+      _node: {fileID: 3765464629158113776}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+  lastDrawSize: {x: 250, y: 961}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: 
+  AudioOut: {fileID: 0}
+  audioOutSendID: 
+  parameterName: NoteInfo
+  samples:
+  - keyNum: 100
+    audioClip: {fileID: 8300000, guid: 2086b13a5780bc84ca29a0c0a199b4aa, type: 3}
+  - keyNum: 101
+    audioClip: {fileID: 8300000, guid: d5a11fbb419acd04194e33b6b1742009, type: 3}
+  - keyNum: 102
+    audioClip: {fileID: 8300000, guid: 5e7d003e57c24fe4eb5ae24939beeef3, type: 3}
+  - keyNum: 103
+    audioClip: {fileID: 8300000, guid: b006dc066a85c0140916f6a0be2f76aa, type: 3}
+  - keyNum: 104
+    audioClip: {fileID: 8300000, guid: 60ae2476c26c83b4f9cd521aa7602319, type: 3}
+  - keyNum: 105
+    audioClip: {fileID: 8300000, guid: c71e5dd727e81454682c8277470ea593, type: 3}
+  - keyNum: 106
+    audioClip: {fileID: 8300000, guid: 94578a7c16009c341814774c2baf9c0b, type: 3}
+  - keyNum: 107
+    audioClip: {fileID: 8300000, guid: 81073f624d58d3149a4533e62409a1e2, type: 3}
+  - keyNum: 19
+    audioClip: {fileID: 8300000, guid: 04444fe89a4c5aa4aa8c9380ed7f313c, type: 3}
+  - keyNum: 20
+    audioClip: {fileID: 8300000, guid: d0ccde74660a6d94186b9667bffa8dad, type: 3}
+  - keyNum: 21
+    audioClip: {fileID: 8300000, guid: affd96989cf0566498296165b21b006b, type: 3}
+  - keyNum: 22
+    audioClip: {fileID: 8300000, guid: 0c252276500546b4da6e8250980a1f10, type: 3}
+  - keyNum: 23
+    audioClip: {fileID: 8300000, guid: eb8c01260a756a74a81fabea274c2e42, type: 3}
+  - keyNum: 24
+    audioClip: {fileID: 8300000, guid: 7d082e19f4ce5fe489621f2f467868f7, type: 3}
+  - keyNum: 25
+    audioClip: {fileID: 8300000, guid: 401622bbce2d0f644bbfdf44443836e7, type: 3}
+  - keyNum: 26
+    audioClip: {fileID: 8300000, guid: 5567c2c76c3d3054c9d949ef531367d4, type: 3}
+  - keyNum: 27
+    audioClip: {fileID: 8300000, guid: 1ec09f93c64631c4c9c734257eeeb187, type: 3}
+  - keyNum: 28
+    audioClip: {fileID: 8300000, guid: 1f2bc797231237946944acb0e19264fd, type: 3}
+  - keyNum: 29
+    audioClip: {fileID: 8300000, guid: 293d8f8e0215ce340b04a19378ddef8d, type: 3}
+  - keyNum: 30
+    audioClip: {fileID: 8300000, guid: f7e8d6d789f9b814cabb7fd4a2eb0c6c, type: 3}
+  - keyNum: 31
+    audioClip: {fileID: 8300000, guid: 9b2a0d2d0e76b934893c3bfde712bd34, type: 3}
+  - keyNum: 32
+    audioClip: {fileID: 8300000, guid: b4648f167d3f08141a03019be407076f, type: 3}
+  - keyNum: 33
+    audioClip: {fileID: 8300000, guid: 7ba9fa8c32f888b4980350d1264a86b8, type: 3}
+  - keyNum: 34
+    audioClip: {fileID: 8300000, guid: 5b9faa909947bb94c8879aa96f88f827, type: 3}
+  - keyNum: 35
+    audioClip: {fileID: 8300000, guid: 170db35373eb5e84b95d5bef0777a192, type: 3}
+  - keyNum: 36
+    audioClip: {fileID: 8300000, guid: b755b06f11a6ede4184d9a612a8f24f1, type: 3}
+  - keyNum: 37
+    audioClip: {fileID: 8300000, guid: eea475f40406e6846898d5e817e97e6e, type: 3}
+  - keyNum: 38
+    audioClip: {fileID: 8300000, guid: 69858b4d177f42d4cb20b3f9f30a8a7c, type: 3}
+  - keyNum: 39
+    audioClip: {fileID: 8300000, guid: 7112f0f51be35b04f87a40c26f8f993d, type: 3}
+  - keyNum: 40
+    audioClip: {fileID: 8300000, guid: ece80dcb44e212544abdf074cc1649d6, type: 3}
+  - keyNum: 41
+    audioClip: {fileID: 8300000, guid: d93f96be7c612154ab25fa884248cac1, type: 3}
+  - keyNum: 42
+    audioClip: {fileID: 8300000, guid: c27d111f2ab256b478f9dd6cdbb3dce7, type: 3}
+  - keyNum: 43
+    audioClip: {fileID: 8300000, guid: 066d88428104eb640a72084caee9f55b, type: 3}
+  - keyNum: 44
+    audioClip: {fileID: 8300000, guid: 7398e983ea03d0b428ecbefb3c79f4bc, type: 3}
+  - keyNum: 45
+    audioClip: {fileID: 8300000, guid: 1382188e20a86ba4f9789bdfc90c46eb, type: 3}
+  - keyNum: 46
+    audioClip: {fileID: 8300000, guid: 0da9d4d03e25b7d479dedf566e7e1077, type: 3}
+  - keyNum: 47
+    audioClip: {fileID: 8300000, guid: ec7e6db4fb8a25142a89b3624eb7332c, type: 3}
+  - keyNum: 48
+    audioClip: {fileID: 8300000, guid: 087f17f851ed74541b2b7ffb244b85b6, type: 3}
+  - keyNum: 49
+    audioClip: {fileID: 8300000, guid: 93c396207dd843347a86b3b9154abd61, type: 3}
+  - keyNum: 50
+    audioClip: {fileID: 8300000, guid: 624fd59d2486cea4c945339f29a41a12, type: 3}
+  - keyNum: 51
+    audioClip: {fileID: 8300000, guid: 80bbabaae9419d8418cc65b68735cf24, type: 3}
+  - keyNum: 52
+    audioClip: {fileID: 8300000, guid: adc209131e5e4b44295377c91cdb620d, type: 3}
+  - keyNum: 53
+    audioClip: {fileID: 8300000, guid: d5ef2c452060fc44bb7eb579aae47796, type: 3}
+  - keyNum: 54
+    audioClip: {fileID: 8300000, guid: 2a1a64cb74d74ee40b2db497db0e010c, type: 3}
+  - keyNum: 55
+    audioClip: {fileID: 8300000, guid: c3690f52ecef34e458cd9b60eb0f2ee3, type: 3}
+  - keyNum: 56
+    audioClip: {fileID: 8300000, guid: 088a9a7bf1182074b97b4a37ae10cd01, type: 3}
+  - keyNum: 57
+    audioClip: {fileID: 8300000, guid: f8bff65ded05b07438afb63a2160b6e0, type: 3}
+  - keyNum: 58
+    audioClip: {fileID: 8300000, guid: d61569c5854653d4f8ef719a426d4e46, type: 3}
+  - keyNum: 59
+    audioClip: {fileID: 8300000, guid: 1c678c84083b7034087058b9c6dcb71c, type: 3}
+  - keyNum: 60
+    audioClip: {fileID: 8300000, guid: 427e8aa5954711a4ab7861a8507089ef, type: 3}
+  - keyNum: 61
+    audioClip: {fileID: 8300000, guid: 4801c65ced539424d80d0bc2d44d1e7b, type: 3}
+  - keyNum: 62
+    audioClip: {fileID: 8300000, guid: e1a4dc64ea7d03348ba4b36c18092778, type: 3}
+  - keyNum: 63
+    audioClip: {fileID: 8300000, guid: 328cc2dd5a0ffa843be2023720ff1459, type: 3}
+  - keyNum: 64
+    audioClip: {fileID: 8300000, guid: 7877576a0e55a6347915b58954366ca0, type: 3}
+  - keyNum: 65
+    audioClip: {fileID: 8300000, guid: 54665d8696bf83c46b47df69f99191f7, type: 3}
+  - keyNum: 66
+    audioClip: {fileID: 8300000, guid: 80e7d9ce1d309744790a9c3a9c8f0622, type: 3}
+  - keyNum: 67
+    audioClip: {fileID: 8300000, guid: 02d2c3acb58ef4b4592853280f1254f1, type: 3}
+  - keyNum: 68
+    audioClip: {fileID: 8300000, guid: ee109168fd411d04d861aa707256001d, type: 3}
+  - keyNum: 69
+    audioClip: {fileID: 8300000, guid: 1799e94eb47be2a49ba4dab922e0e7b0, type: 3}
+  - keyNum: 70
+    audioClip: {fileID: 8300000, guid: 7c949cfe5ca8501428b31071d169a7d8, type: 3}
+  - keyNum: 71
+    audioClip: {fileID: 8300000, guid: 83ec590fdf5f7e94584054b9c0b68a59, type: 3}
+  - keyNum: 72
+    audioClip: {fileID: 8300000, guid: 79d4f35069c943c489689604ace50d9e, type: 3}
+  - keyNum: 73
+    audioClip: {fileID: 8300000, guid: 33f07dfd01776474ca83dfe01888be4e, type: 3}
+  - keyNum: 74
+    audioClip: {fileID: 8300000, guid: ec51ae586739a48448a076f686882518, type: 3}
+  - keyNum: 75
+    audioClip: {fileID: 8300000, guid: fabb3d4498ce54341a0f5df2057d1827, type: 3}
+  - keyNum: 76
+    audioClip: {fileID: 8300000, guid: 4d960ea8e048f1d47bfcca7c11aadeab, type: 3}
+  - keyNum: 77
+    audioClip: {fileID: 8300000, guid: b572f41d6c8f752449c28d9d7bc1058f, type: 3}
+  - keyNum: 78
+    audioClip: {fileID: 8300000, guid: db9fdd46198d0bf43a9896f3f32bf9d6, type: 3}
+  - keyNum: 79
+    audioClip: {fileID: 8300000, guid: 8ac2d657ea4438b4b8ab5ec84074abe6, type: 3}
+  - keyNum: 80
+    audioClip: {fileID: 8300000, guid: fa50a5da35035314cafaf95762ae5e58, type: 3}
+  - keyNum: 81
+    audioClip: {fileID: 8300000, guid: 278ae348ad130a448b7aa25290742ceb, type: 3}
+  - keyNum: 82
+    audioClip: {fileID: 8300000, guid: 98bdf4ef58d243a4dba7f8a72bb42907, type: 3}
+  - keyNum: 83
+    audioClip: {fileID: 8300000, guid: 2dca50e27338f5a4da3926a4ecae8861, type: 3}
+  - keyNum: 84
+    audioClip: {fileID: 8300000, guid: 62170e47e360d17498a55f69be050201, type: 3}
+  - keyNum: 85
+    audioClip: {fileID: 8300000, guid: caf0239f932d3fe4e9752bae2678c328, type: 3}
+  - keyNum: 86
+    audioClip: {fileID: 8300000, guid: 9ee74a2d8fc66124b8e9af899f27b3ad, type: 3}
+  - keyNum: 87
+    audioClip: {fileID: 8300000, guid: 178bf54a10d47c1469ec9ca7de192f82, type: 3}
+  - keyNum: 88
+    audioClip: {fileID: 8300000, guid: 80f80865456a1b246b583c5bc1837c49, type: 3}
+  - keyNum: 89
+    audioClip: {fileID: 8300000, guid: 92514f725b95b68478b018cfb87bbf3f, type: 3}
+  - keyNum: 90
+    audioClip: {fileID: 8300000, guid: decbe826e47fbbd48a3f0be7087cbf71, type: 3}
+  - keyNum: 91
+    audioClip: {fileID: 8300000, guid: 3cd5b63b41dc160499613ca61f38653e, type: 3}
+  - keyNum: 92
+    audioClip: {fileID: 8300000, guid: 956df4e9ffff4db419ed8b8d07baad87, type: 3}
+  - keyNum: 93
+    audioClip: {fileID: 8300000, guid: 24798d57fb153e543aef97f17f170cc8, type: 3}
+  - keyNum: 94
+    audioClip: {fileID: 8300000, guid: b93c30183a6d3a341aa6587bfccdbdd7, type: 3}
+  - keyNum: 95
+    audioClip: {fileID: 8300000, guid: ca102b700a6684941998c92f13a1c4eb, type: 3}
+  - keyNum: 96
+    audioClip: {fileID: 8300000, guid: b959daffa1ccae54d86b944b46c11b85, type: 3}
+  - keyNum: 97
+    audioClip: {fileID: 8300000, guid: 78dedc81d43aa3a4daad8d8f7504d706, type: 3}
+  - keyNum: 98
+    audioClip: {fileID: 8300000, guid: a25226a739923b947951b900d6238fee, type: 3}
+  - keyNum: 99
+    audioClip: {fileID: 8300000, guid: 4f07489d44fcb8346843daa6b6db3005, type: 3}
+  - keyNum: 90
+    audioClip: {fileID: 8300000, guid: a66d749932a12104daa51c6d770c949d, type: 3}
+--- !u!114 &4810009543893304390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bd96483a0a6574397104559d90f74c, type: 3}
+  m_Name: Graph Input
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -440, y: -104}
+  ports:
+    keys:
+    - update
+    - playFinished
+    - 289b6ea4-c496-411e-a157-0643fd662ae8
+    values:
+    - _fieldName: update
+      _node: {fileID: 4810009543893304390}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: playFinished
+      _node: {fileID: 4810009543893304390}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: 289b6ea4-c496-411e-a157-0643fd662ae8
+      _node: {fileID: 4810009543893304390}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: MidiIn
+        node: {fileID: 3765464629158113776}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 1
+  lastDrawSize: {x: 356, y: 260}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: 
+  variables: []
+  events:
+  - eventName: Event-925
+    onGraphEventCalled:
+      m_PersistentCalls:
+        m_Calls: []
+    onGraphEventCalledEphemeral:
+      m_PersistentCalls:
+        m_Calls: []
+    expose: 1
+    expanded: 0
+    eventID: 289b6ea4-c496-411e-a157-0643fd662ae8
+    parameters:
+    - parameterName: NoteInfo
+      parameterTypeName: ABXY.Layers.Runtime.MidiData
+  poolSize: 1
+  globals: {fileID: 0}
+--- !u!114 &8071809231888227461
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0e06e359f0f6047918ac8e3f61ade7, type: 3}
+  m_Name: Audio Out
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 616, y: -248}
+  ports:
+    keys:
+    - audioIn
+    - audioSettings
+    - bypassEffects
+    - bypassListener
+    - bypassReverb
+    - volume
+    - audioMixerGroup
+    - priority
+    - pitch
+    - stereoPan
+    - worldPosition
+    - reverbZoneMixCurve
+    - reverbZoneMix
+    - spreadCurve
+    - spread
+    - spatialCurve
+    - spatialBlend
+    - volumeFalloffCurve
+    - minDistance
+    - maxDistance
+    - playFinished
+    - playAtTransform
+    values:
+    - _fieldName: audioIn
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.AudioFlow, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: AudioOut
+        node: {fileID: 3765464629158113776}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: audioSettings
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: ABXY.Layers.Runtime.AudioSettingsData, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: bypassEffects
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: bypassListener
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: bypassReverb
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: volume
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: audioMixerGroup
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: UnityEngine.Audio.AudioMixerGroup, UnityEngine.AudioModule,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: priority
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: pitch
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: stereoPan
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: worldPosition
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: reverbZoneMixCurve
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: reverbZoneMix
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: spreadCurve
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: spread
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: spatialCurve
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: spatialBlend
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: volumeFalloffCurve
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: minDistance
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: maxDistance
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: playFinished
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: playAtTransform
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+  lastDrawSize: {x: 300, y: 714}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: 21441d5e-f551-4068-8752-fbb8609dd810
+  audioIn: {fileID: 0}
+  bypassEffects: 0
+  bypassListener: 0
+  bypassReverb: 0
+  volume: 1
+  audioMixerGroup: {fileID: 0}
+  priority: 128
+  pitch: 1
+  stereoPan: 0
+  worldPosition: {x: 0, y: 0, z: 0}
+  playAtTransform: {fileID: 0}
+  settingsSource: 0
+  shareSettings: 0
+  reverbZoneMixCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMix: 1
+  spreadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spread: 0
+  spatialCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spatialBlend: 0
+  volumeFalloffCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.002
+      value: 1
+      inSlope: -500.20065
+      outSlope: -500.20065
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.004
+      value: 0.5
+      inSlope: -125.05016
+      outSlope: -125.05016
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.008
+      value: 0.25
+      inSlope: -31.26254
+      outSlope: -31.26254
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.016
+      value: 0.125
+      inSlope: -7.815635
+      outSlope: -7.815635
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.032
+      value: 0.0625
+      inSlope: -1.9539088
+      outSlope: -1.9539088
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.064
+      value: 0.03125
+      inSlope: -0.4884772
+      outSlope: -0.4884772
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.128
+      value: 0.015625
+      inSlope: -0.1221193
+      outSlope: -0.1221193
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.256
+      value: 0.0078125
+      inSlope: -0.030529825
+      outSlope: -0.030529825
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.512
+      value: 0.00390625
+      inSlope: -0.0076324563
+      outSlope: -0.0076324563
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.002
+      inSlope: -0.002000801
+      outSlope: -0.002000801
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minDistance: 1
+  maxDistance: 500
+  rolloffMode: 0
+  sendList: []

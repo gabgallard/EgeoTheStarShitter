@@ -1,0 +1,45 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using ABXY.Layers.Runtime.ThirdParty.XNode.Scripts;
+using UnityEngine;
+
+namespace ABXY.Layers.Runtime.Nodes.Logic
+{
+    [Node.CreateNodeMenu("Logic/And")]
+    public class AndNode : FlowNode {
+
+
+        [SerializeField, Output(Node.ShowBackingValue.Never, Node.ConnectionType.Multiple, Node.TypeConstraint.Strict)]
+        protected bool value;
+
+        [SerializeField]
+        public List<NodePort> branches = new List<NodePort>();
+
+        public override object GetValue(NodePort port)
+        {
+            bool value = true;
+            for (int index = 0; index < DynamicInputs.Count(); index++)
+            {
+                NodePort input = DynamicInputs.ElementAt(index);
+                if (input.Connection != null)
+                {
+                    bool subValue = GetInputValue<bool>(input.fieldName);
+                    if (!subValue)
+                        value = false;
+                }
+            }
+            return value;
+
+        }
+
+        protected override List<GraphEvent.EventParameterDef> GetOutGoingEventParametersOnPortInternal(NodePort port, List<Node> visitedNodes)
+        {
+            return new List<GraphEvent.EventParameterDef>();
+        }
+
+        protected override string GetHelpFileResourcePath()
+        {
+            return "Nodes/Logic/And";
+        }
+    }
+}

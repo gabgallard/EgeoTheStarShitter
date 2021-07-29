@@ -1,0 +1,73 @@
+
+
+namespace ABXY.Layers.Runtime.Graph_Variable_Values
+{
+    public class {{this.classname}}VariableValue : GraphVariableValue
+    {
+        public override Type handlesType => typeof({{this.parentclassname}}.{{this.classname}});
+
+        public override object GetValue(GraphVariableBase graphVariable)
+        {
+            return ({{this.parentclassname}}.{{this.classname}})graphVariable.objectValue;
+        }
+
+        public override void SetValue(GraphVariableBase graphVariable, object value)
+        {
+            graphVariable.objectValue = ({{this.parentclassname}}.{{this.classname}})value;
+        }
+
+        public override object GetDefaultValue(GraphVariableBase graphVariable)
+        {
+            return ({{this.parentclassname}}.{{this.classname}})graphVariable.defaultObjectValue;
+        }
+
+        public override void SetDefaultValue(GraphVariableBase graphVariable, object value)
+        {
+            graphVariable.defaultObjectValue = ({{this.parentclassname}}.{{this.classname}})value;
+        }
+
+        public override object Deserialize(string serializedObjectValue)
+        {
+            try
+            {
+                return System.Enum.Parse(typeof({{this.parentclassname}}.{{this.classname}}), serializedObjectValue);
+            }
+            catch (System.Exception) { }
+            return {{this.parentclassname}}.{{this.classname}}.NotActive;
+        }
+
+        public override string Serialize(object objectValue)
+        {
+            if (objectValue == null || objectValue.GetType() != typeof({{this.parentclassname}}.{{this.classname}}))
+                return {{this.parentclassname}}.{{this.classname}}.NotActive.ToString();
+            return objectValue.ToString();
+        }
+
+
+        public override bool CompareValues(Comparison.comparisonOperators comparator, object a, object b)
+        {
+            if (a == null || b == null || a.GetType() != typeof({{this.parentclassname}}.{{this.classname}}) || b.GetType() != typeof({{this.parentclassname}}.{{this.classname}}))
+                return false;
+
+            switch (comparator)
+            {
+                case Comparison.comparisonOperators.Equal:
+                    return a == b;
+                case Comparison.comparisonOperators.NotEqual:
+                    return a != b;
+            }
+
+            return false;
+        }
+
+        public override object GetValueOnInitialization()
+        {
+            return {{this.parentclassname}}.{{this.classname}}.NotActive;
+        }
+       
+        public override string GetValueInitializationString()
+        {
+            return "{{this.parentclassname}}.{{this.classname}}.NotActive";
+        }
+    }
+}

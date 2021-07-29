@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /*! ADAPTED
+    Typeplate : Starter Kit
+    URL ........... http://typeplate.com
+    Version ....... 3.0.2
+    Github ........ https://github.com/typeplate/starter-kit
+    Authors ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
+    License ....... Creative Commmons Attribution 3.0
+    License URL ... https://github.com/typeplate/starter-kit/blob/master/license.txt
+    */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-rendering: optimizeLegibility;
+        line-height: 1;
+        margin-top: 0;
+        color: #222;
+      }
+
+      blockquote + figcaption cite {
+        display: block;
+        font-size: inherit;
+        text-align: right;
+      }
+
+      body {
+        word-wrap: break-word;
+      }
+
+      pre code {
+        word-wrap: normal;
+      }
+
+      body {
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        color: #444;
+      }
+
+      h1 {
+        font-size: 2em;
+        /* 2*16 = 32 */
+      }
+
+      h2 {
+        font-size: 1.5em;
+        /* 1.5*16 = 24 */
+      }
+
+      h3 {
+        font-size: 1.17em;
+        /* 1.17*16 = 18.72 */
+      }
+
+      h4 {
+        font-size: 1em;
+        /* 1*16 = 16 */
+      }
+
+      h5 {
+        font-size: 0.83em;
+        /* 0.83*16 = 13.28 */
+      }
+
+      h6 {
+        font-size: 0.75em;
+        /* 0.75*16 = 12 */
+      }
+
+      h1 {
+        margin: 2.42424rem 0 1.454544rem;
+      }
+
+      h2 {
+        margin: 2.0202rem 0 1.21212rem;
+      }
+
+      h3 {
+        margin: 1.61616rem 0 1rem;
+      }
+
+      h4 {
+        margin: 1.21212rem 0 1;
+      }
+
+      h5 {
+        margin: 0.80808rem 0;
+      }
+
+      h6 {
+        margin: 0.70707rem 0;
+      }
+
+      p {
+        margin: auto auto 1.5rem;
+      }
+
+      small {
+        font-size: 65%;
+      }
+
+      input,
+      abbr,
+      acronym,
+      blockquote,
+      code,
+      kbd,
+      q,
+      samp,
+      var {
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+
+      pre {
+        white-space: pre;
+      }
+
+      pre code {
+        white-space: -moz-pre-wrap;
+        white-space: pre-wrap;
+      }
+
+      code {
+        white-space: pre;
+        font-family: SF Mono, Consolas, Dejavu Sans Mono, Menlo, monospace;
+      }
+
+      abbr {
+        -webkit-font-variant: small-caps;
+        -moz-font-variant: small-caps;
+        -ms-font-variant: small-caps;
+        font-variant: small-caps;
+        font-weight: 600;
+        text-transform: lowercase;
+        color: gray;
+      }
+
+      abbr[title]:hover {
+        cursor: help;
+      }
+
+      /* FROM http://purecss.io/layouts/side-menu/  adapted to remove pure classes*/
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        color: #444;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+      }
+
+      code,
+      pre {
+        background-color: #f5f5f5;
+        color: #444;
+        border-radius: 2px;
+        text-shadow: 0px 1px 0px white;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+      }
+
+      pre code {
+        border: none;
+        box-shadow: none;
+      }
+
+      pre {
+        padding: 0.5em;
+      }
+
+      code {
+        display: inline-block;
+        padding: 0 0.5em;
+        line-height: 1.4;
+        font-size: 0.9em;
+      }
+
+      table {
+        border-spacing: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      table th,
+      table td {
+        padding: 0.3em 0.7em;
+      }
+
+      table th {
+        background-color: #f4f4f4;
+        border-bottom: 2px solid #444;
+      }
+
+      table td {
+        border: 1px solid #f5f5f5;
+      }
+
+      /* Add transition to containers so they can push in and out. */
+
+      #layout,
+      #menu,
+      .menu-link {
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -ms-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+      }
+
+      /* This is the parent `<div>` that contains the menu and the content area. */
+
+      #layout {
+        position: relative;
+        padding-left: 0;
+      }
+
+      #layout.active #menu {
+        left: 250px;
+        width: 250px;
+      }
+
+      #layout.active .menu-link {
+        left: 250px;
+      }
+
+      /* The content `<div>` is where all your content goes. */
+
+      .content {
+        margin: 50px auto;
+        padding: 0 2em;
+        max-width: 80ex;
+        line-height: 1.6em;
+      }
+
+      /*
+      The `#menu` `<div>` is the parent `<div>` that contains the menu that
+      appears on the left side of the page.
+      */
+
+      #menu {
+        margin-left: -250px;
+        /* "#menu" width */
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        /* so the menu or its navicon stays above all content */
+        background: #f4f4f4;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 0.9em;
+      }
+
+      @media print {
+        #menu,
+        .menu-link {
+          display: none !important;
+        }
+      }
+
+      a,
+      a * {
+        text-decoration: none;
+        color: #2483cc;
+      }
+
+      a:visited {
+        text-decoration: none;
+        color: #2483cc;
+      }
+
+      /* All anchors inside the menu should be styled like this. */
+
+      #menu a {
+        display: block;
+        padding: 0.5em 0.5em;
+      }
+
+      #menu a:first-letter {
+        text-transform: capitalize;
+      }
+
+      #menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 1em 0.5em;
+      }
+
+      #menu ul ul {
+        margin-top: 0.5em;
+        margin-left: 0.5em;
+        border-left: 4px solid rgba(255, 255, 255, 0.5);
+      }
+
+      /* Change color of the anchor links on hover/focus. */
+
+      #menu li a:hover,
+      #menu li a:focus {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      /* This styles the selected menu item `<li>`. */
+
+      #menu li a.active {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      /* This styles a link within a selected menu item `<li>`. */
+
+      #menu li a.active {
+        color: #222;
+      }
+
+      /* This styles the menu heading. */
+
+      #menu li.heading {
+        font-size: 0.9em;
+        text-transform: uppercase;
+        color: #000;
+      }
+
+      #menu li.heading > * {
+        padding: 0.5em;
+        display: block;
+      }
+
+      #menu li.heading a {
+        color: #0c68af;
+      }
+
+      /* -- Dynamic Button For Responsive Menu -------------------------------------*/
+
+      /*
+      `.menu-link` represents the responsive menu toggle that shows/hides on
+      small screens.
+      */
+
+      .menu-link {
+        position: fixed;
+        display: block;
+        /* show this only on small screens */
+        top: 0;
+        left: 0;
+        /* "#menu width" */
+        font-size: 10px;
+        /* change this value to increase/decrease button size */
+        z-index: 10;
+        width: 2em;
+        height: auto;
+        padding: 1.6em 1.2em;
+        border-radius: 0 2px 2px 0;
+      }
+
+      .menu-link:hover {
+        background: #f4f4f4;
+      }
+
+      .menu-link span {
+        position: relative;
+        display: block;
+      }
+
+      .menu-link span,
+      .menu-link span:before,
+      .menu-link span:after {
+        background-color: #555;
+        width: 100%;
+        height: 0.2em;
+        border-radius: 1em;
+      }
+
+      .menu-link span:before,
+      .menu-link span:after {
+        position: absolute;
+        margin-top: -0.6em;
+        content: " ";
+      }
+
+      .menu-link span:after {
+        margin-top: 0.6em;
+      }
+
+      /* Hides the menu at `48em`, but modify this based on your app's needs. */
+
+      @media (min-width: 48em) {
+        .header,
+        .content {
+          padding-left: 2em;
+          padding-right: 2em;
+        }
+
+        #layout {
+          padding-left: 250px;
+          /* left col width "#menu" */
+          left: 0;
+        }
+        #menu {
+          left: 250px;
+        }
+
+        .menu-link {
+          position: fixed;
+          left: 250px;
+          display: none;
+        }
+
+        #layout.active .menu-link {
+          left: 250px;
+        }
+      }
+
+      @media (max-width: 48em) {
+        /* Only apply this when the window is small. Otherwise, the following case results in extra padding on the left:
+         * Make the window small.
+         * Tap the menu to trigger the active state.
+         * Make the window large again.
+         */
+        #layout.active {
+          position: relative;
+          left: 250px;
+        }
+      }
+
+      /* Heading anchors and permalinks */
+      h1[id],
+      h2[id],
+      h3[id],
+      h4[id],
+      h5[id],
+      h6[id] {
+        position: relative;
+      }
+      .heading-anchor-permalink {
+        /* Position the permalink to the left of the title */
+        position: absolute;
+        right: 100%;
+        /* Add some spacing as padding to not lose the hover */
+        padding-right: 0.6rem;
+        /* Make it only visible on heading hover, see below */
+        opacity: 0;
+      }
+      h1[id]:hover .heading-anchor-permalink,
+      h2[id]:hover .heading-anchor-permalink,
+      h3[id]:hover .heading-anchor-permalink,
+      h4[id]:hover .heading-anchor-permalink,
+      h5[id]:hover .heading-anchor-permalink,
+      h6[id]:hover .heading-anchor-permalink {
+        opacity: 0.5;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <div id="layout">
+      <!-- Menu toggle -->
+      <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+      </a>
+      <nav id="menu">
+        <ul>
+<li class="heading"><span>Getting Started</span></li>
+<ul>
+<li><a class="" href="..\..\Getting-Started\1-Getting-Started.html">Getting Started</a></li>
+<li><a class="" href="..\..\Getting-Started\2-Installing-Layers.html">Installing Layers</a></li>
+<li><a class="" href="..\..\Getting-Started\3-Setting-Up-Audio.html">Setting Up Audio</a></li>
+<li><a class="" href="..\..\Getting-Started\4-Creating-Sound-Graphs.html">Creating Sound Graphs</a></li>
+<li><a class="" href="..\..\Getting-Started\5-Playing-Audio.html">Playing Audio</a></li>
+<li><a class="" href="..\..\Getting-Started\6-Adding-Logic.html">Adding Logic</a></li>
+<li><a class="" href="..\..\Getting-Started\7-Playing-in-the-Scene.html">Playing in the Scene</a></li>
+</ul>
+<li><a class="" href="..\..\Home.html">Home</a></li>
+<li class="heading"><span>Layers Key Concepts</span></li>
+<ul>
+<li><a class="" href="..\..\Layers-Key-Concepts\0-Layers-Key-Concepts.html">Layers Key Concepts</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\1-Sound-Graphs.html">Sound Graphs</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\10-MIDI-Editing.html">MIDI Editing</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\11-Mixing.html">Mixing</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\12-Globals.html">Globals</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\2-Events.html">Events</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\3-Variables.html">Variables</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\4-Play-Nodes.html">Play Nodes</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\5-Audio-Outs.html">Audio Outs</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\6-Sub-Graphs.html">Sub Graphs</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\7-Sound-Graph-Playback.html">Sound Graph Playback</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\8-Code-Generation.html">Code Generation</a></li>
+<li><a class="" href="..\..\Layers-Key-Concepts\9-API.html">API</a></li>
+</ul>
+<li class="heading"><span>Nodes</span></li>
+<ul>
+<li class="heading"><span>Automation</span></li>
+<ul>
+<li><a class="" href="..\Automation\Animate.html">Animate</a></li>
+<li><a class="" href="..\Automation\Find-Snapshot.html">Find Snapshot</a></li>
+<li><a class="" href="..\Automation\Get-Mixer-Parameter.html">Get Mixer Parameter</a></li>
+<li><a class="" href="..\Automation\Move-Towards.html">Move Towards</a></li>
+<li><a class="" href="..\Automation\Set-Mixer-Parameter.html">Set Mixer Parameter</a></li>
+<li><a class="" href="..\Automation\Transition-To-Snapshots.html">Transition To Snapshots</a></li>
+</ul>
+<li class="heading"><span>Flow</span></li>
+<ul>
+<li><a class="" href="..\Flow\Do-If.html">Do If</a></li>
+<li><a class="" href="..\Flow\Do-While.html">Do While</a></li>
+<li><a class="" href="..\Flow\If.html">If</a></li>
+<li><a class="" href="..\Flow\MIDI-Channel-Filter.html">MIDI Channel Filter</a></li>
+<li><a class="" href="..\Flow\MIDI-Note-Range-Filter.html">MIDI Note Range Filter</a></li>
+<li><a class="" href="..\Flow\Pick-Branch.html">Pick Branch</a></li>
+<li><a class="" href="..\Flow\Pick-Random-Branch.html">Pick Random Branch</a></li>
+<li><a class="" href="..\Flow\Pin.html">Pin</a></li>
+<li><a class="" href="..\Flow\Wait-For-All.html">Wait For All</a></li>
+<li><a class="" href="..\Flow\Wait-For-Condition.html">Wait For Condition</a></li>
+<li><a class="" href="..\Flow\Wait-For-Event.html">Wait For Event</a></li>
+<li><a class="" href="..\Flow\Wait-For-Scene-Load.html">Wait For Scene Load</a></li>
+<li><a class="" href="..\Flow\Wait.html">Wait</a></li>
+</ul>
+<li class="heading"><span>Logic</span></li>
+<ul>
+<li><a class="" href="..\Logic\And.html">And</a></li>
+<li><a class="" href="..\Logic\Comparison.html">Comparison</a></li>
+<li><a class="" href="..\Logic\Not.html">Not</a></li>
+<li><a class="" href="..\Logic\Or.html">Or</a></li>
+</ul>
+<li class="heading"><span>MIDI Input</span></li>
+<ul>
+<li><a class="" href="..\MIDI-Input\Get-Key.html">Get Key</a></li>
+<li><a class="" href="..\MIDI-Input\Get-knob.html">Get knob</a></li>
+<li><a class="" href="..\MIDI-Input\MIDI-Input.html">MIDI Input</a></li>
+</ul>
+<li class="heading"><span>Math Operations</span></li>
+<ul>
+<li><a class="" href="Add.html">Add</a></li>
+<li><a class="" href="Clamp.html">Clamp</a></li>
+<li><a class="" href="Divide.html">Divide</a></li>
+<li><a class="" href="Inverse-Lerp.html">Inverse Lerp</a></li>
+<li><a class="" href="Lerp.html">Lerp</a></li>
+<li><a class="" href="Magnitude.html">Magnitude</a></li>
+<li><a class="active" href="Multiply.html">Multiply</a></li>
+<li><a class="" href="Random-Number.html">Random Number</a></li>
+<li><a class="" href="Remap-to-Curve.html">Remap to Curve</a></li>
+<li><a class="" href="Remap.html">Remap</a></li>
+<li><a class="" href="Repeat.html">Repeat</a></li>
+<li><a class="" href="Subtract.html">Subtract</a></li>
+</ul>
+<li class="heading"><span>Playback</span></li>
+<ul>
+<li><a class="" href="..\Playback\Audio-Out.html">Audio Out</a></li>
+<li><a class="" href="..\Playback\Play.html">Play</a></li>
+<li><a class="" href="..\Playback\Sampler-Track.html">Sampler Track</a></li>
+<li><a class="" href="..\Playback\State-Machine.html">State Machine</a></li>
+<li><a class="" href="..\Playback\Sub-Graph.html">Sub Graph</a></li>
+</ul>
+<li class="heading"><span>Signal Sources</span></li>
+<ul>
+<li><a class="" href="..\Signal-Sources\Click-Track.html">Click Track</a></li>
+<li><a class="" href="..\Signal-Sources\End-All-Playback.html">End All Playback</a></li>
+<li><a class="" href="..\Signal-Sources\Event.html">Event</a></li>
+<li><a class="" href="..\Signal-Sources\Graph-Inputs.html">Graph Inputs</a></li>
+<li><a class="" href="..\Signal-Sources\Raise-Event-On-Condition.html">Raise Event On Condition</a></li>
+<li><a class="" href="..\Signal-Sources\Trigger-Event.html">Trigger Event</a></li>
+<li><a class="" href="..\Signal-Sources\Update.html">Update</a></li>
+</ul>
+<li class="heading"><span>Utilities</span></li>
+<ul>
+<li><a class="" href="..\Utilities\Debug-Log.html">Debug Log</a></li>
+<li><a class="" href="..\Utilities\To-String.html">To String</a></li>
+</ul>
+<li class="heading"><span>Variables</span></li>
+<ul>
+<li><a class="" href="..\Variables\Boolean-Value-Selector.html">Boolean Value Selector</a></li>
+<li><a class="" href="..\Variables\Combine.html">Combine</a></li>
+<li><a class="" href="..\Variables\Digital-Signal-Processor-Time.html">Digital Signal Processor Time</a></li>
+<li><a class="" href="..\Variables\Split.html">Split</a></li>
+<li><a class="" href="..\Variables\Switch-Value-Selector.html">Switch Value Selector</a></li>
+<li><a class="" href="..\Variables\Value-Selector.html">Value Selector</a></li>
+<li><a class="" href="..\Variables\Variable.html">Variable</a></li>
+<li><a class="" href="..\Variables\Write.html">Write</a></li>
+</ul>
+</ul>
+</ul>
+      </nav>
+      <article id="main" class="content">
+        <h1 id="multiply-node">Multiply Node <a class="heading-anchor-permalink" href="#multiply-node">#</a></h1>
+<h2 id="about">About <a class="heading-anchor-permalink" href="#about">#</a></h2>
+<p>This node performs multiplication on the inputs. The Multiply node has multiple modes depending on the selected input type. For example, the Float type can be multiplied by floats, so the Multiply node presents a list of float inputs, where the first gets Multiplied by the second, which gets multiplied by the third, etc. Vector3s on the other hand can be multiplied by other Vector3s as well as numeric types. In this case a secondary type selector is shown so the user can select the operand type.</p>
+<h2 id="mode-1">Mode 1 <a class="heading-anchor-permalink" href="#mode-1">#</a></h2>
+<p><img src="../../IMG/Multiply-Node-Mode-1.png" alt="Multiply-Node-Mode-1"></p>
+<p>This mode is used for Float, Double, and Integer types</p>
+<h3 id="inputs">Inputs <a class="heading-anchor-permalink" href="#inputs">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variables</td>
+<td>List (Type can vary)</td>
+<td>The list of inputs to multiply. Each input is multiplied by the subsequent input</td>
+</tr>
+</tbody>
+</table>
+<h3 id="outputs">Outputs <a class="heading-anchor-permalink" href="#outputs">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Result</td>
+<td>Varies</td>
+<td>The result of this operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="options">Options <a class="heading-anchor-permalink" href="#options">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unnamed</td>
+<td>Type Selector</td>
+<td>The type of the operands for this multiplication operation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mode-2">Mode 2 <a class="heading-anchor-permalink" href="#mode-2">#</a></h2>
+<p><img src="../../IMG/Multiply-Node-Mode-2.png" alt="Multiply-Node-Mode-2"></p>
+<p>This mode is used for Vector3 types</p>
+<h3 id="inputs-2">Inputs <a class="heading-anchor-permalink" href="#inputs-2">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Value</td>
+<td>Varies</td>
+<td>The first item to multiply</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>Varies</td>
+<td>The second item to multiply</td>
+</tr>
+</tbody>
+</table>
+<h3 id="outputs-2">Outputs <a class="heading-anchor-permalink" href="#outputs-2">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Result</td>
+<td>Varies</td>
+<td>The result of this operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="options-2">Options <a class="heading-anchor-permalink" href="#options-2">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unnamed</td>
+<td>Type Selector</td>
+<td>The type of the first number to multiply for this operation.</td>
+</tr>
+<tr>
+<td>Unnamed</td>
+<td>Type Selector</td>
+<td>The type of the second number to multiply for this operation.</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </div>
+    <script>
+      // Load contents.json if you need it
+    </script>
+    <script>
+      // FROM http://purecss.io/js/ui.js
+      (function(window, document) {
+        var layout = document.getElementById("layout"),
+          menu = document.getElementById("menu"),
+          menuLink = document.getElementById("menuLink");
+
+        function toggleClass(element, className) {
+          var classes = element.className.split(/\s+/),
+            length = classes.length,
+            i = 0;
+
+          for (; i < length; i++) {
+            if (classes[i] === className) {
+              classes.splice(i, 1);
+              break;
+            }
+          }
+          // The className is not found
+          if (length === classes.length) {
+            classes.push(className);
+          }
+
+          element.className = classes.join(" ");
+        }
+
+        menuLink.onclick = function(e) {
+          var active = "active";
+
+          e.preventDefault();
+          toggleClass(layout, active);
+          toggleClass(menu, active);
+          toggleClass(menuLink, active);
+        };
+      })(this, this.document);
+    </script>
+  </body>
+</html>

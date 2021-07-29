@@ -48,6 +48,8 @@ public class StarSpawnerController : MonoBehaviour
     Rigidbody2D bodyRigidbody = body.gameObject.GetComponent<Rigidbody2D>();
     bodyRigidbody.AddForce((target.position - body.position) * RandomDeviation(force), ForceMode2D.Impulse);
 
+
+
     yield return new WaitForSeconds(RandomDeviation(firstProjectionDuration));
 
     float previousDrag = bodyRigidbody.drag;

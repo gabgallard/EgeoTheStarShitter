@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d597ebbdce0f164380aae9356186f46, type: 3}
+  m_Name: LayersSettings
+  m_EditorClassIdentifier: 
+  _codeGenFolderID: 598e4265239ffd04c9bdb54ffb46da1f
+  enableMIDIInBuilds: 0
+  enableGreenScreen: 0
+  enableScreenshot: 0
+  type2ColorKeys:
+  - ABXY.Layers.Runtime.FlowTypes.AudioFlow
+  - ABXY.Layers.Runtime.FlowTypes.LayersEvent
+  - System.Double
+  - System.Single
+  - System.Int32
+  - UnityEngine.Vector2
+  - UnityEngine.Vector3
+  - UnityEngine.Collider
+  - System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable, SymphonyRuntime,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+  - UnityEngine.AudioClip
+  - UnityEngine.Audio.AudioMixerGroup
+  - UnityEngine.Audio.AudioMixer
+  - UnityEngine.Bounds
+  - UnityEngine.Collision
+  - UnityEngine.ContactPoint
+  - ABXY.Layers.Runtime.MidiData
+  - ABXY.Layers.Runtime.Midi.MidiFileAsset
+  - UnityEngine.PhysicMaterial
+  - UnityEngine.Quaternion
+  - UnityEngine.Rigidbody
+  - UnityEngine.Transform
+  - System.Boolean
+  - System.String
+  type2ColorValues:
+  - {r: 0, g: 0.37254903, b: 0.61960787, a: 1}
+  - {r: 0.61960787, g: 0, b: 0.5764706, a: 1}
+  - {r: 0.1339158, g: 0.804387, b: 0.66891843, a: 1}
+  - {r: 0.61960787, g: 0.40784314, b: 0.34117648, a: 1}
+  - {r: 0.113341704, g: 0.25575188, b: 0.23663631, a: 1}
+  - {r: 0.06460727, g: 0.266045, b: 0.35319665, a: 1}
+  - {r: 0.98231435, g: 0.828537, b: 0.50304157, a: 1}
+  - {r: 0.9385611, g: 0.7956587, b: 0.83708966, a: 1}
+  - {r: 0.6885554, g: 0.6290112, b: 0.51220447, a: 1}
+  - {r: 0.39607844, g: 0.6156863, b: 0.89411765, a: 1}
+  - {r: 0.3875788, g: 0.64984006, b: 0.6414855, a: 1}
+  - {r: 0.8697785, g: 0.77158177, b: 0.28452995, a: 1}
+  - {r: 0.70173484, g: 0.21259025, b: 0.74933714, a: 1}
+  - {r: 0.809052, g: 0.47270447, b: 0.2518367, a: 1}
+  - {r: 0.16450776, g: 0.7159019, b: 0.3841464, a: 1}
+  - {r: 0.4418066, g: 0.48287326, b: 0.4795037, a: 1}
+  - {r: 0.7324081, g: 0.20239499, b: 0.17953528, a: 1}
+  - {r: 0.9229144, g: 0.61186403, b: 0.5370706, a: 1}
+  - {r: 0.80638456, g: 0.42358655, b: 0.39859515, a: 1}
+  - {r: 0.7551154, g: 0.20249727, b: 0.5254608, a: 1}
+  - {r: 0.6509804, g: 0.5686275, b: 0.49019608, a: 1}
+  - {r: 0.16749145, g: 0.95456684, b: 0.40124768, a: 1}
+  - {r: 0.4032994, g: 0.6596201, b: 0.4112118, a: 1}
+  type2ColorKeysPro:
+  - ABXY.Layers.Runtime.FlowTypes.AudioFlow
+  - ABXY.Layers.Runtime.FlowTypes.LayersEvent
+  - System.Double
+  - System.Single
+  - System.Int32
+  - UnityEngine.Vector2
+  - UnityEngine.Vector3
+  - UnityEngine.Collider
+  - System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable, SymphonyRuntime,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+  - UnityEngine.AudioClip
+  - UnityEngine.Audio.AudioMixerGroup
+  - UnityEngine.Audio.AudioMixer
+  - UnityEngine.Bounds
+  - UnityEngine.Collision
+  - UnityEngine.ContactPoint
+  - ABXY.Layers.Runtime.MidiData
+  - ABXY.Layers.Runtime.Midi.MidiFileAsset
+  - UnityEngine.PhysicMaterial
+  - UnityEngine.Quaternion
+  - UnityEngine.Rigidbody
+  - UnityEngine.Transform
+  - System.Boolean
+  - System.String
+  type2ColorValuesPro:
+  - {r: 0, g: 0.37254903, b: 0.61960787, a: 1}
+  - {r: 0.61960787, g: 0, b: 0.5764706, a: 1}
+  - {r: 0.1339158, g: 0.804387, b: 0.66891843, a: 1}
+  - {r: 0.65882355, g: 0.1882353, b: 0.039215688, a: 1}
+  - {r: 0.113341704, g: 0.25575188, b: 0.23663631, a: 1}
+  - {r: 0.06460727, g: 0.266045, b: 0.35319665, a: 1}
+  - {r: 0.98231435, g: 0.828537, b: 0.50304157, a: 1}
+  - {r: 0.9385611, g: 0.7956587, b: 0.83708966, a: 1}
+  - {r: 0.6885554, g: 0.6290112, b: 0.51220447, a: 1}
+  - {r: 0.39607844, g: 0.6156863, b: 0.89411765, a: 1}
+  - {r: 0.3875788, g: 0.64984006, b: 0.6414855, a: 1}
+  - {r: 0.8697785, g: 0.77158177, b: 0.28452995, a: 1}
+  - {r: 0.70173484, g: 0.21259025, b: 0.74933714, a: 1}
+  - {r: 0.809052, g: 0.47270447, b: 0.2518367, a: 1}
+  - {r: 0.16450776, g: 0.7159019, b: 0.3841464, a: 1}
+  - {r: 0.8313726, g: 0.9019608, b: 0.6470588, a: 1}
+  - {r: 0.7324081, g: 0.20239499, b: 0.17953528, a: 1}
+  - {r: 0.9229144, g: 0.61186403, b: 0.5370706, a: 1}
+  - {r: 0.80638456, g: 0.42358655, b: 0.39859515, a: 1}
+  - {r: 0.7551154, g: 0.20249727, b: 0.5254608, a: 1}
+  - {r: 0.6509804, g: 0.5686275, b: 0.49019608, a: 1}
+  - {r: 0.16749145, g: 0.95456684, b: 0.40124768, a: 1}
+  - {r: 0.4032994, g: 0.6596201, b: 0.4112118, a: 1}
+  soundGraphDBKeys:
+  - bef6f8cd8e567ca4c8047920ca80aaf1
+  - 335a543dbae21444caae2f479095908d
+  - 2c0a24d6de1409a4c8bee146a1dd8385
+  - 580a6fa0-0688-4574-94bf-0253bb1bd7f7
+  - 3b28c0016451d0948b9a53b7f12b3768
+  soundGraphDBValues:
+  - soundGraph: {fileID: 11400000, guid: bef6f8cd8e567ca4c8047920ca80aaf1, type: 2}
+    globalsAsset: {fileID: 0}
+    generatedAssets:
+    - d1cf432fc22a16b4a9591d4b9e9eba6c
+    needsRegen: 0
+  - soundGraph: {fileID: 11400000, guid: 335a543dbae21444caae2f479095908d, type: 2}
+    globalsAsset: {fileID: 0}
+    generatedAssets:
+    - 5b0ce2dccc6965e4aa27a8a88fb13703
+    needsRegen: 0
+  - soundGraph: {fileID: 11400000, guid: 2c0a24d6de1409a4c8bee146a1dd8385, type: 2}
+    globalsAsset: {fileID: 0}
+    generatedAssets:
+    - 11047bbaff89b8043a28ae2a513f0d7c
+    needsRegen: 0
+  - soundGraph: {fileID: 11400000, guid: 3b28c0016451d0948b9a53b7f12b3768, type: 2}
+    globalsAsset: {fileID: 0}
+    generatedAssets:
+    - 41fce1f9a131e244988af25f24fe0b25
+    needsRegen: 0
+  - soundGraph: {fileID: 11400000, guid: 3b28c0016451d0948b9a53b7f12b3768, type: 2}
+    globalsAsset: {fileID: 0}
+    generatedAssets:
+    - 41fce1f9a131e244988af25f24fe0b25
+    needsRegen: 0

@@ -1,0 +1,22 @@
+{
+    "name": "SymphonyEditor",
+    "references": [
+        "GUID:a434bc53a0af14141b4fdbe4a5091d06",
+        "GUID:f432d9536f0469740adfb3c39f59a244",
+        "GUID:e5441b72eeac04c4480090d0d9ffdd1b",
+        "GUID:bfc810635a7572a4eaed6e5ee578b138",
+        "GUID:287dec81aa976a143a318a7e38398690",
+        "GUID:466d4cb32fd66ef4f99747d4eb7191d9"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

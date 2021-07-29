@@ -1,0 +1,1 @@
+Copyright 2020 ABXY Games inc., all rights reserved. Distributed under the [Unity Asset Store EULA](https://unity3d.com/legal/as_terms)

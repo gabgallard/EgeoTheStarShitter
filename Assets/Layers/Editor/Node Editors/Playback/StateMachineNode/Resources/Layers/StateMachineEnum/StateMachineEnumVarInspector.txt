@@ -1,0 +1,69 @@
+namespace ABXY.Layers.Editor.Graph_Variable_Editors
+{
+	public class {{this.classname}}Editor : GraphVariableEditor, InputNodeInspector, PlayerInspector
+	{
+
+
+		public override Type handlesType => typeof({{this.parentclassname}}.{{this.classname}});
+
+
+		public void DoDrawDefaultValueInInputNode(Rect position, string label, VariableEdit edit)
+		{
+			{{this.parentclassname}}.{{this.classname}} enumValue = ({{this.parentclassname}}.{{this.classname}})edit.objectValue;
+
+
+			LayersGUIUtilities.DrawDropdown(position, new GUIContent(label), enumValue, (newValue) => {
+				edit.objectValue = newValue;
+			});
+
+		}
+
+		public float CalculateDefaultValueHeightInInputNode(VariableEdit variable, string label)
+		{
+			return EditorGUIUtility.singleLineHeight;
+		}
+
+		public void DoDrawDefaultValueInPlayerInspector(Rect position, string label, VariableEdit edit)
+		{
+			{{this.parentclassname}}.{{this.classname}} enumValue = ({{this.parentclassname}}.{{this.classname}})edit.objectValue;
+
+
+			LayersGUIUtilities.DrawDropdown(position, new GUIContent(label), enumValue, (newValue) => {
+				edit.objectValue = newValue;
+			});
+
+		}
+
+		public float CalculateDefaultValueHeightPlayer(VariableEdit variable, string label)
+		{
+			return EditorGUIUtility.singleLineHeight;
+		}
+
+		public void OnDrawActualValue(Rect position, string label, VariableEdit edit)
+		{
+			{{this.parentclassname}}.{{this.classname}} enumValue = ({{this.parentclassname}}.{{this.classname}})edit.objectValue;
+
+			LayersGUIUtilities.DrawDropdown(position, new GUIContent(label), enumValue, (newValue) => {
+
+				edit.objectValue = newValue;
+			});
+
+		}
+
+		public float OnCalculateActualValueHeight(VariableEdit variable, string label)
+        {
+			return EditorGUIUtility.singleLineHeight;
+        }
+
+		public object GetDefaultValue()
+		{
+			return {{this.parentclassname}}.{{this.classname}}.NotActive;
+		}
+
+		public override string GetPrettyTypeName()
+		{
+			return "{{this.parentgraphname}}/{{this.prettyname}}";
+		}
+	}
+
+}

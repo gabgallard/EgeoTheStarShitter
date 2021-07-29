@@ -137,6 +137,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       dragging = true;
 
       Debug.Log($"OnPointerDown(), tag: {gameObject.tag}");
+
     }
   }
 

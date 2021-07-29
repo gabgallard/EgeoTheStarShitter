@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Audio Out
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1309.9104, y: 46.61174}
+  position: {x: 1960.4644, y: 56.94639}
   ports:
     keys:
     - audioIn
@@ -297,7 +297,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: Variable
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 252.99655, y: 412.94122}
+  position: {x: 631.89624, y: 139.10062}
   ports:
     keys:
     - playFinished
@@ -449,8 +449,8 @@ MonoBehaviour:
       _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: arrayIn
-        node: {fileID: 925820832604091590}
+      - fieldName: 596e8874-1914-4405-921b-e6ffe5abf9a6
+        node: {fileID: -3596704391793431116}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -643,6 +643,173 @@ MonoBehaviour:
     arrayType: 
     arrayElements: []
     defaultArrayElements: []
+--- !u!114 &-3596704391793431116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55262d65bb210b94194154cd9dca4cd3, type: 3}
+  m_Name: Switch Value Selector
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 902.14746, y: 134.86526}
+  ports:
+    keys:
+    - playFinished
+    - Input
+    - Output
+    - 859842b4-3f87-48e9-b144-13859dd6cd88
+    - 596e8874-1914-4405-921b-e6ffe5abf9a6
+    - f4608b84-318c-48d1-9b54-e8f96996b78c
+    - ad9605e8-7d82-4401-a8d4-fbf3a84506c0
+    values:
+    - _fieldName: playFinished
+      _node: {fileID: -3596704391793431116}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Input
+      _node: {fileID: -3596704391793431116}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: e363ced7-e8a0-4a96-8fa0-10ec69d8b046
+        node: {fileID: 139348532009116602}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: Output
+      _node: {fileID: -3596704391793431116}
+      _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: arrayIn
+        node: {fileID: 925820832604091590}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 859842b4-3f87-48e9-b144-13859dd6cd88
+      _node: {fileID: -3596704391793431116}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 596e8874-1914-4405-921b-e6ffe5abf9a6
+      _node: {fileID: -3596704391793431116}
+      _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: value
+        node: {fileID: -4371780701668132062}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: f4608b84-318c-48d1-9b54-e8f96996b78c
+      _node: {fileID: -3596704391793431116}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: ad9605e8-7d82-4401-a8d4-fbf3a84506c0
+      _node: {fileID: -3596704391793431116}
+      _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: value
+        node: {fileID: -1412025863667305772}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+  lastDrawSize: {x: 300, y: 269}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: 
+  comparisonType: System.String
+  comparisonArrayType: System.Single
+  elementType: System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable,
+    SymphonyRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+  elementArrayType: UnityEngine.AudioClip
+  switchElements:
+  - comparisonValue:
+      name: 
+      variableID: 859842b4-3f87-48e9-b144-13859dd6cd88
+      expose: 0
+      typeName: System.String
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 0}
+      defaultSerializedObjectValue: Planet
+      defaultUnityObjectValue: {fileID: 0}
+      arrayType: System.Single
+      arrayElements: []
+      defaultArrayElements: []
+    value:
+      name: 
+      variableID: 596e8874-1914-4405-921b-e6ffe5abf9a6
+      expose: 0
+      typeName: System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable,
+        SymphonyRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 0}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+      arrayType: UnityEngine.AudioClip
+      arrayElements: []
+      defaultArrayElements: []
+  - comparisonValue:
+      name: 
+      variableID: f4608b84-318c-48d1-9b54-e8f96996b78c
+      expose: 0
+      typeName: System.String
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 0}
+      defaultSerializedObjectValue: Star
+      defaultUnityObjectValue: {fileID: 0}
+      arrayType: System.Single
+      arrayElements: []
+      defaultArrayElements: []
+    value:
+      name: 
+      variableID: ad9605e8-7d82-4401-a8d4-fbf3a84506c0
+      expose: 0
+      typeName: System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable,
+        SymphonyRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 0}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+      arrayType: UnityEngine.AudioClip
+      arrayElements: []
+      defaultArrayElements: []
 --- !u!114 &-3424276528690859639
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -656,7 +823,7 @@ MonoBehaviour:
   m_Name: Variable
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 259.99207, y: 572.7427}
+  position: {x: 634.76385, y: 584.67896}
   ports:
     keys:
     - playFinished
@@ -697,8 +864,8 @@ MonoBehaviour:
       _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: arrayIn
-        node: {fileID: 4491861673546688689}
+      - fieldName: 596e8874-1914-4405-921b-e6ffe5abf9a6
+        node: {fileID: 4227741248305063995}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -981,7 +1148,7 @@ MonoBehaviour:
   m_Name: Random Number
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 647.2256, y: 411.58176}
+  position: {x: 1277.6033, y: 526.9956}
   ports:
     keys:
     - getNewNumber
@@ -1086,6 +1253,554 @@ MonoBehaviour:
   floatTo: 0
   intFrom: 1
   intTo: 0
+--- !u!114 &-1412025863667305772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e11bc7a588da754ab2a5d36bc9b5c2a, type: 3}
+  m_Name: Variable
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 629.12146, y: 318.44504}
+  ports:
+    keys:
+    - playFinished
+    - value
+    - e7e6186a-88eb-40be-b7d9-fa12a9e424cc
+    - 131caea0-b403-484e-a344-de5b49bde360
+    - df925cef-251a-41ed-90d0-6bc666951d86
+    - e8d1f086-7836-44cc-aa1a-71da69b0c33a
+    - 48568ade-af8a-4491-9c3e-f543ffafc1d1
+    - bd6bde35-61ad-4fd4-8408-77cf29dcf0ac
+    - 00dcb27b-b23f-40a4-a02b-046437e686b0
+    - 1b59722f-859c-4ce1-b239-6dcd6c30b77c
+    - 18a07728-8e2f-4b4c-98ee-f4d0facd4cad
+    - af77c1d4-5ed5-4b7e-89f5-595df7902011
+    - 69106eea-8dd9-4ce9-8d6d-2ca526810ffa
+    - 5fc41d72-406f-4372-8660-60d7a274fe13
+    - fb86e840-fa8e-49dc-b309-3f58147a6021
+    - 831fbbc9-f682-4db3-bd05-3b79604dbf31
+    - 5b9771de-c2fa-4855-9327-0152bb78df86
+    - b68ba97a-654f-4f02-9699-a74c334b083d
+    - 9fe3f23c-6842-4a71-99c1-f15c77b043e3
+    - 01bbcea4-54f3-48c9-b78d-514d141f9bdf
+    - b6941e6e-9680-4627-84f5-143544c13873
+    - 81234783-89fb-4782-af25-d98c7b33aec0
+    - ee17e981-acbb-42f1-be8f-3eaca7e0aad5
+    - 8e59ed33-a7cd-4824-a490-234854310142
+    - bdc6e1c7-5ca2-4ebb-a6e3-ff5c1f91852e
+    - c2cc9465-f3ce-4ee5-9997-8f62b51c7f0d
+    - 6392fda1-70ba-4dfd-8c52-73cdab1561d3
+    - 3fdf4ced-c43e-44e2-8082-f22f8540cf73
+    - b779617c-b866-438a-9642-1b586c9df484
+    - 92ec01ee-45c0-4587-9b3f-f57b705e9680
+    - 9db83669-f9cb-4895-8205-a2ad1280124a
+    - d02771a7-094c-4b1d-ab23-5a1bcb4ad9cb
+    - 490405fb-5a62-4c49-8187-d2483ae5bfaf
+    - d507e187-15f7-4eb6-843c-3e932460aace
+    - e1153169-2a25-4ad8-8ea9-bfece3b41063
+    - f220a963-5f89-40fa-b2f3-3452f4764760
+    values:
+    - _fieldName: playFinished
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: value
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: ad9605e8-7d82-4401-a8d4-fbf3a84506c0
+        node: {fileID: -3596704391793431116}
+        reroutePoints: []
+      - fieldName: ad9605e8-7d82-4401-a8d4-fbf3a84506c0
+        node: {fileID: 4227741248305063995}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: e7e6186a-88eb-40be-b7d9-fa12a9e424cc
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 131caea0-b403-484e-a344-de5b49bde360
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: df925cef-251a-41ed-90d0-6bc666951d86
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: e8d1f086-7836-44cc-aa1a-71da69b0c33a
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 48568ade-af8a-4491-9c3e-f543ffafc1d1
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: bd6bde35-61ad-4fd4-8408-77cf29dcf0ac
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 00dcb27b-b23f-40a4-a02b-046437e686b0
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 1b59722f-859c-4ce1-b239-6dcd6c30b77c
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 18a07728-8e2f-4b4c-98ee-f4d0facd4cad
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: af77c1d4-5ed5-4b7e-89f5-595df7902011
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 69106eea-8dd9-4ce9-8d6d-2ca526810ffa
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 5fc41d72-406f-4372-8660-60d7a274fe13
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: fb86e840-fa8e-49dc-b309-3f58147a6021
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 831fbbc9-f682-4db3-bd05-3b79604dbf31
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 5b9771de-c2fa-4855-9327-0152bb78df86
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: b68ba97a-654f-4f02-9699-a74c334b083d
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 9fe3f23c-6842-4a71-99c1-f15c77b043e3
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 01bbcea4-54f3-48c9-b78d-514d141f9bdf
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: b6941e6e-9680-4627-84f5-143544c13873
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 81234783-89fb-4782-af25-d98c7b33aec0
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: ee17e981-acbb-42f1-be8f-3eaca7e0aad5
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 8e59ed33-a7cd-4824-a490-234854310142
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: bdc6e1c7-5ca2-4ebb-a6e3-ff5c1f91852e
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: c2cc9465-f3ce-4ee5-9997-8f62b51c7f0d
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 6392fda1-70ba-4dfd-8c52-73cdab1561d3
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 3fdf4ced-c43e-44e2-8082-f22f8540cf73
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: b779617c-b866-438a-9642-1b586c9df484
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 92ec01ee-45c0-4587-9b3f-f57b705e9680
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 9db83669-f9cb-4895-8205-a2ad1280124a
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: d02771a7-094c-4b1d-ab23-5a1bcb4ad9cb
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 490405fb-5a62-4c49-8187-d2483ae5bfaf
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: d507e187-15f7-4eb6-843c-3e932460aace
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: e1153169-2a25-4ad8-8ea9-bfece3b41063
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: f220a963-5f89-40fa-b2f3-3452f4764760
+      _node: {fileID: -1412025863667305772}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+  lastDrawSize: {x: 220, y: 158}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: e5836a1f-1c68-4491-a4c6-e71df8dd0229
+  variableObject:
+    name: 
+    variableID: 00000000-0000-0000-0000-000000000000
+    expose: 4
+    typeName: System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable,
+      SymphonyRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+    expanded: 0
+    synchronizeWithGraphVariable: 1
+    serializedObjectValue: 
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: 
+    defaultUnityObjectValue: {fileID: 0}
+    arrayType: UnityEngine.AudioClip
+    arrayElements:
+    - name: 
+      variableID: 8e59ed33-a7cd-4824-a490-234854310142
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: fc7ddbdd601a63740b6e8b21d800d96c, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: bdc6e1c7-5ca2-4ebb-a6e3-ff5c1f91852e
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: 974e589791d792e439da37f352462f75, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: c2cc9465-f3ce-4ee5-9997-8f62b51c7f0d
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: 88427de7c34c4b14dbe040818531bb69, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: 6392fda1-70ba-4dfd-8c52-73cdab1561d3
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: f6a8d151e01f0584280d1a943d36e769, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: 3fdf4ced-c43e-44e2-8082-f22f8540cf73
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: 74e6e83ec0969904499b39964194e251, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: b779617c-b866-438a-9642-1b586c9df484
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: 9ba511eeb4c442042b9207bea6944358, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: 92ec01ee-45c0-4587-9b3f-f57b705e9680
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: e514dbff973579a43ad2bd03372b79f3, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: 9db83669-f9cb-4895-8205-a2ad1280124a
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: a7d3fcb111f300b4f95f1d8a324211ce, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: d02771a7-094c-4b1d-ab23-5a1bcb4ad9cb
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: 39d7373739e727c4eb348eb198844ecd, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: 490405fb-5a62-4c49-8187-d2483ae5bfaf
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: c4c01ae0358fe3d4ea98a27ce5f5323d, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: d507e187-15f7-4eb6-843c-3e932460aace
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: 19424f1b3ee58e340b00acef24e8c48c, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: e1153169-2a25-4ad8-8ea9-bfece3b41063
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: 6eec854830e11e94097e3cac91303068, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    - name: 
+      variableID: f220a963-5f89-40fa-b2f3-3452f4764760
+      expose: 0
+      typeName: UnityEngine.AudioClip
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 8300000, guid: 6eec854830e11e94097e3cac91303068, type: 3}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+    defaultArrayElements: []
+  isGraphInput: 0
+  graphVariableID: 
+  value:
+    name: 
+    variableID: 00000000-0000-0000-0000-000000000000
+    expose: 4
+    typeName: UnityEngine.AudioClip[]
+    expanded: 0
+    synchronizeWithGraphVariable: 1
+    serializedObjectValue: 
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: 
+    defaultUnityObjectValue: {fileID: 0}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
 --- !u!114 &-1265071359064653266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1099,7 +1814,7 @@ MonoBehaviour:
   m_Name: Random Number
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 645.22845, y: 42.515247}
+  position: {x: 1286.8009, y: 48.7741}
   ports:
     keys:
     - getNewNumber
@@ -1214,7 +1929,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4c732b7ca623984290ed573673d53ac, type: 3}
-  m_Name: PlanetSounds
+  m_Name: SingleObjectSounds
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 139348532009116602}
@@ -1227,11 +1942,14 @@ MonoBehaviour:
   - {fileID: -2602713910103357072}
   - {fileID: 4491861673546688689}
   - {fileID: 4897225995769640330}
+  - {fileID: -1412025863667305772}
+  - {fileID: -3596704391793431116}
+  - {fileID: 4227741248305063995}
   _owningMono: {fileID: 0}
   isCurrentlyInPool: 0
   subgraphNode: {fileID: 0}
   comment: 
-  lastAccessDSPTime: 779.2426666666667
+  lastAccessDSPTime: 1557.2053333333333
   _graphID: 335a543dbae21444caae2f479095908d
 --- !u!114 &139348532009116602
 MonoBehaviour:
@@ -1253,6 +1971,7 @@ MonoBehaviour:
     - playFinished
     - a01f8369-08e0-4d52-bcbf-4c0388036a66
     - c0b28c73-3ca7-473b-a0e9-29c879a10458
+    - e363ced7-e8a0-4a96-8fa0-10ec69d8b046
     values:
     - _fieldName: update
       _node: {fileID: 139348532009116602}
@@ -1296,13 +2015,41 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 2
       _dynamic: 1
-  lastDrawSize: {x: 356, y: 415}
+    - _fieldName: e363ced7-e8a0-4a96-8fa0-10ec69d8b046
+      _node: {fileID: 139348532009116602}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Input
+        node: {fileID: -3596704391793431116}
+        reroutePoints: []
+      - fieldName: Input
+        node: {fileID: 4227741248305063995}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 1
+  lastDrawSize: {x: 356, y: 489}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: 
-  variables: []
+  variables:
+  - name: TypeOfObject
+    variableID: e363ced7-e8a0-4a96-8fa0-10ec69d8b046
+    expose: 1
+    typeName: System.String
+    expanded: 1
+    synchronizeWithGraphVariable: 1
+    serializedObjectValue: Star
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: Star
+    defaultUnityObjectValue: {fileID: 0}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
   events:
-  - eventName: ClickPlanet
+  - eventName: Click
     onGraphEventCalled:
       m_PersistentCalls:
         m_Calls: []
@@ -1313,7 +2060,7 @@ MonoBehaviour:
     expanded: 1
     eventID: a01f8369-08e0-4d52-bcbf-4c0388036a66
     parameters: []
-  - eventName: SpawnPlanet
+  - eventName: Spawn
     onGraphEventCalled:
       m_PersistentCalls:
         m_Calls: []
@@ -1339,7 +2086,7 @@ MonoBehaviour:
   m_Name: Split
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 654.82495, y: 216.22403}
+  position: {x: 1282.7556, y: 218.39035}
   ports:
     keys:
     - playFinished
@@ -1386,8 +2133,8 @@ MonoBehaviour:
       _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: value
-        node: {fileID: -4371780701668132062}
+      - fieldName: Output
+        node: {fileID: -3596704391793431116}
         reroutePoints: []
       _direction: 0
       _connectionType: 1
@@ -1415,6 +2162,173 @@ MonoBehaviour:
   - UnityEngine.AudioClip
   typeName: System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable,
     SymphonyRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+--- !u!114 &4227741248305063995
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55262d65bb210b94194154cd9dca4cd3, type: 3}
+  m_Name: Switch Value Selector
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 942.10596, y: 608.1913}
+  ports:
+    keys:
+    - playFinished
+    - Input
+    - Output
+    - 859842b4-3f87-48e9-b144-13859dd6cd88
+    - 596e8874-1914-4405-921b-e6ffe5abf9a6
+    - f4608b84-318c-48d1-9b54-e8f96996b78c
+    - ad9605e8-7d82-4401-a8d4-fbf3a84506c0
+    values:
+    - _fieldName: playFinished
+      _node: {fileID: 4227741248305063995}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Input
+      _node: {fileID: 4227741248305063995}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: e363ced7-e8a0-4a96-8fa0-10ec69d8b046
+        node: {fileID: 139348532009116602}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: Output
+      _node: {fileID: 4227741248305063995}
+      _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: arrayIn
+        node: {fileID: 4491861673546688689}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 859842b4-3f87-48e9-b144-13859dd6cd88
+      _node: {fileID: 4227741248305063995}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 596e8874-1914-4405-921b-e6ffe5abf9a6
+      _node: {fileID: 4227741248305063995}
+      _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: value
+        node: {fileID: -3424276528690859639}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: f4608b84-318c-48d1-9b54-e8f96996b78c
+      _node: {fileID: 4227741248305063995}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: ad9605e8-7d82-4401-a8d4-fbf3a84506c0
+      _node: {fileID: 4227741248305063995}
+      _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: value
+        node: {fileID: -1412025863667305772}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+  lastDrawSize: {x: 300, y: 269}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: b55d725c-8192-480c-a51e-b5a45d7a572c
+  comparisonType: System.String
+  comparisonArrayType: System.Single
+  elementType: System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable,
+    SymphonyRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+  elementArrayType: UnityEngine.AudioClip
+  switchElements:
+  - comparisonValue:
+      name: 
+      variableID: 859842b4-3f87-48e9-b144-13859dd6cd88
+      expose: 0
+      typeName: System.String
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 0}
+      defaultSerializedObjectValue: Planet
+      defaultUnityObjectValue: {fileID: 0}
+      arrayType: System.Single
+      arrayElements: []
+      defaultArrayElements: []
+    value:
+      name: 
+      variableID: 596e8874-1914-4405-921b-e6ffe5abf9a6
+      expose: 0
+      typeName: System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable,
+        SymphonyRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 0}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+      arrayType: UnityEngine.AudioClip
+      arrayElements: []
+      defaultArrayElements: []
+  - comparisonValue:
+      name: 
+      variableID: f4608b84-318c-48d1-9b54-e8f96996b78c
+      expose: 0
+      typeName: System.String
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 0}
+      defaultSerializedObjectValue: Star
+      defaultUnityObjectValue: {fileID: 0}
+      arrayType: System.Single
+      arrayElements: []
+      defaultArrayElements: []
+    value:
+      name: 
+      variableID: ad9605e8-7d82-4401-a8d4-fbf3a84506c0
+      expose: 0
+      typeName: System.Collections.Generic.List`1[[ABXY.Layers.Runtime.GraphVariable,
+        SymphonyRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+      expanded: 0
+      synchronizeWithGraphVariable: 0
+      serializedObjectValue: 
+      unityObjectValue: {fileID: 0}
+      defaultSerializedObjectValue: 
+      defaultUnityObjectValue: {fileID: 0}
+      arrayType: UnityEngine.AudioClip
+      arrayElements: []
+      defaultArrayElements: []
 --- !u!114 &4491861673546688689
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1428,7 +2342,7 @@ MonoBehaviour:
   m_Name: Split
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 651.6178, y: 575.561}
+  position: {x: 1282.302, y: 722.46094}
   ports:
     keys:
     - playFinished
@@ -1478,8 +2392,8 @@ MonoBehaviour:
       _typeQualifiedName: UnityEngine.AudioClip[], UnityEngine.AudioModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: value
-        node: {fileID: -3424276528690859639}
+      - fieldName: Output
+        node: {fileID: 4227741248305063995}
         reroutePoints: []
       _direction: 0
       _connectionType: 1
@@ -1520,7 +2434,7 @@ MonoBehaviour:
   m_Name: Play
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 941.0707, y: 350.6752}
+  position: {x: 1556.5691, y: 526.197}
   ports:
     keys:
     - combinedVolume
@@ -1730,7 +2644,7 @@ MonoBehaviour:
   m_Name: Play
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 941.1036, y: 46.611736}
+  position: {x: 1551.4463, y: 51.66203}
   ports:
     keys:
     - combinedVolume

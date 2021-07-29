@@ -21,7 +21,9 @@ public class PlanetSpawnerController : MonoBehaviour
   float nextSpawnAt;
   bool loading = true;
 
-  void Awake()
+  SingleObjectSounds singleObjectSounds;
+
+    void Awake()
   {
     Instance = this;
     theCollider = GetComponent<Collider2D>();
@@ -29,7 +31,12 @@ public class PlanetSpawnerController : MonoBehaviour
     planets = new List<GameObject>();
   }
 
-  void Update()
+  private void Start()
+  {
+      singleObjectSounds = SingleObjectSounds.instance;
+  }
+
+    void Update()
   {
     if(!loading && !EgeoController.Instance.UniverseFinished && Time.time > nextSpawnAt && planets.Count < maxNumOfPlanets)
       SpawnPlanet(Random.Range(1, numOfPlanetsOnSpawn));
@@ -55,8 +62,16 @@ public class PlanetSpawnerController : MonoBehaviour
       Vector3 position = randomPointInCollider.RandomPoint();
       GameObject planet = Instantiate(planetPrefab, position, Quaternion.identity);
       planets.Add(planet);
-    }
-    theCollider.enabled = false;
+
+      //sound settings
+      singleObjectSounds.TypeOfObject = "Planet";
+      singleObjectSounds.Location = gameObject.transform;
+      double delay = AudioSettings.dspTime + 0.5;
+      singleObjectSounds.Spawn(delay);
+      //
+
+        }
+        theCollider.enabled = false;
 
     SetNextSpawnAt();
   }

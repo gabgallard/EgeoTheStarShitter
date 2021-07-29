@@ -28,8 +28,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   Transform egeoMouthInside;
 
-  public SingleObjectSounds singleObjectSounds;
-  //private string objectTag;
+  SingleObjectSounds singleObjectSounds;
 
   void Awake()
   {
@@ -48,7 +47,8 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     egeoMouthInside = EgeoController.Instance.MouthInside;
     material = GetComponent<Renderer>().material;
     StartBorning();
-    singleObjectSounds = GetComponent<SingleObjectSounds>();
+    singleObjectSounds = SingleObjectSounds.instance;
+    //singleObjectSounds = GetComponent<SingleObjectSounds>();
     }
 
   void Update()
@@ -143,6 +143,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
             //sound events
             //objectTag = gameObject.tag;
             singleObjectSounds.TypeOfObject = gameObject.tag;
+            singleObjectSounds.Location = gameObject.transform;
             singleObjectSounds.Click();
       
 

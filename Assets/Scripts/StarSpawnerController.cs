@@ -19,13 +19,18 @@ public class StarSpawnerController : MonoBehaviour
   [SerializeField] float temporalMass = 10.0f;
   [SerializeField] float temporalMassDuration = 1.0f;
 
-  void Awake()
+  SingleObjectSounds singleObjectSounds;
+
+    void Awake()
   {
     Instance = this;
     randomPointInCollider = new RandomPointInCollider(skyCollider);
   }
-
-  public void SpawnStar(int numStars)
+    private void Start()
+    {
+        singleObjectSounds = SingleObjectSounds.instance;
+    }
+    public void SpawnStar(int numStars)
   {
     for (int i = 0; i < numStars; i++)
     {
@@ -48,7 +53,12 @@ public class StarSpawnerController : MonoBehaviour
     Rigidbody2D bodyRigidbody = body.gameObject.GetComponent<Rigidbody2D>();
     bodyRigidbody.AddForce((target.position - body.position) * RandomDeviation(force), ForceMode2D.Impulse);
 
-
+        //sound settings
+    singleObjectSounds.TypeOfObject = "Star";
+    singleObjectSounds.Location = gameObject.transform;
+    double fiftyDsFromNow = AudioSettings.dspTime + 0.5;
+    singleObjectSounds.Spawn(fiftyDsFromNow);
+        //
 
     yield return new WaitForSeconds(RandomDeviation(firstProjectionDuration));
 

@@ -17,7 +17,10 @@ public class SingleObjectSounds: SoundGraphPlayer
     
     public SpawnDelegate onSpawn = null;
     public SpawnDelayedDelegate onSpawnDelayed = null;
-    
+
+    public static SingleObjectSounds instance;
+
+
     private void OnClickInternal( double time, Dictionary<string, object> data ){
         StartCoroutine(SymphonyUtils.WaitForDSPTime(time, () => {
             onClick?.Invoke();
@@ -31,9 +34,11 @@ public class SingleObjectSounds: SoundGraphPlayer
         onSpawnDelayed?.Invoke(time);
     }
     protected override void Awake( ){
+        instance = this;
         base.Awake();
         RegisterEventListener("Click", OnClickInternal);
         RegisterEventListener("Spawn", OnSpawnInternal);
+        
     }
     private readonly string graphAssetID = "335a543dbae21444caae2f479095908d";
     protected override void LoadGraph( ){

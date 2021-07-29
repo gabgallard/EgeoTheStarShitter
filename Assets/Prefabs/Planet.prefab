@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 1839368667}
   - component: {fileID: 8709944351338083142}
   - component: {fileID: 569011677}
-  - component: {fileID: 1089773773506690607}
   m_Layer: 6
   m_Name: Body
   m_TagString: Planet
@@ -196,75 +195,7 @@ MonoBehaviour:
   planet: {fileID: 1947866007815934419}
   bodyType: planet
   blowForce: 30
-  singleObjectSounds: {fileID: 1089773773506690607}
---- !u!114 &1089773773506690607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947866007180688151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f721cbde8f4cd744a65f5846730c090, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundGraph: {fileID: 11400000, guid: 335a543dbae21444caae2f479095908d, type: 2}
-  playOnAwake: 0
-  dontDestroyOnLoad: 0
-  localEventsList:
-  - eventName: Click
-    onGraphEventCalled:
-      m_PersistentCalls:
-        m_Calls: []
-    onGraphEventCalledEphemeral:
-      m_PersistentCalls:
-        m_Calls: []
-    expose: 0
-    expanded: 0
-    eventID: a01f8369-08e0-4d52-bcbf-4c0388036a66
-    parameters: []
-  - eventName: Spawn
-    onGraphEventCalled:
-      m_PersistentCalls:
-        m_Calls: []
-    onGraphEventCalledEphemeral:
-      m_PersistentCalls:
-        m_Calls: []
-    expose: 0
-    expanded: 0
-    eventID: c0b28c73-3ca7-473b-a0e9-29c879a10458
-    parameters: []
-  localVariablesList:
-  - name: TypeOfObject
-    variableID: e363ced7-e8a0-4a96-8fa0-10ec69d8b046
-    expose: 1
-    typeName: System.String
-    expanded: 0
-    synchronizeWithGraphVariable: 0
-    serializedObjectValue: Star
-    unityObjectValue: {fileID: 0}
-    defaultSerializedObjectValue: Planet
-    defaultUnityObjectValue: {fileID: 0}
-    arrayType: 
-    arrayElements: []
-    defaultArrayElements: []
-  - name: Location
-    variableID: 08425d07-1217-4357-b269-c25415e38d8f
-    expose: 1
-    typeName: UnityEngine.Transform
-    expanded: 0
-    synchronizeWithGraphVariable: 0
-    serializedObjectValue: 
-    unityObjectValue: {fileID: 0}
-    defaultSerializedObjectValue: 
-    defaultUnityObjectValue: {fileID: 1947866007815934418}
-    arrayType: 
-    arrayElements: []
-    defaultArrayElements: []
-  startingEvents: []
-  variablesExpanded: 1
-  eventsExpanded: 1
+  singleObjectSounds: {fileID: 0}
 --- !u!1 &1947866007645955926
 GameObject:
   m_ObjectHideFlags: 0

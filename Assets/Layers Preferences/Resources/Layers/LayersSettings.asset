@@ -118,8 +118,6 @@ MonoBehaviour:
   - bef6f8cd8e567ca4c8047920ca80aaf1
   - 335a543dbae21444caae2f479095908d
   - 2c0a24d6de1409a4c8bee146a1dd8385
-  - 580a6fa0-0688-4574-94bf-0253bb1bd7f7
-  - 3b28c0016451d0948b9a53b7f12b3768
   soundGraphDBValues:
   - soundGraph: {fileID: 11400000, guid: bef6f8cd8e567ca4c8047920ca80aaf1, type: 2}
     globalsAsset: {fileID: 0}
@@ -134,15 +132,5 @@ MonoBehaviour:
   - soundGraph: {fileID: 11400000, guid: 2c0a24d6de1409a4c8bee146a1dd8385, type: 2}
     globalsAsset: {fileID: 0}
     generatedAssets:
-    - 11047bbaff89b8043a28ae2a513f0d7c
-    needsRegen: 0
-  - soundGraph: {fileID: 11400000, guid: 3b28c0016451d0948b9a53b7f12b3768, type: 2}
-    globalsAsset: {fileID: 0}
-    generatedAssets:
-    - 41fce1f9a131e244988af25f24fe0b25
-    needsRegen: 0
-  - soundGraph: {fileID: 11400000, guid: 3b28c0016451d0948b9a53b7f12b3768, type: 2}
-    globalsAsset: {fileID: 0}
-    generatedAssets:
-    - 41fce1f9a131e244988af25f24fe0b25
+    - 42d8dc59b5062954e8413f4f413ef637
     needsRegen: 0

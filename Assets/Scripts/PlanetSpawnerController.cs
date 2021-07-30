@@ -23,7 +23,7 @@ public class PlanetSpawnerController : MonoBehaviour
 
   SingleObjectSounds singleObjectSounds;
 
-    void Awake()
+  void Awake()
   {
     Instance = this;
     theCollider = GetComponent<Collider2D>();
@@ -36,7 +36,7 @@ public class PlanetSpawnerController : MonoBehaviour
       singleObjectSounds = SingleObjectSounds.instance;
   }
 
-    void Update()
+  void Update()
   {
     if(!loading && !EgeoController.Instance.UniverseFinished && Time.time > nextSpawnAt && planets.Count < maxNumOfPlanets)
       SpawnPlanet(Random.Range(1, numOfPlanetsOnSpawn));
@@ -70,7 +70,7 @@ public class PlanetSpawnerController : MonoBehaviour
       singleObjectSounds.Spawn(delay);
       //
 
-        }
+    }
         theCollider.enabled = false;
 
     SetNextSpawnAt();

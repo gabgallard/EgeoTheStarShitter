@@ -6,19 +6,17 @@ using ABXY.Layers.Runtime.Midi;
 [AddComponentMenu("Layers / Soundgraphs / CollisionSounds")]
 public class CollisionSounds: SoundGraphPlayer
 {
-    public delegate void CollisionDelegate( System.Boolean ColisionSpeed );
-    public delegate void CollisionDelayedDelegate( System.Double time, System.Boolean ColisionSpeed );
+    public delegate void CollisionDelegate( );
+    public delegate void CollisionDelayedDelegate( System.Double time );
     
     public CollisionDelegate onCollision = null;
     public CollisionDelayedDelegate onCollisionDelayed = null;
     
     private void OnCollisionInternal( double time, Dictionary<string, object> data ){
-        object ColisionSpeed = false;
-        data.TryGetValue("ColisionSpeed", out ColisionSpeed);
         StartCoroutine(SymphonyUtils.WaitForDSPTime(time, () => {
-            onCollision?.Invoke((System.Boolean)ColisionSpeed);
+            onCollision?.Invoke();
         }));
-        onCollisionDelayed?.Invoke(time, (System.Boolean)ColisionSpeed);
+        onCollisionDelayed?.Invoke(time);
     }
     protected override void Awake( ){
         base.Awake();
@@ -46,23 +44,21 @@ public class CollisionSounds: SoundGraphPlayer
             SetVariable("TypeOfObject",value);
         }
     }
-    public System.Boolean CollisionSpeed{
+    public System.Single CollisionSpeed{
         get {
-            return (System.Boolean)GetVariable("CollisionSpeed");
+            return (System.Single)GetVariable("CollisionSpeed");
         }
         set {
             SetVariable("CollisionSpeed",value);
         }
     }
-    public void Collision( System.Double startTime, System.Boolean ColisionSpeed ){
+    public void Collision( ){
         Dictionary<string, object> parameters = new Dictionary<string, object>();
-        parameters.Add("ColisionSpeed",ColisionSpeed);
-        TriggerEvent("Collision", startTime, parameters);
-    }
-    public void Collision( System.Boolean ColisionSpeed ){
-        Dictionary<string, object> parameters = new Dictionary<string, object>();
-        parameters.Add("ColisionSpeed",ColisionSpeed);
         TriggerEvent("Collision", AudioSettings.dspTime, parameters);
+    }
+    public void Collision( System.Double startTime ){
+        Dictionary<string, object> parameters = new Dictionary<string, object>();
+        TriggerEvent("Collision", startTime, parameters);
     }
     public void StopAll( ){
         TriggerEvent("EndAll", AudioSettings.dspTime, new Dictionary<string,object>());

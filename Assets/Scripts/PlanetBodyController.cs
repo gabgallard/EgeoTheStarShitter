@@ -30,6 +30,8 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   SingleObjectSounds singleObjectSounds;
 
+  CollisionSounds collisionSounds;
+
   void Awake()
   {
     springJoint = GetComponent<SpringJoint2D>();
@@ -40,7 +42,8 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     shakingAmplitude = RandomDeviation(shakingAmplitude);
     slurpDuration = RandomDeviation(slurpDuration);
     bornDuration = RandomDeviation(bornDuration);
-  }
+        collisionSounds = CollisionSounds.instance;
+    }
 
   void Start()
   {
@@ -48,7 +51,8 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     material = GetComponent<Renderer>().material;
     StartBorning();
     singleObjectSounds = SingleObjectSounds.instance;
-    //singleObjectSounds = GetComponent<SingleObjectSounds>();
+    //collisionSounds = CollisionSounds.instance;
+    //collisionSounds = GameObject.Find("CollisionSounds").GetComponent<CollisionSounds>();
     }
 
   void Update()
@@ -128,7 +132,15 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     string objectBType = collisionInfo.gameObject.tag;
     float magnitude = collisionInfo.relativeVelocity.magnitude;
 
-    Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
+    //sound settings
+    collisionSounds.TypeOfObject = objectBType;
+    collisionSounds.Location = gameObject.transform;
+    collisionSounds.CollisionSpeed = magnitude;
+    //double delay = AudioSettings.dspTime + 0.5;
+    collisionSounds.Collision();
+    //
+
+        Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
   }
 
   // Drag and Drop :: INI

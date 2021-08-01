@@ -11,6 +11,8 @@ public class CollisionSounds: SoundGraphPlayer
     
     public CollisionDelegate onCollision = null;
     public CollisionDelayedDelegate onCollisionDelayed = null;
+
+    public static CollisionSounds instance;
     
     private void OnCollisionInternal( double time, Dictionary<string, object> data ){
         StartCoroutine(SymphonyUtils.WaitForDSPTime(time, () => {
@@ -19,6 +21,7 @@ public class CollisionSounds: SoundGraphPlayer
         onCollisionDelayed?.Invoke(time);
     }
     protected override void Awake( ){
+        instance = this;
         base.Awake();
         RegisterEventListener("Collision", OnCollisionInternal);
     }

@@ -132,15 +132,17 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     string objectBType = collisionInfo.gameObject.tag;
     float magnitude = collisionInfo.relativeVelocity.magnitude;
 
-    //sound settings
-    collisionSounds.TypeOfObject = objectBType;
-    collisionSounds.Location = gameObject.transform;
-    collisionSounds.CollisionSpeed = magnitude;
-    //double delay = AudioSettings.dspTime + 0.5;
-    collisionSounds.Collision();
-    //
+    if(!dragging) {
+      //sound settings
+      collisionSounds.TypeOfObject = objectBType;
+      collisionSounds.Location = gameObject.transform;
+      collisionSounds.CollisionSpeed = magnitude;
+      //double delay = AudioSettings.dspTime + 0.5;
+      collisionSounds.Collision();
+      //
+    }
 
-        Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
+    Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}, dragging: {dragging}");
   }
 
   // Drag and Drop :: INI
@@ -150,17 +152,15 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     {
       cursorOffset = transform.position - MouseCursor2D();
       StopSpringJoint();
-      dragging = true;
+      StartDragging();
 
-            //sound events
-            //objectTag = gameObject.tag;
-            singleObjectSounds.TypeOfObject = gameObject.tag;
-            singleObjectSounds.Location = gameObject.transform;
-            singleObjectSounds.Click();
-      
+      //sound events
+      //objectTag = gameObject.tag;
+      singleObjectSounds.TypeOfObject = gameObject.tag;
+      singleObjectSounds.Location = gameObject.transform;
+      singleObjectSounds.Click();
 
       Debug.Log($"OnPointerDown(), tag: {gameObject.tag}");
-
     }
   }
 
@@ -168,8 +168,8 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   {
     if(!underForces)
     {
+      StopDragging();
       StartSpringJoint();
-      dragging = false;
     }
   }
 
@@ -180,8 +180,15 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     return cursorPosition;
   }
 
+  void StartDragging()
+  {
+    theRigidbody.bodyType = RigidbodyType2D.Static;
+    dragging = true;
+  }
+
   void StopDragging()
   {
+    theRigidbody.bodyType = RigidbodyType2D.Dynamic;
     dragging = false;
   }
 

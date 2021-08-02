@@ -132,13 +132,15 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     string objectBType = collisionInfo.gameObject.tag;
     float magnitude = collisionInfo.relativeVelocity.magnitude;
 
-    //sound settings
-    collisionSounds.TypeOfObject = objectBType;
-    collisionSounds.Location = gameObject.transform;
-    collisionSounds.CollisionSpeed = magnitude;
-    //double delay = AudioSettings.dspTime + 0.5;
-    collisionSounds.Collision();
-    //
+    if(!dragging) {
+      //sound settings
+      collisionSounds.TypeOfObject = objectBType;
+      collisionSounds.Location = gameObject.transform;
+      collisionSounds.CollisionSpeed = magnitude;
+      //double delay = AudioSettings.dspTime + 0.5;
+      collisionSounds.Collision();
+      //
+    }
 
         Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
   }
@@ -157,7 +159,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
             singleObjectSounds.TypeOfObject = gameObject.tag;
             singleObjectSounds.Location = gameObject.transform;
             singleObjectSounds.Click();
-      
+
 
       Debug.Log($"OnPointerDown(), tag: {gameObject.tag}");
 

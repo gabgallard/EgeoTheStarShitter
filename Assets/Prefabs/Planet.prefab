@@ -56,7 +56,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!231 &1947866007180688149
 SpringJoint2D:
@@ -195,7 +195,6 @@ MonoBehaviour:
   planet: {fileID: 1947866007815934419}
   bodyType: planet
   blowForce: 30
-  singleObjectSounds: {fileID: 0}
 --- !u!1 &1947866007645955926
 GameObject:
   m_ObjectHideFlags: 0

@@ -632,7 +632,10 @@ MonoBehaviour:
       _node: {fileID: 174130326009407262}
       _typeQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: 068d2155-1738-42c0-bd28-4b54b8789304
+        node: {fileID: 5146191620067075403}
+        reroutePoints: []
       _direction: 0
       _connectionType: 1
       _typeConstraint: 2
@@ -1897,7 +1900,10 @@ MonoBehaviour:
       _node: {fileID: 5146191620067075403}
       _typeQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: playAtTransform
+        node: {fileID: 174130326009407262}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 1
@@ -1938,7 +1944,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 2
       _dynamic: 1
-  lastDrawSize: {x: 356, y: 604}
+  lastDrawSize: {x: 356, y: 564}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: 

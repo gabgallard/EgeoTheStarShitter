@@ -142,7 +142,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       //
     }
 
-    Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
+    Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}, dragging: {dragging}");
   }
 
   // Drag and Drop :: INI

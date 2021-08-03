@@ -32,8 +32,12 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   CollisionSounds collisionSounds;
 
-  void Awake()
-  {
+    float cooldownCounter = 2f;
+    bool coolingdown = false;
+
+
+    void Awake()
+    {
     springJoint = GetComponent<SpringJoint2D>();
     theRigidbody = GetComponent<Rigidbody2D>();
 
@@ -51,8 +55,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     material = GetComponent<Renderer>().material;
     StartBorning();
     singleObjectSounds = SingleObjectSounds.instance;
-    //collisionSounds = CollisionSounds.instance;
-    //collisionSounds = GameObject.Find("CollisionSounds").GetComponent<CollisionSounds>();
     }
 
   void Update()
@@ -72,7 +74,11 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
     if(!underForces && dragging)
       transform.position = MouseCursor2D() + cursorOffset;
-  }
+
+     
+
+       
+    }
 
   void StartShaking()
   {
@@ -132,18 +138,32 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     string objectBType = collisionInfo.gameObject.tag;
     float magnitude = collisionInfo.relativeVelocity.magnitude;
 
-    if(!dragging) {
-      //sound settings
-      collisionSounds.TypeOfObject = objectBType;
-      collisionSounds.Location = gameObject.transform;
-      collisionSounds.CollisionSpeed = magnitude;
-      //double delay = AudioSettings.dspTime + 0.5;
-      collisionSounds.Collision();
-      //
-    }
+        if (!dragging) {
+            //sound settings
+            collisionSounds.TypeOfObject = objectBType;
+            collisionSounds.Location = gameObject.transform;
+            collisionSounds.CollisionSpeed = magnitude;
+            collisionSounds.CollisionCooldown = coolingdown;
 
-    Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}, dragging: {dragging}");
-  }
+            if (!coolingdown)
+            {
+                coolingdown = true;
+                collisionSounds.Collision(); 
+            }
+            else
+            {
+                cooldownCounter -= Time.deltaTime;
+                if (cooldownCounter <= 0)
+                {
+                    coolingdown = false;
+                }
+            }
+
+        }
+        Debug.Log("cooldown bool: " + collisionSounds.CollisionCooldown);
+
+        //Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}, dragging: {dragging}");
+    }
 
   // Drag and Drop :: INI
   public void OnPointerDown(PointerEventData eventData)
@@ -155,7 +175,6 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       StartDragging();
 
       //sound events
-      //objectTag = gameObject.tag;
       singleObjectSounds.TypeOfObject = gameObject.tag;
       singleObjectSounds.Location = gameObject.transform;
       singleObjectSounds.Click();

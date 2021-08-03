@@ -55,6 +55,14 @@ public class CollisionSounds: SoundGraphPlayer
             SetVariable("CollisionSpeed",value);
         }
     }
+    public System.Boolean CollisionCooldown{
+        get {
+            return (System.Boolean)GetVariable("CollisionCooldown");
+        }
+        set {
+            SetVariable("CollisionCooldown",value);
+        }
+    }
     public void Collision( ){
         Dictionary<string, object> parameters = new Dictionary<string, object>();
         TriggerEvent("Collision", AudioSettings.dspTime, parameters);

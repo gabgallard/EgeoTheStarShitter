@@ -139,10 +139,7 @@ MonoBehaviour:
       _node: {fileID: -7458519322529234535}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: combinedVolume
-        node: {fileID: -794711406650599329}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 1
@@ -195,6 +192,87 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2505317240211325276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1470c6600b7454a9597e16df0d6148, type: 3}
+  m_Name: Wait For Condition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 522.43396, y: 490.46802}
+  ports:
+    keys:
+    - start
+    - reset
+    - end
+    - condition
+    - playFinished
+    values:
+    - _fieldName: start
+      _node: {fileID: -2505317240211325276}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: af1b343c-966e-43d4-b770-0b8bfa170e8e
+        node: {fileID: 5146191620067075403}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: reset
+      _node: {fileID: -2505317240211325276}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: end
+      _node: {fileID: -2505317240211325276}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: getNewNumber
+        node: {fileID: 3719160973679265453}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: condition
+      _node: {fileID: -2505317240211325276}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: 3066aaf6-6537-4b04-89d6-fb14bc089df6
+        node: {fileID: 5146191620067075403}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: playFinished
+      _node: {fileID: -2505317240211325276}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+  lastDrawSize: {x: 150, y: 114}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: 
+  condition: 0
 --- !u!114 &-794711406650599329
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,10 +313,7 @@ MonoBehaviour:
       _node: {fileID: -794711406650599329}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: output
-        node: {fileID: -7458519322529234535}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 1
       _typeConstraint: 1
@@ -414,7 +489,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 1
       _dynamic: 1
-  lastDrawSize: {x: 270, y: 282}
+  lastDrawSize: {x: 270, y: 284}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: 12ae393e-9ff5-4f18-82fe-7e5c4bded058
@@ -453,7 +528,7 @@ MonoBehaviour:
   eventPreviewType: 1
   combinedVolume: 1
   combinedPan: 0
-  playFinishedWhen: 0
+  playFinishedWhen: 1
   endTime: 0
   audioOut: {fileID: 0}
   audioFlowOutID: 
@@ -481,11 +556,12 @@ MonoBehaviour:
   - {fileID: 2374506294369937428}
   - {fileID: -8293531969602660064}
   - {fileID: -7458519322529234535}
+  - {fileID: -2505317240211325276}
   _owningMono: {fileID: 0}
   isCurrentlyInPool: 0
   subgraphNode: {fileID: 0}
   comment: 
-  lastAccessDSPTime: 564.288
+  lastAccessDSPTime: 3546.163818359375
   _graphID: 2c0a24d6de1409a4c8bee146a1dd8385
 --- !u!114 &174130326009407262
 MonoBehaviour:
@@ -730,7 +806,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 2
       _dynamic: 0
-  lastDrawSize: {x: 300, y: 714}
+  lastDrawSize: {x: 300, y: 674}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: 5ccd9051-55f0-4ec3-8a4c-fb8a4aab3084
@@ -1092,8 +1168,8 @@ MonoBehaviour:
       _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: af1b343c-966e-43d4-b770-0b8bfa170e8e
-        node: {fileID: 5146191620067075403}
+      - fieldName: end
+        node: {fileID: -2505317240211325276}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1171,7 +1247,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 1
       _dynamic: 1
-  lastDrawSize: {x: 208, y: 154}
+  lastDrawSize: {x: 208, y: 156}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: d3be7275-2064-4bcc-b252-301a893de987
@@ -1877,6 +1953,7 @@ MonoBehaviour:
     - b1171a0e-3b44-4e42-a89e-358e1d453735
     - 3b972393-f348-43d4-8010-656b3932820d
     - af1b343c-966e-43d4-b770-0b8bfa170e8e
+    - 3066aaf6-6537-4b04-89d6-fb14bc089df6
     values:
     - _fieldName: update
       _node: {fileID: 5146191620067075403}
@@ -1937,14 +2014,26 @@ MonoBehaviour:
       _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: getNewNumber
-        node: {fileID: 3719160973679265453}
+      - fieldName: start
+        node: {fileID: -2505317240211325276}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 2
       _dynamic: 1
-  lastDrawSize: {x: 356, y: 564}
+    - _fieldName: 3066aaf6-6537-4b04-89d6-fb14bc089df6
+      _node: {fileID: 5146191620067075403}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: condition
+        node: {fileID: -2505317240211325276}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 1
+  lastDrawSize: {x: 356, y: 659}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: 
@@ -1984,6 +2073,19 @@ MonoBehaviour:
     serializedObjectValue: 1
     unityObjectValue: {fileID: 0}
     defaultSerializedObjectValue: 1
+    defaultUnityObjectValue: {fileID: 0}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
+  - name: CollisionCooldown
+    variableID: 3066aaf6-6537-4b04-89d6-fb14bc089df6
+    expose: 1
+    typeName: System.Boolean
+    expanded: 1
+    synchronizeWithGraphVariable: 1
+    serializedObjectValue: True
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: True
     defaultUnityObjectValue: {fileID: 0}
     arrayType: 
     arrayElements: []
@@ -2351,7 +2453,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 1
       _dynamic: 1
-  lastDrawSize: {x: 220, y: 158}
+  lastDrawSize: {x: 220, y: 160}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: d618791c-6d1f-4475-a049-05b0fce0ab82

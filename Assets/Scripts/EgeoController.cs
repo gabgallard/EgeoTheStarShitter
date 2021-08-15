@@ -31,6 +31,12 @@ public class EgeoController : MonoBehaviour
     numStarsForAWonderfulUniverse = RandomDeviation(numStarsForAWonderfulUniverse);
   }
 
+  void Update()
+  {
+    if(Input.GetKeyDown(KeyCode.S))
+      StartShitting();
+  }
+
   void ShitStar()
   {
     int numOfStarsToShit = RandomDeviation(numStarsOnEachShit);

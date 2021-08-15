@@ -1227,7 +1227,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350693858}
-  - component: {fileID: 350693859}
   m_Layer: 7
   m_Name: Solvers
   m_TagString: Mouth
@@ -1252,22 +1251,6 @@ Transform:
   m_Father: {fileID: 874558786}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &350693859
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350693857}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!1 &361752087
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,7 +2109,7 @@ MonoBehaviour:
     synchronizeWithGraphVariable: 1
     serializedObjectValue: 1
     unityObjectValue: {fileID: 0}
-    defaultSerializedObjectValue: 0
+    defaultSerializedObjectValue: 1
     defaultUnityObjectValue: {fileID: 0}
     arrayType: 
     arrayElements: []
@@ -3146,6 +3129,7 @@ GameObject:
   - component: {fileID: 874558786}
   - component: {fileID: 874558787}
   - component: {fileID: 874558788}
+  - component: {fileID: 874558789}
   m_Layer: 7
   m_Name: Mouth
   m_TagString: Mouth
@@ -3183,9 +3167,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.02, y: -0.2}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.08
 --- !u!114 &874558788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3208,6 +3192,27 @@ MonoBehaviour:
   lipMovementSpeed: 3
   lipMovementAmplitudeWhenSmeling: 0.5
   actualLipMovementAmplitude: 0.2
+--- !u!50 &874558789
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874558785}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &896575480
 GameObject:
   m_ObjectHideFlags: 0

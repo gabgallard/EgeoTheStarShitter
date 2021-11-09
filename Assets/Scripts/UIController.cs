@@ -21,12 +21,17 @@ public class UIController : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    animator.SetTrigger("Intro");
+    StartIntroScene();
   }
 
   void StartSky()
   {
     PlanetSpawnerController.Instance.FirstSpawn();
+  }
+
+  void StartIntroScene()
+  {
+    animator.SetTrigger("Intro");
   }
 
   void IntroFinished()
@@ -43,6 +48,11 @@ public class UIController : MonoBehaviour
   public void ShowWonderfulUniverseMessage()
   {
     animator.SetTrigger("Wonderful");
+  }
+
+  void FinalSceneStartFadingOut()
+  {
+    Debug.Log("FinalSceneStartFadingOut()");
   }
 
   void SkyWhiteFlash()

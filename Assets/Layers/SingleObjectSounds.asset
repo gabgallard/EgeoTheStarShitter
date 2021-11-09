@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Audio Out
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1960.4644, y: 56.94639}
+  position: {x: 1877.787, y: 30.918299}
   ports:
     keys:
     - audioIn
@@ -45,10 +45,10 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: audioOut
-        node: {fileID: 5024938419263663627}
+        node: {fileID: 4897225995769640330}
         reroutePoints: []
       - fieldName: audioOut
-        node: {fileID: 4897225995769640330}
+        node: {fileID: 5024938419263663627}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   bypassReverb: 0
   volume: 1
   audioMixerGroup: {fileID: 2215116023204830974, guid: 9a9b2376dc550124c97e730c2478ad66, type: 2}
-  priority: 128
+  priority: 1
   pitch: 1
   stereoPan: 0
   worldPosition: {x: 0, y: 0, z: 0}
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: Variable
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 631.89624, y: 139.10062}
+  position: {x: 545.8066, y: -155.69467}
   ports:
     keys:
     - playFinished
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Name: Switch Value Selector
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 902.14746, y: 134.86526}
+  position: {x: 940.4241, y: -15.179035}
   ports:
     keys:
     - playFinished
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_Name: Variable
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 634.76385, y: 584.67896}
+  position: {x: 543.48804, y: 709.2645}
   ports:
     keys:
     - playFinished
@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_Name: Random Number
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1277.6033, y: 526.9956}
+  position: {x: 1222.485, y: 390.7309}
   ports:
     keys:
     - getNewNumber
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_Name: Variable
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 629.12146, y: 318.44504}
+  position: {x: 547.30347, y: 27.52156}
   ports:
     keys:
     - playFinished
@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_Name: Random Number
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1286.8009, y: 48.7741}
+  position: {x: 1239.3379, y: -217.63106}
   ports:
     keys:
     - getNewNumber
@@ -1952,7 +1952,7 @@ MonoBehaviour:
   isCurrentlyInPool: 0
   subgraphNode: {fileID: 0}
   comment: 
-  lastAccessDSPTime: 529.8773333333334
+  lastAccessDSPTime: 1036.3093333333334
   _graphID: 335a543dbae21444caae2f479095908d
 --- !u!114 &139348532009116602
 MonoBehaviour:
@@ -1967,7 +1967,7 @@ MonoBehaviour:
   m_Name: Graph Data
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 122.022095, y: -2.5421271}
+  position: {x: 106.71146, y: 81.666405}
   ports:
     keys:
     - update
@@ -2046,7 +2046,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 1
       _dynamic: 1
-  lastDrawSize: {x: 356, y: 632}
+  lastDrawSize: {x: 356, y: 584}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: 
@@ -2115,7 +2115,7 @@ MonoBehaviour:
   m_Name: Split
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1282.7556, y: 218.39035}
+  position: {x: 1287.3488, y: 120.40225}
   ports:
     keys:
     - playFinished
@@ -2204,7 +2204,7 @@ MonoBehaviour:
   m_Name: Switch Value Selector
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 942.10596, y: 608.1913}
+  position: {x: 859.42847, y: 476.51978}
   ports:
     keys:
     - playFinished
@@ -2371,7 +2371,7 @@ MonoBehaviour:
   m_Name: Split
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1282.302, y: 722.46094}
+  position: {x: 1236.3701, y: 650.5009}
   ports:
     keys:
     - playFinished
@@ -2463,7 +2463,7 @@ MonoBehaviour:
   m_Name: Play
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1556.5691, y: 526.197}
+  position: {x: 1533.6033, y: 365.43527}
   ports:
     keys:
     - combinedVolume
@@ -2673,7 +2673,7 @@ MonoBehaviour:
   m_Name: Play
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1551.4463, y: 51.66203}
+  position: {x: 1539.1978, y: -107.56865}
   ports:
     keys:
     - combinedVolume

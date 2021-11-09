@@ -195,6 +195,8 @@ MonoBehaviour:
   planet: {fileID: 1947866007815934419}
   bodyType: planet
   blowForce: 30
+  singleObjectSounds: {fileID: 2649767232678949476}
+  collisionSounds: {fileID: 2365818119820675667}
 --- !u!1 &1947866007645955926
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +278,221 @@ Transform:
   m_Children:
   - {fileID: 1947866007645955925}
   - {fileID: 1947866007180688150}
+  - {fileID: 3515671410446733323}
+  - {fileID: 8320319328856960154}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3135842596116265134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3515671410446733323}
+  - component: {fileID: 2365818119820675667}
+  m_Layer: 0
+  m_Name: CollisionSounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3515671410446733323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135842596116265134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1947866007815934418}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2365818119820675667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135842596116265134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e895344138fe19b40836d4a3812dbfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundGraph: {fileID: 11400000, guid: 2c0a24d6de1409a4c8bee146a1dd8385, type: 2}
+  playOnAwake: 1
+  dontDestroyOnLoad: 0
+  localEventsList:
+  - eventName: Collision
+    onGraphEventCalled:
+      m_PersistentCalls:
+        m_Calls: []
+    onGraphEventCalledEphemeral:
+      m_PersistentCalls:
+        m_Calls: []
+    expose: 0
+    expanded: 0
+    eventID: af1b343c-966e-43d4-b770-0b8bfa170e8e
+    parameters: []
+  localVariablesList:
+  - name: Location
+    variableID: 068d2155-1738-42c0-bd28-4b54b8789304
+    expose: 1
+    typeName: UnityEngine.Transform
+    expanded: 0
+    synchronizeWithGraphVariable: 0
+    serializedObjectValue: 
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: 
+    defaultUnityObjectValue: {fileID: 1947866007815934418}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
+  - name: TypeOfObject
+    variableID: b1171a0e-3b44-4e42-a89e-358e1d453735
+    expose: 1
+    typeName: System.String
+    expanded: 0
+    synchronizeWithGraphVariable: 1
+    serializedObjectValue: Planet
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: Planet
+    defaultUnityObjectValue: {fileID: 0}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
+  - name: CollisionSpeed
+    variableID: 3b972393-f348-43d4-8010-656b3932820d
+    expose: 1
+    typeName: System.Single
+    expanded: 0
+    synchronizeWithGraphVariable: 1
+    serializedObjectValue: 1
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: 1
+    defaultUnityObjectValue: {fileID: 0}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
+  - name: CollisionCooldown
+    variableID: 3066aaf6-6537-4b04-89d6-fb14bc089df6
+    expose: 1
+    typeName: System.Boolean
+    expanded: 0
+    synchronizeWithGraphVariable: 1
+    serializedObjectValue: True
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: True
+    defaultUnityObjectValue: {fileID: 0}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
+  startingEvents: []
+  variablesExpanded: 1
+  eventsExpanded: 1
+--- !u!1 &5248658367479812870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8320319328856960154}
+  - component: {fileID: 2649767232678949476}
+  m_Layer: 0
+  m_Name: SingleObjectSounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8320319328856960154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248658367479812870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1947866007815934418}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2649767232678949476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248658367479812870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a209897325efe48895a48ac4d17b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundGraph: {fileID: 11400000, guid: 335a543dbae21444caae2f479095908d, type: 2}
+  playOnAwake: 1
+  dontDestroyOnLoad: 0
+  localEventsList:
+  - eventName: Click
+    onGraphEventCalled:
+      m_PersistentCalls:
+        m_Calls: []
+    onGraphEventCalledEphemeral:
+      m_PersistentCalls:
+        m_Calls: []
+    expose: 0
+    expanded: 0
+    eventID: a01f8369-08e0-4d52-bcbf-4c0388036a66
+    parameters: []
+  - eventName: Spawn
+    onGraphEventCalled:
+      m_PersistentCalls:
+        m_Calls: []
+    onGraphEventCalledEphemeral:
+      m_PersistentCalls:
+        m_Calls: []
+    expose: 0
+    expanded: 0
+    eventID: c0b28c73-3ca7-473b-a0e9-29c879a10458
+    parameters: []
+  localVariablesList:
+  - name: TypeOfObject
+    variableID: e363ced7-e8a0-4a96-8fa0-10ec69d8b046
+    expose: 1
+    typeName: System.String
+    expanded: 0
+    synchronizeWithGraphVariable: 1
+    serializedObjectValue: Planet
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: Planet
+    defaultUnityObjectValue: {fileID: 0}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
+  - name: Location
+    variableID: 08425d07-1217-4357-b269-c25415e38d8f
+    expose: 1
+    typeName: UnityEngine.Transform
+    expanded: 0
+    synchronizeWithGraphVariable: 0
+    serializedObjectValue: 
+    unityObjectValue: {fileID: 0}
+    defaultSerializedObjectValue: 
+    defaultUnityObjectValue: {fileID: 1947866007815934418}
+    arrayType: 
+    arrayElements: []
+    defaultArrayElements: []
+  startingEvents: []
+  variablesExpanded: 1
+  eventsExpanded: 1

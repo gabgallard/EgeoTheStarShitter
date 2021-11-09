@@ -19,7 +19,10 @@ public class StarSpawnerController : MonoBehaviour
   [SerializeField] float temporalMass = 10.0f;
   [SerializeField] float temporalMassDuration = 1.0f;
 
-  SingleObjectSounds singleObjectSounds;
+  [SerializeField] SingleObjectSounds singleObjectSounds;
+  [SerializeField] CollisionSounds collisionSounds;
+
+    //SingleObjectSounds singleObjectSounds;
 
     void Awake()
   {
@@ -28,7 +31,7 @@ public class StarSpawnerController : MonoBehaviour
   }
     private void Start()
     {
-        singleObjectSounds = SingleObjectSounds.instance;
+        //singleObjectSounds = SingleObjectSounds.instance;
     }
     public void SpawnStar(int numStars)
   {

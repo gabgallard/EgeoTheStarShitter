@@ -14,14 +14,15 @@ public class PlanetSpawnerController : MonoBehaviour
   [SerializeField] GameObject planetPrefab;
   [SerializeField] float betweenSpawnsDuration;
   [SerializeField] int numOfPlanetsOnSpawn;
+  [SerializeField] SingleObjectSounds singleObjectSounds;
 
 
-  List<GameObject> planets;
+    List<GameObject> planets;
 
   float nextSpawnAt;
   bool loading = true;
 
-  SingleObjectSounds singleObjectSounds;
+  //SingleObjectSounds singleObjectSounds;
 
   void Awake()
   {
@@ -33,7 +34,7 @@ public class PlanetSpawnerController : MonoBehaviour
 
   private void Start()
   {
-      singleObjectSounds = SingleObjectSounds.instance;
+
   }
 
   void Update()
@@ -64,10 +65,12 @@ public class PlanetSpawnerController : MonoBehaviour
       planets.Add(planet);
 
       //sound settings
+      
       singleObjectSounds.TypeOfObject = "Planet";
       singleObjectSounds.Location = gameObject.transform;
       double delay = AudioSettings.dspTime + 0.5;
       singleObjectSounds.Spawn(delay);
+      
       //
 
     }

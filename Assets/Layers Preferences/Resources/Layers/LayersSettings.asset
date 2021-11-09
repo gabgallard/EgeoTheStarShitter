@@ -115,22 +115,16 @@ MonoBehaviour:
   - {r: 0.16749145, g: 0.95456684, b: 0.40124768, a: 1}
   - {r: 0.4032994, g: 0.6596201, b: 0.4112118, a: 1}
   soundGraphDBKeys:
-  - bef6f8cd8e567ca4c8047920ca80aaf1
-  - 335a543dbae21444caae2f479095908d
   - 2c0a24d6de1409a4c8bee146a1dd8385
+  - 335a543dbae21444caae2f479095908d
   soundGraphDBValues:
-  - soundGraph: {fileID: 11400000, guid: bef6f8cd8e567ca4c8047920ca80aaf1, type: 2}
+  - soundGraph: {fileID: 11400000, guid: 2c0a24d6de1409a4c8bee146a1dd8385, type: 2}
     globalsAsset: {fileID: 0}
     generatedAssets:
-    - d1cf432fc22a16b4a9591d4b9e9eba6c
+    - e895344138fe19b40836d4a3812dbfbc
     needsRegen: 0
   - soundGraph: {fileID: 11400000, guid: 335a543dbae21444caae2f479095908d, type: 2}
     globalsAsset: {fileID: 0}
     generatedAssets:
-    - 5f721cbde8f4cd744a65f5846730c090
-    needsRegen: 0
-  - soundGraph: {fileID: 11400000, guid: 2c0a24d6de1409a4c8bee146a1dd8385, type: 2}
-    globalsAsset: {fileID: 0}
-    generatedAssets:
-    - 42d8dc59b5062954e8413f4f413ef637
+    - 14a209897325efe48895a48ac4d17b04
     needsRegen: 0

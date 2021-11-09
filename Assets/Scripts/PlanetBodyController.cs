@@ -14,8 +14,10 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   [SerializeField] GameObject planet;
   [SerializeField] string bodyType;
   [SerializeField] float blowForce = 10;
+  [SerializeField] SingleObjectSounds singleObjectSounds;
+  [SerializeField] CollisionSounds collisionSounds;
 
-  Vector3 cursorOffset;
+    Vector3 cursorOffset;
   Material material;
   Joint2D springJoint;
   float shakingStartedAt;
@@ -28,9 +30,9 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   Transform egeoMouthInside;
 
-  SingleObjectSounds singleObjectSounds;
+  //SingleObjectSounds singleObjectSounds;
 
-  CollisionSounds collisionSounds;
+  //CollisionSounds collisionSounds;
 
     float cooldownCounter = 2f;
     bool coolingdown = false;
@@ -46,7 +48,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     shakingAmplitude = RandomDeviation(shakingAmplitude);
     slurpDuration = RandomDeviation(slurpDuration);
     bornDuration = RandomDeviation(bornDuration);
-        collisionSounds = CollisionSounds.instance;
+        //collisionSounds = CollisionSounds.instance;
     }
 
   void Start()
@@ -54,7 +56,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     egeoMouthInside = EgeoController.Instance.MouthInside;
     material = GetComponent<Renderer>().material;
     StartBorning();
-    singleObjectSounds = SingleObjectSounds.instance;
+    //singleObjectSounds = SingleObjectSounds.instance;
     }
 
   void Update()
@@ -137,15 +139,18 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     string objectAType = this.tag;
     string objectBType = collisionInfo.gameObject.tag;
     float magnitude = collisionInfo.relativeVelocity.magnitude;
+    float collSpeed = Mathf.InverseLerp(0.15f, 1, magnitude);
 
         if (!dragging) {
             //sound settings
             collisionSounds.TypeOfObject = objectBType;
             collisionSounds.Location = gameObject.transform;
-            collisionSounds.CollisionSpeed = magnitude;
-            collisionSounds.CollisionCooldown = coolingdown;
+            collisionSounds.CollisionSpeed = collSpeed;
+            //collisionSounds.CollisionCooldown = coolingdown;
 
-            if (!coolingdown)
+            collisionSounds.Collision();
+
+            /*if (!coolingdown)
             {
                 coolingdown = true;
                 collisionSounds.Collision(); 
@@ -157,12 +162,13 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
                 {
                     coolingdown = false;
                 }
-            }
+            }*/
 
         }
         Debug.Log("cooldown bool: " + collisionSounds.CollisionCooldown);
 
         //Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}, dragging: {dragging}");
+        Debug.Log($"Collision detected!, collSpeed: {collSpeed}");
     }
 
   // Drag and Drop :: INI

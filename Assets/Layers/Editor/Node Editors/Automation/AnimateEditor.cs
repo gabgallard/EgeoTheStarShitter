@@ -26,8 +26,8 @@ namespace ABXY.Layers.Editor.Node_Editors.Automation
         {
             base.OnBodyGUI();
             serializedObject.UpdateIfRequiredOrScript();
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), startPort, valuePort );
-            NodeEditorGUIDraw.PortField(layout.DrawLine(),stopPort);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), startPort, valuePort, serializedObjectTree);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(),stopPort, serializedObjectTree);
 
             LayersGUIUtilities.FastPropertyField(layout.DrawLine(), new GUIContent("Curve"), serializedObject.FindProperty("animationCurve"));
             serializedObject.ApplyModifiedProperties();

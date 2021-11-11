@@ -81,7 +81,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Flow
             serializedObject.UpdateIfRequiredOrScript();
 
             float labelWidth = EditorGUIUtility.labelWidth;
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), new GUIContent("In"), playPort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), new GUIContent("In"), playPort, serializedObjectTree);
             EditorGUIUtility.labelWidth = 104f;
             SerializedPropertyTree dontRepeatProp = serializedObject.FindProperty("dontRepeat");
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), dontRepeatProp, new GUIContent("Don't Repeat"));

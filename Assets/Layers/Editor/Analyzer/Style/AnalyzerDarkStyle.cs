@@ -42,7 +42,7 @@ namespace ABXY.Layers.Editor.Analyzer.Style
                     _headerLabelStyle.normal.textColor = Color.white;
                     _headerLabelStyle.fontStyle = FontStyle.Normal;
                     _headerLabelStyle.padding = new RectOffset(0, 0, -3, 0);
-                    _centeredHeaderLabelStyle.alignment = TextAnchor.MiddleLeft;
+                    _headerLabelStyle.alignment = TextAnchor.MiddleLeft;
                 }
                 return _headerLabelStyle;
             }

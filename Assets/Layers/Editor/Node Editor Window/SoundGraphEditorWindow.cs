@@ -293,7 +293,7 @@ namespace ABXY.Layers.Editor.Node_Editor_Window
 
             SoundGraphEditorWindow w = GetWindow(typeof(SoundGraphEditorWindow), false, "xNode", true) as SoundGraphEditorWindow;
             w.wantsMouseMove = true;
-
+            /*
             if (w.graph != null && !Application.isPlaying)
             {
                 (w.graph as SoundGraph).CallEvent("EndAll", AudioSettings.dspTime,0);
@@ -304,7 +304,7 @@ namespace ABXY.Layers.Editor.Node_Editor_Window
 
             if (w.graph != null && w.graph is SoundGraph && !(w.graph as SoundGraph).isRunningSoundGraph)
                 (w.graph as SoundGraph).subgraphNode = null;
-
+            */
             w.graph = graph;
 
             w.titleContent = new GUIContent(w.titleContent.text,Resources.Load<Texture2D>("Symphony/SoundWindowIcon"));

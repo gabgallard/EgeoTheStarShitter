@@ -53,7 +53,8 @@ namespace ABXY.Layers.Editor.Node_Editors.Math_Operations
             System.Type expectedValueType = GetRNGType((RandomNumberNode.RandomNumberTypes)randomNumberTypeProp.enumValueIndex);
 
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent("Get Number"), getNewNumberPort, new GUIContent("On Changed"), changedPort);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent("Get Number"), 
+                getNewNumberPort, new GUIContent("On Changed"), changedPort, serializedObjectTree);
 
             serializedObject.ApplyModifiedProperties();
             if (valuePort != null && valuePort.ValueType != expectedValueType)
@@ -90,7 +91,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Math_Operations
                     break;
             }
 
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), valuePort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), valuePort, serializedObjectTree);
 
 
             serializedObject.ApplyModifiedProperties();

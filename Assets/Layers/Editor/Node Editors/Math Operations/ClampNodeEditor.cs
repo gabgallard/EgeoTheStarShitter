@@ -29,7 +29,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Math_Operations
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("value"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("min"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("max"));
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), resultPort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), resultPort, serializedObjectTree);
             serializedObject.ApplyModifiedProperties();
         }
     }

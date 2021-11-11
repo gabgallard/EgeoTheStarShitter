@@ -192,25 +192,43 @@ namespace ABXY.Layers.Editor.ThirdParty.Xnode
 
 
         /// <summary> Make a simple port field. </summary>
-        public static void PortField(Rect controlRect, NodePort port)
+        public static void PortField(Rect controlRect, NodePort port,SerializedObjectTree serializedObjectTree)
         {
-            PortField(controlRect,null, port);
+            PortField(controlRect,null, port, serializedObjectTree);
         }
 
 
         /// <summary> Make a simple port field. </summary>
-        public static void PortField(Rect controlRect, GUIContent label, NodePort port)
+        public static void PortField(Rect controlRect, GUIContent label, NodePort port, SerializedObjectTree soTree)
         {
             if (port == null) return;
 
             Vector2 position = Vector3.zero;
             GUIContent content = label != null ? label : new GUIContent(ObjectNames.NicifyVariableName(port.fieldName));
 
+
             // If property is an input, display a regular property field and put a port handle on the left side
             if (port.direction == NodePort.IO.Input)
             {
-                // Display a label
-                EditorGUI.LabelField(controlRect, content);
+
+                Node.ShowBackingValue showBacking = Node.ShowBackingValue.Unconnected;
+                Node.InputAttribute inputAttribute;
+                bool dynamicPortList = false;
+                if (NodeEditorUtilities.GetCachedAttrib(port.node.GetType(), port.fieldName, out inputAttribute))
+                {
+                    dynamicPortList = inputAttribute.dynamicPortList;
+                    showBacking = inputAttribute.backingValue;
+                }
+
+                bool shouldShowValue = (showBacking == Node.ShowBackingValue.Always
+                    || (showBacking == Node.ShowBackingValue.Unconnected && !port.IsConnected))
+                    && soTree.FindProperty(port.fieldName) != null;
+
+                // Display an editor
+                if (shouldShowValue)
+                    EditorGUI.PropertyField(controlRect, soTree.FindProperty(port.fieldName), label);
+                else
+                    EditorGUI.LabelField(controlRect, content);
 
                 //Rect rect = GUILayoutUtility.GetLastRect();
                 position = controlRect.position - new Vector2(16, 0);
@@ -218,8 +236,23 @@ namespace ABXY.Layers.Editor.ThirdParty.Xnode
             // If property is an output, display a text label and put a port handle on the right side
             else if (port.direction == NodePort.IO.Output)
             {
-                // Display a label
-                EditorGUI.LabelField(controlRect, content, NodeEditorResources.OutputPort);
+                Node.ShowBackingValue showBacking = Node.ShowBackingValue.Unconnected;
+                Node.OutputAttribute outputAttribute;
+                bool dynamicPortList = false;
+                if (NodeEditorUtilities.GetCachedAttrib(port.node.GetType(), port.fieldName, out outputAttribute))
+                {
+                    dynamicPortList = outputAttribute.dynamicPortList;
+                    showBacking = outputAttribute.backingValue;
+                }
+
+                bool shouldShowValue = (showBacking == Node.ShowBackingValue.Always
+                    || (showBacking == Node.ShowBackingValue.Unconnected && !port.IsConnected))
+                    && soTree.FindProperty(port.fieldName) != null;
+
+                if (shouldShowValue)
+                    EditorGUI.PropertyField(controlRect, soTree.FindProperty(port.fieldName), label);
+                else
+                    EditorGUI.LabelField(controlRect, content, NodeEditorResources.OutputPort);
 
                 position = controlRect.position + new Vector2(controlRect.width, 0);
             }
@@ -247,23 +280,23 @@ namespace ABXY.Layers.Editor.ThirdParty.Xnode
 
 
         /// <summary> Draws an input and an output port on the same line </summary>
-        public static void PortPair(Rect controlRect, GUIContent inputLabel, NodePort input, GUIContent outputLabel, NodePort output)
+        public static void PortPair(Rect controlRect, GUIContent inputLabel, NodePort input, GUIContent outputLabel, NodePort output, SerializedObjectTree serializedObjectTree)
         {
             Rect leftRect = new Rect(controlRect.x, controlRect.y, controlRect.width / 2f, controlRect.height);
             Rect rightRect = new Rect(controlRect.x + (controlRect.width / 2f), controlRect.y, controlRect.width / 2f, controlRect.height);
             
-            PortField(leftRect,inputLabel, input);
-            PortField(rightRect, outputLabel, output);
+            PortField(leftRect,inputLabel, input, serializedObjectTree);
+            PortField(rightRect, outputLabel, output, serializedObjectTree);
         }
 
         /// <summary> Draws an input and an output port on the same line </summary>
-        public static void PortPair(Rect controlRect,  NodePort input,  NodePort output)
+        public static void PortPair(Rect controlRect,  NodePort input,  NodePort output,SerializedObjectTree serializedObjectTree)
         {
             Rect leftRect = new Rect(controlRect.x, controlRect.y, controlRect.width / 2f, controlRect.height);
             Rect rightRect = new Rect(controlRect.x + (controlRect.width / 2f), controlRect.y, controlRect.width / 2f, controlRect.height);
 
-            PortField(leftRect, null, input);
-            PortField(rightRect, null, output);
+            PortField(leftRect, null, input, serializedObjectTree);
+            PortField(rightRect, null, output, serializedObjectTree);
         }
 
         

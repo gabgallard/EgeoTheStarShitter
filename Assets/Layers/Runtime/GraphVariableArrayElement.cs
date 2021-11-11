@@ -26,7 +26,6 @@ namespace ABXY.Layers.Runtime
 
         [SerializeField]
         public bool expanded = false;
-   
 
 
         /// <summary>

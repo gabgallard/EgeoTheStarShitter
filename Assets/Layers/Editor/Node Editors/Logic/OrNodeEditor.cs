@@ -77,7 +77,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Logic
         {
             base.OnBodyGUI();
             serializedObject.UpdateIfRequiredOrScript();
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), valuePort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), valuePort, serializedObjectTree);
             ports.DoList(layout.Draw(ports.GetHeight()), new GUIContent("Inputs"));
             serializedObject.ApplyModifiedProperties();
         }

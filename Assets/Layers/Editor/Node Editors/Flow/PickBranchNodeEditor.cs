@@ -66,7 +66,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Flow
             base.OnBodyGUI();
             serializedObjectTree.UpdateIfRequiredOrScript();
             SerializedPropertyTree selectedBranch = serializedObjectTree.FindProperty("selectedBranch");
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), inputPort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), inputPort, serializedObjectTree);
 
             float labelWidth = EditorGUIUtility.labelWidth;
             EditorGUIUtility.labelWidth = 100;

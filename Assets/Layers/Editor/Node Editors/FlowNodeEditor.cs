@@ -65,8 +65,14 @@ namespace ABXY.Layers.Editor.Node_Editors
 
         public SerializedObjectTree serializedObjectTree;
 
+        private DeprecatedNode deprecationNotice;
+
         public override void OnCreate()
         {
+            var attributes = target.GetType().GetCustomAttributes(typeof(DeprecatedNode), false);
+            if (attributes.Length != 0)
+                deprecationNotice = attributes[0] as DeprecatedNode;
+
             playFinishedPort = target.GetOutputPort("playFinished");
             serializedObjectTree = new SerializedObjectTree(serializedObject);
         }
@@ -74,6 +80,8 @@ namespace ABXY.Layers.Editor.Node_Editors
         public override void OnBodyGUI()
         {
             if (playFinishedPort == null || !playFinishedPort.node) OnCreate();
+            if (deprecationNotice != null)
+                EditorGUI.HelpBox(layout.DrawLines(4), deprecationNotice.DeprecationNotice, MessageType.Warning);
         }
 
         protected virtual bool CanExpand()

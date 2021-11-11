@@ -26,7 +26,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Automation
             serializedObject.UpdateIfRequiredOrScript();
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("snapshotName"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("audioMixer"));
-            NodeEditorGUIDraw.PortField(layout.DrawLine(),snapshotPort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(),snapshotPort, serializedObjectTree);
             serializedObject.ApplyModifiedProperties();
         }
 

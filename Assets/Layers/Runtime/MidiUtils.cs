@@ -25,6 +25,13 @@ namespace ABXY.Layers.Runtime
             return noteLetters[(int)Mathf.Repeat(realIndex, 12)] + keyNumber.ToString();
         }
 
+        public static string NoteNumberToMenuFormattedName(int number)
+        {
+            int realIndex = number - 24;
+            int keyNumber = Mathf.FloorToInt((number - 12) / 12f);
+            return $"Octave {keyNumber.ToString()}/{noteLetters[(int)Mathf.Repeat(realIndex, 12)]}" ;
+        }
+
         public static int NameToNoteNumber(string name)
         {
             bool isSharp = name.Substring(1, 1) == "#";

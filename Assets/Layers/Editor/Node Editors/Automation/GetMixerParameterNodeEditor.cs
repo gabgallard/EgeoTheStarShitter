@@ -25,7 +25,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Automation
 
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("mixer"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("parameterName"), new GUIContent("Name"));
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), valuePort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), valuePort, serializedObjectTree);
             serializedObject.ApplyModifiedProperties();
         }
 

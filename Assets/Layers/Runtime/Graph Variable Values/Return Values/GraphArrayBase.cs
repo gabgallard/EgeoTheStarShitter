@@ -14,7 +14,7 @@ public abstract class GraphArrayBase: ICollection, IList
 
     protected GraphArrayBase(GraphVariable innerVariable, GraphVariable.RetrievalTypes retrievalType)
     {
-        this.innerVariable = innerVariable ?? throw new ArgumentNullException(nameof(innerVariable));
+        this.innerVariable = innerVariable;
         this.retrievalType = retrievalType;
     }
 
@@ -31,6 +31,17 @@ public abstract class GraphArrayBase: ICollection, IList
             }
             return null;
         }
+    }
+
+
+    internal void ReplaceInnerVariable(GraphVariable innerList)
+    {
+        innerVariable = innerList;
+    }
+
+    internal GraphVariable GetInnerVariable()
+    {
+        return innerVariable;
     }
 
     public object this[int index] {

@@ -43,7 +43,8 @@ namespace ABXY.Layers.Editor.Node_Editors
 
             switchElementsValue.DoList(layout.Draw(switchElementsValue.GetHeight()), new GUIContent("Switch Values"));
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent("Selector"), target.GetInputPort("Input"), new GUIContent("Output"), target.GetOutputPort("Output"));
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent("Selector"), target.GetInputPort("Input"), 
+                new GUIContent("Output"), target.GetOutputPort("Output"), serializedObjectTree);
 
             serializedObject.ApplyModifiedProperties();
         }

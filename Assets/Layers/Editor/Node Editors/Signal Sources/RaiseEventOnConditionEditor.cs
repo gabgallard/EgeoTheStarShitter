@@ -12,7 +12,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Signal_Sources
         public override void OnBodyGUI()
         {
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("condition"), target.GetOutputPort("OnTrue"));
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("condition"), target.GetOutputPort("OnTrue"), serializedObjectTree);
 
             
         }

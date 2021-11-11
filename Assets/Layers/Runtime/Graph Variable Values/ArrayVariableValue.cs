@@ -5,6 +5,7 @@ using ABXY.Layers.Runtime.Nodes;
 using ABXY.Layers.Runtime.Nodes.Logic;
 using System.Linq;
 using ABXY.Layers.Runtime.Nodes.Variables.Split_and_Combine;
+using ABXY.Layers.Runtime.Settings;
 
 namespace ABXY.Layers.Runtime.Graph_Variable_Values
 {
@@ -53,10 +54,24 @@ namespace ABXY.Layers.Runtime.Graph_Variable_Values
         }
 
         
-
+        
         public override void SetValue(GraphVariableBase graphVariable, object value)
         {
-        
+            if (graphVariable is GraphVariable && value is GraphArrayBase)
+            {
+                GraphVariable castTargetVariable = (graphVariable as GraphVariable);
+                castTargetVariable.arrayElements.Clear();
+
+                if (value != null && value is GraphArrayBase)
+                {
+                    GraphArrayBase castSourceArray = value as GraphArrayBase;
+                    foreach(GraphVariableBase sourceElement in castSourceArray.GetInnerVariable().arrayElements)
+                    {
+                        castTargetVariable.arrayElements.Add(sourceElement);
+                    }
+                    castSourceArray.ReplaceInnerVariable(castTargetVariable);
+                }
+            }
         }
 
         public override void SetDefaultValue(GraphVariableBase graphVariable, object value)
@@ -66,8 +81,15 @@ namespace ABXY.Layers.Runtime.Graph_Variable_Values
 
         public object GetSplitValue(NodePort targetPort, SplitNode target)
         {
+            bool indexBy1 = LayersSettings.GetOrCreateSettings().indexingStyle == LayersSettings.IndexingStyles.IndexByOne;
+
             GraphArrayBase variables = target.GetInputValue<GraphArrayBase>("arrayIn", null);
-            int index = target.GetInputValue<int>("index", 1)-1;
+            int index = target.GetInputValue<int>("index", indexBy1? 1 : 0);
+
+            if (indexBy1)
+                index -= 1;
+
+
             if (targetPort.fieldName == "value")
             {
                 if (variables != null && index >= 0 && index < variables.Count)

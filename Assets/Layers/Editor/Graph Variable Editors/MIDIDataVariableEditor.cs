@@ -44,7 +44,9 @@ namespace ABXY.Layers.Editor.Graph_Variable_Editors
             {
 
                 MidiData data = edit.objectValue as MidiData;
-                data.noteNumber = LayersGUIUtilities.DrawNote(controlPosition, data.noteNumber);
+                LayersGUIUtilities.DrawNote(controlPosition, data.noteNumber, (change)=> {
+                    data.noteNumber = change;
+                });
 
                 controlPosition.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 data.velocity = EditorGUI.Slider(controlPosition, "Velocity", data.velocity, 0f, 1f);
@@ -115,8 +117,10 @@ namespace ABXY.Layers.Editor.Graph_Variable_Editors
             });
 
 
-            DrawPortWithDefaults(data.GetInputPort("NoteNumber"), (defaultObj) => {
-                return LayersGUIUtilities.DrawNote((int)defaultObj);
+            DrawPortWithDefaults(data.GetInputPort("NoteNumber"), (defaultObj, onChange) => {
+                 LayersGUIUtilities.DrawNote((int)defaultObj, (newValue)=> {
+                     onChange?.Invoke(newValue);
+                });
             });
 
             DrawPortWithDefaults(data.GetInputPort("Velocity"), (defaultObj) => {

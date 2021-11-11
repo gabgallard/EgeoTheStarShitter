@@ -13,7 +13,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Utilities
         {
             base.OnBodyGUI();
             serializedObject.UpdateIfRequiredOrScript();
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), target.GetInputPort("print"));
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), target.GetInputPort("print"), serializedObjectTree);
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("message"));
 
             serializedObject.ApplyModifiedProperties();

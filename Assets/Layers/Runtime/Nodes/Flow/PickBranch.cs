@@ -2,6 +2,7 @@
 using ABXY.Layers.Runtime.ThirdParty.XNode.Scripts;
 using ABXY.Layers.Runtime.FlowTypes;
 using UnityEngine;
+using ABXY.Layers.Runtime.Settings;
 
 namespace ABXY.Layers.Runtime.Nodes.Flow
 {
@@ -32,10 +33,17 @@ namespace ABXY.Layers.Runtime.Nodes.Flow
 
         public override void PlayAtDSPTime(NodePort calledBy, double time, Dictionary<string, object> data, int nodesCalledThisFrame)
         {
+            bool indexBy1 = LayersSettings.GetOrCreateSettings().indexingStyle == LayersSettings.IndexingStyles.IndexByOne;
+
+            int minBranchIndex = indexBy1 ? 1 : 0;
+
             int actualSelectedBranch = GetInputOrParameterValue<int>("selectedBranch", GetInputValue<int>("selectedBranch", selectedBranch),data);
-            if (actualSelectedBranch >= 1 && actualSelectedBranch <= outputs.Count)
+            if (actualSelectedBranch >= minBranchIndex && actualSelectedBranch <= outputs.Count)
             {
-                CallFunctionOnOutputNodes(outputs[actualSelectedBranch-1], time, data, nodesCalledThisFrame);
+                int selectionIndex = actualSelectedBranch;
+                if (indexBy1)
+                    selectionIndex -= 1;
+                CallFunctionOnOutputNodes(outputs[selectionIndex], time, data, nodesCalledThisFrame);
             }
         }
 

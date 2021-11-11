@@ -350,7 +350,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Math_Operations
                 outputPort = target.AddDynamicOutput(targetType, Node.ConnectionType.Multiple, Node.TypeConstraint.Inherited, "Result");
             }
 
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), outputPort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), outputPort, serializedObjectTree);
         }
 
         private GraphVariableEditor LoadEditor(SerializedProperty property)

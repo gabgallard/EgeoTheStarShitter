@@ -26,8 +26,8 @@ namespace ABXY.Layers.Editor.Node_Editors.Flow
             if (evaluatePort == null || !evaluatePort.node) OnCreate();
 
             serializedObject.UpdateIfRequiredOrScript();
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), evaluatePort, onTruePort);
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), conditionport);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), evaluatePort, onTruePort, serializedObjectTree);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), conditionport, serializedObjectTree);
 
             serializedObject.ApplyModifiedProperties ();
         }

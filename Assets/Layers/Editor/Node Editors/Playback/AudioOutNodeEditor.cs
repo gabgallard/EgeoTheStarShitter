@@ -8,6 +8,7 @@ using ABXY.Layers.Runtime.Nodes;
 using ABXY.Layers.Runtime.Nodes.Playback;
 using UnityEditor;
 using UnityEngine;
+using System.Linq;
 
 namespace ABXY.Layers.Editor.Node_Editors.Playback
 {
@@ -46,6 +47,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
 
         private NodePort audioSettingsPort;
 
+        private NodePort dopplerLevelPort;
 
         // curve editor stuff
         private CurveEditor audioCurveEditor;
@@ -54,9 +56,13 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
 
         private bool curvesExpanded = false;
 
+
         public override void OnCreate()
         {
             base.OnCreate();
+
+            (target as AudioOut).Migrate();
+            serializedObject.Update();
 
             SerializedPropertyTree volumeFalloffCurve = serializedObject.FindProperty("volumeFalloffCurve");
             SerializedPropertyTree rolloffModeProp = serializedObject.FindProperty("rolloffMode");
@@ -94,6 +100,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
 
             audioSettingsPort = target.GetInputPort("audioSettings");
 
+            dopplerLevelPort = target.GetInputPort("dopplerLevel");
 
             // Setting up curve editor
             minDistance = serializedObject.FindProperty("minDistance");
@@ -145,13 +152,17 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
             SerializedPropertyTree settingsSourceProp = serializedObject.FindProperty("settingsSource");
             SerializedPropertyTree shareSettingsProp = serializedObject.FindProperty("shareSettings");
             SerializedPropertyTree rolloffModeProp = serializedObject.FindProperty("rolloffMode");
+            SerializedPropertyTree dopplerLevelProp = serializedObject.FindProperty("dopplerLevel");
 
 
             float labelWidth = EditorGUIUtility.labelWidth;
-            EditorGUIUtility.labelWidth = 110;
+            EditorGUIUtility.labelWidth = 160;
 
             int sendCount = (target as AudioOut).sendList.Count;
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), new GUIContent(string.Format("Audio In  ({0} Send{1})", sendCount, sendCount == 1?"":"s")), target.GetInputPort("audioIn"));
+            NodeEditorGUIDraw.PortField(
+                layout.DrawLine(), 
+                new GUIContent(string.Format("Audio In  ({0} Send{1})", sendCount, sendCount == 1?"":"s")),
+                target.GetInputPort("audioIn"), serializedObjectTree);
 
             LayersGUIUtilities.DrawExpandableProperty(serializedObject,() =>
             {
@@ -159,14 +170,14 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
                 //EditorGUILayout.PropertyField(settingsSourceProp);
             });
 
-            LayersGUIUtilities.DrawExpandableProperty(serializedObject,() =>
+            /*LayersGUIUtilities.DrawExpandableProperty(serializedObject,() =>
             {
                 LayersGUIUtilities.DrawDropdown(layout.DrawLine(), new GUIContent("Share settings"), shareSettingsProp, false);
                 //EditorGUILayout.PropertyField(shareSettingsProp);
-            });
+            });*/
 
             if (settingsSourceProp.enumValueIndex == (int)AudioOut.SettingsSources.Input)
-                NodeEditorGUIDraw.PortField(layout.DrawLine(), audioSettingsPort);
+                NodeEditorGUIDraw.PortField(layout.DrawLine(), audioSettingsPort, serializedObjectTree);
             else
                 audioSettingsPort.ClearConnections();
 
@@ -176,32 +187,32 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
             {
 
                 LayersGUIUtilities.DrawExpandableProperty(volumeNode, serializedObject, () => {
-                    DrawEventDerivableProperty(layout.DrawLine(), volumeProp, parameters, (controlRect) => {
-                        NodeEditorGUIDraw.PropertyField(controlRect, volumeProp);
+                    DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), volumeProp, parameters, (controlRect) => {
+                        NodeEditorGUIDraw.PropertyField(controlRect, volumeProp, GetInstanceDerivedLabel(volumeProp));
                     });
                 });
 
                 LayersGUIUtilities.DrawExpandableProperty( pitchPropNode, serializedObject, () =>
                 {
-                    DrawEventDerivableProperty(layout.DrawLine(), pitchProp, parameters, (controlRect) =>
+                    DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), pitchProp, parameters, (controlRect) =>
                     {
-                        NodeEditorGUIDraw.PropertyField(controlRect,pitchProp);
+                        NodeEditorGUIDraw.PropertyField(controlRect,pitchProp, GetInstanceDerivedLabel(pitchProp));
                     });
                 });
 
                 LayersGUIUtilities.DrawExpandableProperty(stereoPanNode, serializedObject, () =>
                 {
-                    DrawEventDerivableProperty(layout.DrawLine(), stereoPanProp, parameters, (controlRect) =>
+                    DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), stereoPanProp, parameters, (controlRect) =>
                     {
-                        NodeEditorGUIDraw.PropertyField(controlRect,stereoPanProp);
+                        NodeEditorGUIDraw.PropertyField(controlRect,stereoPanProp, GetInstanceDerivedLabel(stereoPanProp));
                     });
                 });
 
                 LayersGUIUtilities.DrawExpandableProperty(mixerGroupNode, serializedObject, () =>
                 {
-                    DrawEventDerivableProperty(layout.DrawLine(), mixerGroupProp, parameters, (controlRect) =>
+                    DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), mixerGroupProp, parameters, (controlRect) =>
                     {
-                        NodeEditorGUIDraw.PropertyField(controlRect, mixerGroupProp);
+                        NodeEditorGUIDraw.PropertyField(controlRect, mixerGroupProp, GetInstanceDerivedLabel(mixerGroupProp));
                     });
                 });
 
@@ -209,42 +220,42 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
 
                 LayersGUIUtilities.DrawExpandableProperty(bypassEffectsNode, serializedObject, () =>
                 {
-                    DrawEventDerivableProperty(layout.DrawLine(), bypassEffectsProp, parameters, (controlRect) =>
+                    DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), bypassEffectsProp, parameters, (controlRect) =>
                     {
                         currentLabelWidth = EditorGUIUtility.labelWidth;
                         EditorGUIUtility.labelWidth = 237;
-                        NodeEditorGUIDraw.PropertyField(controlRect,bypassEffectsProp);
+                        NodeEditorGUIDraw.PropertyField(controlRect,bypassEffectsProp, GetInstanceDerivedLabel(bypassEffectsProp));
                         EditorGUIUtility.labelWidth = currentLabelWidth;
                     });
                 });
 
                 LayersGUIUtilities.DrawExpandableProperty(bypassListenerNode, serializedObject, () =>
                 {
-                    DrawEventDerivableProperty(layout.DrawLine(), bypassListenerProp, parameters, (controlRect) =>
+                    DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), bypassListenerProp, parameters, (controlRect) =>
                     {
                         currentLabelWidth = EditorGUIUtility.labelWidth;
                         EditorGUIUtility.labelWidth = 237;
-                        NodeEditorGUIDraw.PropertyField(controlRect,bypassListenerProp);
+                        NodeEditorGUIDraw.PropertyField(controlRect,bypassListenerProp, GetInstanceDerivedLabel(bypassListenerProp));
                         EditorGUIUtility.labelWidth = currentLabelWidth;
                     });
                 });
 
                 LayersGUIUtilities.DrawExpandableProperty(bypassReverbNode, serializedObject, () =>
                 {
-                    DrawEventDerivableProperty(layout.DrawLine(), bypassReverbProp, parameters, (controlRect) =>
+                    DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), bypassReverbProp, parameters, (controlRect) =>
                     {
                         currentLabelWidth = EditorGUIUtility.labelWidth;
                         EditorGUIUtility.labelWidth = 237;
-                        NodeEditorGUIDraw.PropertyField(controlRect,bypassReverbProp);
+                        NodeEditorGUIDraw.PropertyField(controlRect,bypassReverbProp, GetInstanceDerivedLabel(bypassReverbProp));
                         EditorGUIUtility.labelWidth = currentLabelWidth;
                     });
                 });
 
                 LayersGUIUtilities.DrawExpandableProperty(priorityPropNode, serializedObject, () =>
                 {
-                    DrawEventDerivableProperty(layout.DrawLine(), priorityProp, parameters, (controlRect) =>
+                    DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), priorityProp, parameters, (controlRect) =>
                     {
-                        NodeEditorGUIDraw.PropertyField(controlRect,priorityProp);
+                        NodeEditorGUIDraw.PropertyField(controlRect,priorityProp, GetInstanceDerivedLabel(priorityProp));
                     });
                 });
 
@@ -256,9 +267,9 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
                 {
                     LayersGUIUtilities.DrawExpandableProperty(worldPositionNode, serializedObject, () =>
                     {
-                        DrawEventDerivableProperty(layout.DrawLines(2), worldPositionProp, parameters, (controlRect) =>
+                        DrawEventDerivablePropertyWithInstanceOption(layout.DrawLines(2), worldPositionProp, parameters, (controlRect) =>
                         {
-                            NodeEditorGUIDraw.PropertyField(controlRect, worldPositionProp);
+                            NodeEditorGUIDraw.PropertyField(controlRect, worldPositionProp, GetInstanceDerivedLabel(worldPositionProp));
                         });
                     });
                 }
@@ -269,14 +280,24 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
                 {
                     LayersGUIUtilities.DrawExpandableProperty(transformNode, serializedObject, () =>
                     {
-                        DrawEventDerivableProperty(layout.DrawLine(), transformProp, parameters, (controlRect) =>
+                        DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), transformProp, parameters, (controlRect) =>
                         {
-                            NodeEditorGUIDraw.PropertyField(controlRect, transformProp);
+                            NodeEditorGUIDraw.PropertyField(controlRect, transformProp, GetInstanceDerivedLabel(transformProp));
                         });
                     });
                 }
                 else
                     transformNode.ClearConnections();
+
+
+                LayersGUIUtilities.DrawExpandableProperty(dopplerLevelPort, serializedObject, () =>
+                {
+                    DrawEventDerivablePropertyWithInstanceOption(layout.DrawLine(), dopplerLevelProp, parameters, (controlRect) =>
+                    {
+                        NodeEditorGUIDraw.PropertyField(controlRect, dopplerLevelProp, GetInstanceDerivedLabel(dopplerLevelProp));
+                    });
+                });
+
 
                 layout.DrawLine();
 
@@ -344,6 +365,85 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
             serializedObject.ApplyModifiedProperties();
         }
 
+
+        protected GUIContent GetInstanceDerivedLabel( SerializedProperty property)
+        {
+            bool instanced = serializedObject.FindProperty(property.name + "Instance").boolValue;
+            string addendum = instanced ? " (Event Start)" : " (Continuous)";
+            GUIContent label = new GUIContent(property.displayName + addendum);
+            return label;
+
+        }
+
+        protected void DrawEventDerivablePropertyWithInstanceOption(Rect drawRect, SerializedProperty property, List<GraphEvent.EventParameterDef> parameters, System.Action<Rect> drawFunction)
+        {
+            DrawEventDerivablePropertyWithInstanceOption(drawRect, property.displayName, property, parameters, drawFunction);
+        }
+
+
+        protected void DrawEventDerivablePropertyWithInstanceOption(Rect drawRect, string label,
+            SerializedProperty property, List<GraphEvent.EventParameterDef> parameters, System.Action<Rect> drawFunction)
+        {
+            Rect buttonRect = new Rect(drawRect.x + drawRect.width - EditorGUIUtility.singleLineHeight, drawRect.y + EditorGUIUtility.standardVerticalSpacing, EditorGUIUtility.singleLineHeight, EditorGUIUtility.singleLineHeight);
+
+            NodePort targetNode = target.GetInputPort(property.name);
+
+            FlowNode.VariableDrivenByParameter parameter = (target as FlowNode).variablesDrivenByParameters.Find(x => x.serializedPropertyPath == property.propertyPath);
+
+            //clearing parameter if node is connected
+            if (targetNode != null && targetNode.IsConnected)
+                (target as FlowNode).variablesDrivenByParameters.RemoveAll(x => x.serializedPropertyPath == property.propertyPath);
+
+            if (parameter != null)
+            {
+                //if (GUI.Button(buttonRect, ""))
+                //(target as FlowNode).variablesDrivenByParameters.RemoveAll(x => x.serializedPropertyPath == property.propertyPath);
+
+
+
+                List<string> potentialParameters = parameters.Where(x => ReflectionUtils.FindType(x.parameterTypeName).Equals(GetTypeByPath(target.GetType(), property.propertyPath))).Select(x => x.parameterName).ToList();
+
+                if (potentialParameters.Count == 0)
+                    EditorGUI.LabelField(drawRect, label + ": No available event parameters for type: " + property.type);
+                else
+                {
+                    int currentIndex = potentialParameters.IndexOf(parameter.parameterName);
+                    currentIndex = currentIndex < 0 ? 0 : currentIndex;
+                    int newIndex = EditorGUI.Popup(drawRect, label, currentIndex, potentialParameters.ToArray());
+                    parameter.parameterName = potentialParameters[newIndex];
+                }
+
+            }
+            else
+            {
+                if (targetNode == null || !targetNode.IsConnected)
+                {
+                    //if (GUI.Button(buttonRect, ""))
+                    //(target as FlowNode).variablesDrivenByParameters.Add(new FlowNode.VariableDrivenByParameter(property.propertyPath, ""));
+                }
+
+                drawFunction?.Invoke(new Rect(drawRect.x, drawRect.y, drawRect.width - 16, drawRect.height));
+            }
+            LayersGUIUtilities.DrawDropdown(buttonRect, "", new string[] { "Value input/Get value from port", "Value input/Get value from event parameter", "Read settings/Read continuously", "Read settings/Read at event start" }, true, (value) => {
+                if (value == 0)
+                    (target as FlowNode).variablesDrivenByParameters.RemoveAll(x => x.serializedPropertyPath == property.propertyPath);
+                else if (value == 1)
+                    (target as FlowNode).variablesDrivenByParameters.Add(new FlowNode.VariableDrivenByParameter(property.propertyPath, ""));
+                else if (value == 2)
+                {
+                    serializedObject.FindProperty(property.name + "Instance").boolValue = false;
+                    serializedObject.ApplyModifiedProperties();
+                }
+                else if (value == 3)
+                {
+                    serializedObject.FindProperty(property.name + "Instance").boolValue = true;
+                    serializedObject.ApplyModifiedProperties();
+                }
+            });
+        }
+
+
+
         private void DrawLinearAudioProperty(string label, SerializedProperty curveProperty, SerializedProperty floatProperty, float min, float max, bool useLerp, List<GraphEvent.EventParameterDef> parameters)
         {
             AudioOut castTarget = target as AudioOut;
@@ -407,7 +507,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
             {
                 // drawing curve port property
                 DrawEventDerivableProperty(layout.DrawLine(), "  As curve", curveProperty, parameters, (controlRect) => {
-                    NodeEditorGUIDraw.PortField(controlRect, new GUIContent("  As curve"), curvePort);
+                    NodeEditorGUIDraw.PortField(controlRect, new GUIContent("  As curve"), curvePort, serializedObjectTree);
                 });
 
                 // setting graph vis
@@ -435,7 +535,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
             {
                 // drawing float port property
                 DrawEventDerivableProperty(layout.DrawLine(), "  As Float",floatProperty, parameters, (controlRect) => {
-                    NodeEditorGUIDraw.PortField(controlRect, new GUIContent("  As Float"), floatPort);
+                    NodeEditorGUIDraw.PortField(controlRect, new GUIContent("  As Float"), floatPort, serializedObjectTree);
                 });
 
                 audioCurveEditor.SetCurveVisibility(curveProperty, !floatPortParameterExists);

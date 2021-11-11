@@ -70,29 +70,36 @@ namespace ABXY.Layers.Runtime.Graph_Variable_Values
 
         public void PlayAtDSPTime(SplitNode node, NodePort calledBy, double time, Dictionary<string, object> data, int nodesCalledThisFrame)
         {
-            foreach(KeyValuePair<string,object> datum in data)
+            node.soundGraph.owningMono.StartCoroutine(SymphonyUtils.WaitForDSPTime(time - Time.deltaTime, () =>
             {
-                if (node.arbitraryData.ContainsKey(datum.Key))
-                    node.arbitraryData[datum.Key] = datum.Value;
-                else
-                    node.arbitraryData.Add(datum.Key, datum.Value);
-            }
-            node.CallFunctionOnOutputNodes("EventOut", time, nodesCalledThisFrame);
+                foreach (KeyValuePair<string,object> datum in data)
+                {
+                    if (node.arbitraryData.ContainsKey(datum.Key))
+                        node.arbitraryData[datum.Key] = datum.Value;
+                    else
+                        node.arbitraryData.Add(datum.Key, datum.Value);
+                }
+                node.CallFunctionOnOutputNodes("EventOut", time, nodesCalledThisFrame);
+            }));
         }
 
         public void PlayAtDSPTime(CombineNode node, NodePort calledBy, double time, Dictionary<string, object> data,int nodesCalledThisFrame)
         {
-            Dictionary<string, object> outData = new Dictionary<string, object>(data);
-            foreach(GraphVariable variable in node.parameters)
+            node.soundGraph.owningMono.StartCoroutine( SymphonyUtils.WaitForDSPTime(time - Time.deltaTime, () =>
             {
-                object value = node.GetInputValue(variable.variableID, variable.Value());
+                Dictionary<string, object> outData = new Dictionary<string, object>(data);
+                foreach (GraphVariable variable in node.parameters)
+                {
+                    object value = node.GetInputValue(variable.variableID, variable.Value());
 
-                if (outData.ContainsKey(variable.name))
-                    outData[variable.name] = value;
-                else
-                    outData.Add(variable.name, value);
-            }
-            node.CallFunctionOnOutputNodes("Output", time, outData, nodesCalledThisFrame);
+                    if (outData.ContainsKey(variable.name))
+                        outData[variable.name] = value;
+                    else
+                        outData.Add(variable.name, value);
+                }
+                node.CallFunctionOnOutputNodes("Output", time, outData, nodesCalledThisFrame);
+            }));
+            
         }
 
         public override object GetValueOnInitialization()

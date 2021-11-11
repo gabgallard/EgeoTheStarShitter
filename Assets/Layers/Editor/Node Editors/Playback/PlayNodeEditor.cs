@@ -65,19 +65,20 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
 
             //NodeEditorGUILayout.PortField(new GUIContent("  Volume"), target.GetInputPort("busVolume"));
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent("  Play"), playPort, new GUIContent("Play Finished   "), playFinishedPort);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(),
+                new GUIContent("  Play"), playPort, new GUIContent("Play Finished   "), playFinishedPort, serializedObjectTree);
 
             // NodeEditorGUILayout.PortPair(new GUIContent("  Pause"), pausePort, new GUIContent("Audio Out   "), audioOutPort);
 
             Rect pauseRect = layout.DrawLine();
-            NodeEditorGUIDraw.PortField(pauseRect, new GUIContent("  Pause"), pausePort);
+            NodeEditorGUIDraw.PortField(pauseRect, new GUIContent("  Pause"), pausePort, serializedObjectTree);
 
             Rect audioOutRect = new Rect(pauseRect.x + pauseRect.width / 2f, pauseRect.y, pauseRect.width / 2f, pauseRect.height);
             DrawAudioOutSelector(audioOutRect, new GUIContent("Audio Out"), audioOutPort, serializedObject.FindProperty("audioFlowOutID"), 9);
 
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(),new GUIContent("  Resume"), resumePort, new GUIContent("Event Out   "), midiOutPort);
-            NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("  Stop"), stopPort);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(),new GUIContent("  Resume"), resumePort, new GUIContent("Event Out   "), midiOutPort, serializedObjectTree);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("  Stop"), stopPort, serializedObjectTree);
 
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(),combinedVolume,new GUIContent("  Volume"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(),panVolume, new GUIContent("  Pan"));
@@ -132,7 +133,8 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
                 Rect trackAudioOutRect = layout.DrawLine();
                 trackAudioOutRect = new Rect(trackAudioOutRect.x + trackAudioOutRect.width - 105, trackAudioOutRect.y, 105, trackAudioOutRect.height);
                 DrawAudioOutSelector(trackAudioOutRect, new GUIContent("Audio Out"), target.GetOutputPort(trackProperty.FindPropertyRelative("audioOutNodeName").stringValue), trackProperty.FindPropertyRelative("audioOutSendName"), 9);
-                NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("Event Out   "), target.GetOutputPort(trackProperty.FindPropertyRelative("midiOutNodeName").stringValue));
+                NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("Event Out   "), 
+                    target.GetOutputPort(trackProperty.FindPropertyRelative("midiOutNodeName").stringValue), serializedObjectTree);
 
 
                 float labelWidth = EditorGUIUtility.labelWidth;
@@ -180,7 +182,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
                     if (port != null)
                     {
                         if (item.exposed)
-                            NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("  " + item.eventLabel), port);
+                            NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("  " + item.eventLabel), port, serializedObjectTree);
                         else
                             port.ClearConnections();
                     }
@@ -200,7 +202,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
 
                 foreach (PlaynodeDataItem loop in loops)
                 {
-                    NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("  Can Exit " + loop.eventLabel), target.GetInputPort(loop.itemID));
+                    NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("  Can Exit " + loop.eventLabel), target.GetInputPort(loop.itemID), serializedObjectTree);
                 }
             }
         }

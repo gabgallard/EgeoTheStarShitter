@@ -13,7 +13,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Math_Operations
         public override void OnBodyGUI()
         {
             serializedObject.UpdateIfRequiredOrScript();
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("inputValue"), target.GetOutputPort("outputValue"));
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("inputValue"), target.GetOutputPort("outputValue"), serializedObjectTree);
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("inputMin"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("inputMax"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("outputMin"));

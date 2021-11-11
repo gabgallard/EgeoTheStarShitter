@@ -87,7 +87,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Flow
 
             ports.DoList(layout.Draw(ports.GetHeight()), new GUIContent("Branches"));
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent("Reset"), reset, new GUIContent("Out"), playFinishedPort);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent("Reset"), reset, new GUIContent("Out"), playFinishedPort, serializedObjectTree);
             serializedObjectTree.ApplyModifiedProperties();
         }
 

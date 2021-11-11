@@ -334,11 +334,13 @@ namespace ABXY.Layers.Runtime.ThirdParty.XNode.Scripts {
         public class CreateNodeMenuAttribute : Attribute {
             public string menuName;
             public int order;
+            public string startingName;
             /// <summary> Manually supply node class with a context menu path </summary>
             /// <param name="menuName"> Path to this node in the context menu. Null or empty hides it. </param>
             public CreateNodeMenuAttribute(string menuName) {
                 this.menuName = menuName;
                 this.order = 0;
+                this.startingName = null;
             }
 
             /// <summary> Manually supply node class with a context menu path </summary>
@@ -347,6 +349,14 @@ namespace ABXY.Layers.Runtime.ThirdParty.XNode.Scripts {
             public CreateNodeMenuAttribute(string menuName, int order) {
                 this.menuName = menuName;
                 this.order = order;
+                this.startingName = null;
+            }
+
+            public CreateNodeMenuAttribute(string menuName, string startingName)
+            {
+                this.menuName = menuName;
+                this.order = 0;
+                this.startingName = startingName;
             }
         }
 

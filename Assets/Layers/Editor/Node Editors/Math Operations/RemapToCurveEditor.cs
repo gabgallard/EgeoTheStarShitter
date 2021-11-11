@@ -12,7 +12,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Math_Operations
         {
             serializedObject.UpdateIfRequiredOrScript();
             LayersGUIUtilities.BeginNewLabelWidth(50f);
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("input"), target.GetOutputPort("output"));
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("input"), target.GetOutputPort("output"), serializedObjectTree);
             LayersGUIUtilities.FastPropertyField(layout.DrawLine(), serializedObject.FindProperty("curve"));
             LayersGUIUtilities.EndNewLabelWidth();
             serializedObject.ApplyModifiedProperties();

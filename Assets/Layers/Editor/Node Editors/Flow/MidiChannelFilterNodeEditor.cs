@@ -30,7 +30,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Flow
             serializedObject.UpdateIfRequiredOrScript();
             SerializedPropertyTree filterTypeProp = serializedObjectTree.FindProperty("filterType");
             SerializedPropertyTree midiEventselector = serializedObjectTree.FindProperty("midiParameterSelector");
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), inputPort, outputPort);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), inputPort, outputPort, serializedObjectTree);
             LayersGUIUtilities.IncomingParameterSelector(layout.DrawLine(), target as FlowNode, midiEventselector, "input", typeof(MidiData));
             LayersGUIUtilities.DrawDropdown(layout.DrawLine(), filterTypeProp);
             channelFilters.DoList(layout.Draw(channelFilters.GetHeight()), new UnityEngine.GUIContent("Conditions"));

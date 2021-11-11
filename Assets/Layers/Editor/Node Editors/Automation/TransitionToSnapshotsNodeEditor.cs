@@ -29,7 +29,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Automation
         {
             base.OnBodyGUI();
             serializedObject.UpdateIfRequiredOrScript();
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), startTransitionNode, endTransitionNode);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), startTransitionNode, endTransitionNode, serializedObjectTree);
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("snapshots"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("weights"));
 

@@ -26,7 +26,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Automation
             base.OnBodyGUI();
             serializedObject.UpdateIfRequiredOrScript();
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), writePort, writeFinished);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), writePort, writeFinished, serializedObjectTree);
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("mixer"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("parameterName"), new GUIContent("Name"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObject.FindProperty("value"));

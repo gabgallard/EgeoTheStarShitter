@@ -663,5 +663,14 @@ namespace ABXY.Layers.Runtime
             }
         }
 
+        public List<AudioSource> GetAudioSourcesInUse()
+        {
+            List<AudioSource> audioSources = new List<AudioSource>();
+            foreach (PlayNode node in GetNodesOfType<PlayNode>())
+                audioSources.AddRange(node.GetAudioSourcesInUse());
+
+            return audioSources;
+        }
+
     }
 }

@@ -126,7 +126,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
 
             states.DoList(layout.Draw(states.GetHeight()), new GUIContent("States"));
 
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), target.GetOutputPort("onStateChange"));
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), target.GetOutputPort("onStateChange"), serializedObjectTree);
 
             LayersGUIUtilities.DrawOrCreatePort(layout.DrawLine(), 0f, target, NodePort.IO.Output, ReflectionUtils.FindType(stateEnumTypeName.stringValue),
                 Node.ConnectionType.Multiple, Node.TypeConstraint.Strict, "CurrentState", "Current State");

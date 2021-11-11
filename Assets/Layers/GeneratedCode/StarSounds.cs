@@ -6,7 +6,7 @@ using ABXY.Layers.Runtime.Midi;
 [AddComponentMenu("Layers / Soundgraphs / StarSounds")]
 public class StarSounds: SoundGraphPlayer
 {
-    private readonly string graphAssetID = "3b28c0016451d0948b9a53b7f12b3768";
+    private readonly string graphAssetID = "34f943378b8dde14095a2eb497bc4043";
     protected override void LoadGraph( ){
         #if UNITY_EDITOR
         soundGraph = (SoundGraph)UnityEditor.AssetDatabase.LoadAssetAtPath(UnityEditor.AssetDatabase.GUIDToAssetPath(graphAssetID), typeof(SoundGraph));

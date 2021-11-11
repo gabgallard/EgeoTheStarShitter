@@ -39,6 +39,8 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
 
         public bool runningSounds { get { return playTokens.Count != 0; } }
 
+        
+
         public PlaybackSystem(Func<List<PlaynodeDataItem>> playnodeDataItems, System.Func<IEnumerator,FlowNode.LayersCoroutine> startCoroutine, 
             System.Func<float> getCombinedVolume, System.Func<float> getCombinedPan,
             Func<double> getEndTime, Func<string> getName, Action<string, double, Dictionary<string, object>,int> callFunctionOnOutputNodes, Func<AudioOutSource[]> getMainBusOuts, Func<PlaynodeDataItem, 
@@ -56,6 +58,18 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
             GetCombinedVolume = getCombinedVolume;
             this.targetFlowNode = targetFlowNode;
         }
+        public List<AudioSource> GetAudiosourcesInUse()
+        {
+            List<AudioSource> results = new List<AudioSource>();
+            foreach(var token in playTokens)
+            {
+                if (token.audioSources != null)
+                    results.AddRange(token.audioSources);
+            }
+            return results;
+
+        }
+
 
         public void QueueMIDIFile(double time, double timeOffset, Dictionary<string, object> parameters, MidiFileAsset midiFile, TempoMap tempoMap, List<Note> notes,int nodesCalledThisFrame)
         {

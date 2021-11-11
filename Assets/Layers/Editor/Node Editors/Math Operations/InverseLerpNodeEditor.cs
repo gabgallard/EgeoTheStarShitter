@@ -24,7 +24,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Math_Operations
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(),serializedObjectTree.FindProperty("value"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObjectTree.FindProperty("from"));
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), serializedObjectTree.FindProperty("to"));
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), resultPort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), resultPort, serializedObjectTree);
             LayersGUIUtilities.EndNewLabelWidth();
             serializedObjectTree.ApplyModifiedProperties();
         }

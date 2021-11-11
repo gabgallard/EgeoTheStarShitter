@@ -28,7 +28,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Variables
             serializedObject.UpdateIfRequiredOrScript();
 
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("startWrite"), target.GetOutputPort("writeEnded"));
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("startWrite"), target.GetOutputPort("writeEnded"), serializedObjectTree);
 
             LayersGUIUtilities.DrawVariableSelector(layout.DrawLine(), variableName, (target as FlowNode).soundGraph);
             

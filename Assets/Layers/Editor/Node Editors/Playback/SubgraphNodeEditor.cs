@@ -113,7 +113,9 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
                 MakeInputEventPort(graphEvent);
                 MakeOutputEventPort(graphEvent);
 
-                NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent(graphEvent.eventName + " in"), target.GetInputPort(graphEvent.eventID + "In"), new GUIContent("Out"), target.GetOutputPort(graphEvent.eventID + "Out"));
+                NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent(graphEvent.eventName + " in"), 
+                    target.GetInputPort(graphEvent.eventID + "In"), new GUIContent("Out"), 
+                    target.GetOutputPort(graphEvent.eventID + "Out"), serializedObjectTree);
 
                 foreach (GraphEvent.EventParameterDef parameter in graphEvent.parameters)
                 {
@@ -122,7 +124,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
                 }
             }
 
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), endAllPort);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), endAllPort, serializedObjectTree);
 
 
             if (variables.Length != 0)
@@ -133,8 +135,10 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
 
                     MakeInputVariablePort(variable);
                     MakeOutputVariablePort(variable);
-                    NodeEditorGUIDraw.PortPair(layout.DrawLine(), new GUIContent(variable.name + " in"), target.GetInputPort(variable.variableID + "In"),
-                        new GUIContent(variable.name + " Out"), target.GetOutputPort(variable.variableID + "Out"));
+                    NodeEditorGUIDraw.PortPair(layout.DrawLine(), 
+                        new GUIContent(variable.name + " in"), target.GetInputPort(variable.variableID + "In"),
+                        new GUIContent(variable.name + " Out"), target.GetOutputPort(variable.variableID + "Out"), 
+                        serializedObjectTree);
                 }
             }
         }

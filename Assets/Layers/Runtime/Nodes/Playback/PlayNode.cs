@@ -12,7 +12,8 @@ using UnityEngine;
 namespace ABXY.Layers.Runtime.Nodes.Playback
 {
     [Node.CreateNodeMenu("Playback/Play")]
-    public class PlayNode : FlowNode {
+    public class PlayNode : FlowNode
+    {
 
         //[SerializeField]
         //public List<TimeLineChange> timeLine = new List<TimeLineChange>();
@@ -37,19 +38,19 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
 
         public TimeSignatureDataItem defaultTimeSignature = new TimeSignatureDataItem();
 
-        public enum AudioPreviewTypes { PlayAllAudio,PlayAudioUsingNodeSettings}
+        public enum AudioPreviewTypes { PlayAllAudio, PlayAudioUsingNodeSettings }
         public AudioPreviewTypes previewAudioType = AudioPreviewTypes.PlayAllAudio;
 
-        public enum EventPreviewTypes { PlayOnNode,DoNotPlayOnNode}
+        public enum EventPreviewTypes { PlayOnNode, DoNotPlayOnNode }
         public EventPreviewTypes eventPreviewType = EventPreviewTypes.DoNotPlayOnNode;
 
-        [SerializeField, Range(0f, 1f),Input(Node.ShowBackingValue.Unconnected, Node.ConnectionType.Override, Node.TypeConstraint.Inherited)]
+        [SerializeField, Range(0f, 1f), Input(Node.ShowBackingValue.Unconnected, Node.ConnectionType.Override, Node.TypeConstraint.Inherited)]
         public float combinedVolume = 1f;
 
         [SerializeField, Range(-1f, 1f), Input(Node.ShowBackingValue.Unconnected, Node.ConnectionType.Override, Node.TypeConstraint.Inherited)]
         public float combinedPan = 0f;
 
-        public enum EndTimeStyles { AtSpecifiedTime, WhenAllClipsAreFinished}
+        public enum EndTimeStyles { AtSpecifiedTime, WhenAllClipsAreFinished }
 
         public EndTimeStyles playFinishedWhen = EndTimeStyles.AtSpecifiedTime;
 
@@ -63,7 +64,7 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
         [SerializeField, Input(Node.ShowBackingValue.Never, Node.ConnectionType.Multiple, Node.TypeConstraint.Strict)]
         private LayersEvent play = null;
 
-    
+
 
         [SerializeField, Output(Node.ShowBackingValue.Never, Node.ConnectionType.Multiple, Node.TypeConstraint.Strict)]
         private LayersEvent midiOut = null;
@@ -85,9 +86,9 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
         [SerializeField]
         public string audioFlowOutID = "";
 
-    
 
-    
+
+
 
         public enum states { Playing, Paused, Stopped }
 
@@ -117,7 +118,7 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
                         CallFunctionOnOutputNodes,
                         () => { return GetAudioOuts(GetOutputPort("audioOut"), audioFlowOutID); },
                         (timeLineChange) => { return GetAudioOuts(GetOutputPort(tracks[(int)timeLineChange.rowNumber].audioOutNodeName), tracks[(int)timeLineChange.rowNumber].audioOutSendName); },
-                        () => { return tracks.Select(x=>(TimeLineRowDataItem)x).ToList(); }, this);
+                        () => { return tracks.Select(x => (TimeLineRowDataItem)x).ToList(); }, this);
                 }
                 return _playback;
             }
@@ -126,19 +127,21 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
         public override bool isActive => playback.runningSounds;
 
         // Use this for initialization
-        protected override void Init() {
+        protected override void Init()
+        {
             base.Init();
-		
+
         }
 
         // Return the correct value of an output port when requested
-        public override object GetValue(NodePort port) {
+        public override object GetValue(NodePort port)
+        {
             return null; // Replace this
         }
 
         public override void PlayAtDSPTime(NodePort calledBy, double time, Dictionary<string, object> data, int nodesCalledThisFrame)
         {
-            playback.QueueAudio(time,0, data, nodesCalledThisFrame);
+            playback.QueueAudio(time, 0, data, nodesCalledThisFrame);
         }
 
 
@@ -165,7 +168,7 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
         private double CalculateLastClipEnd()
         {
             double endTime = 0;
-            foreach(PlaynodeDataItem item in timelineData)
+            foreach (PlaynodeDataItem item in timelineData)
             {
                 double thisItemEndTime = item.startTime + item.length;
                 if (thisItemEndTime > endTime)
@@ -173,7 +176,7 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
             }
             return endTime;
         }
-    
+
 
         protected override List<GraphEvent.EventParameterDef> GetOutGoingEventParametersOnPortInternal(NodePort port, List<Node> visitedNodes)
         {
@@ -184,8 +187,29 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
             {
                 List<PlaynodeDataItem> data = timelineData.Select(x => x as PlaynodeDataItem).Where(x => x.rowNumber == trackNum).ToList();
                 foreach (PlaynodeDataItem item in data)
-                foreach (GraphVariable variable in item.eventParameters)
-                    parameters.Add(new GraphEvent.EventParameterDef(variable.name, variable.typeName));
+                {
+                    foreach (GraphVariable variable in item.eventParameters)
+                        parameters.Add(new GraphEvent.EventParameterDef(variable.name, variable.typeName));
+
+                    if (item.playnodeDataItemType == PlaynodeDataItem.PlaynodeDataItemTypes.MIDI)
+                    {
+                        parameters.Add(new GraphEvent.EventParameterDef("NoteInfo", typeof(MidiData).FullName));
+                    }
+                }
+            }
+            else if (port.fieldName == "midiOut")
+            {
+                List<PlaynodeDataItem> data = timelineData.Select(x => x as PlaynodeDataItem).ToList();
+                foreach (PlaynodeDataItem item in data)
+                {
+                    foreach (GraphVariable variable in item.eventParameters)
+                        parameters.Add(new GraphEvent.EventParameterDef(variable.name, variable.typeName));
+
+                    if (item.playnodeDataItemType == PlaynodeDataItem.PlaynodeDataItemTypes.MIDI)
+                    {
+                        parameters.Add(new GraphEvent.EventParameterDef("NoteInfo", typeof(MidiData).FullName));
+                    }
+                }
             }
             else
             {
@@ -210,7 +234,7 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
         {
             List<string> sends = new List<string>();
             sends.Add(audioFlowOutID);
-            foreach(PlaynodeTrackItem track in tracks)
+            foreach (PlaynodeTrackItem track in tracks)
             {
                 sends.Add(track.audioOutSendName);
             }
@@ -235,6 +259,11 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
             foreach (AudioOut selectedOut in selectedAudioOuts)
                 selectedOut.sendList.Remove(this);
 
+        }
+
+        public List<AudioSource> GetAudioSourcesInUse()
+        {
+            return playback.GetAudiosourcesInUse();
         }
 
         private class PlayToken
@@ -274,14 +303,14 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
                 this.nodeEndTime = nodeEndTime;
             }
 
-            
+
 
             public void Pause(double time)
             {
                 if (lastPauseTime == 0)
                     lastPauseTime = time;
                 player.StartCoroutine(FlowNode.WaitForDSPTime(time, () => {
-                    foreach(AudioSource audioSource in audioSources)
+                    foreach (AudioSource audioSource in audioSources)
                         audioSource?.Pause();
                 }));
             }
@@ -332,7 +361,7 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
             {
                 get
                 {
-                    return AudioSettings.dspTime > nodeEndTime  + CalculatePauseDelay() || player.currentState == states.Stopped;
+                    return AudioSettings.dspTime > nodeEndTime + CalculatePauseDelay() || player.currentState == states.Stopped;
                 }
             }
 
@@ -376,6 +405,6 @@ namespace ABXY.Layers.Runtime.Nodes.Playback
             node.GetOutputPort(midiOutNodeName).ClearConnections();
         }
 
-    
+
     }
 }

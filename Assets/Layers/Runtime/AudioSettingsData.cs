@@ -52,16 +52,22 @@ namespace ABXY.Layers.Runtime
 
         public AudioRolloffMode rolloffMode;
 
+        public float dopplerLevel;
+
         [SerializeField]
         public Vector3 worldPosition;
 
         public System.Guid testGUID = System.Guid.NewGuid();
 
+        public Vector3 worldPositionAtEventStart;
+
+        public Transform targetTransformAtEventStart;
+
         public static AudioSettingsData defaultAudioSettings
         {
             get
             {
-                return new AudioSettingsData(false, false, false, 1f, 128, 1f, 0f, 0f, 1f, 0f, 1f, 500f, AudioRolloffMode.Logarithmic, null, Vector3.zero);
+                return new AudioSettingsData(false, false, false, 1f, 128, 1f, 0f, 0f, 1f, 0f, 1f, 500f, AudioRolloffMode.Logarithmic, null, Vector3.zero,1f);
             }
         }
 
@@ -79,7 +85,8 @@ namespace ABXY.Layers.Runtime
             float maxDistance,
             AudioRolloffMode rolloffMode,
             AudioMixerGroup mixerGroup, 
-            Vector3 worldPosition)
+            Vector3 worldPosition,
+            float dopplerLevel)
         {
             this.bypassEffects = bypassEffects;
             this.bypassListenerEffects = bypassListenerEffect;
@@ -97,6 +104,7 @@ namespace ABXY.Layers.Runtime
             this.targetMixerGroup = mixerGroup;
             this.volume = volume;
             this.worldPosition = worldPosition;
+            this.dopplerLevel = dopplerLevel;
         }
 
         public AudioSettingsData() { }
@@ -128,6 +136,7 @@ namespace ABXY.Layers.Runtime
             audioSource.SetCustomCurve(AudioSourceCurveType.Spread, spreadCurve);
             audioSource.SetCustomCurve(AudioSourceCurveType.CustomRolloff, volumeRolloffCurve);
             audioSource.loop = false;
+            audioSource.dopplerLevel = dopplerLevel;
         }
 
         public override string ToString()

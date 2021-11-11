@@ -47,7 +47,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Playback
             serializedObjectTree.UpdateIfRequiredOrScript();
             //NodeEditorGUILayout.PortPair(target.GetInputPort("MidiIn"), target.GetOutputPort("AudioOut"));
 
-            NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("MIDI In"), target.GetInputPort("MidiIn"));
+            NodeEditorGUIDraw.PortField(layout.DrawLine(),new GUIContent("MIDI In"), target.GetInputPort("MidiIn"), serializedObjectTree);
             Rect audioOutRect = layout.LastRect();
             audioOutRect = new Rect(audioOutRect.x + (audioOutRect.width / 2f), audioOutRect.y, audioOutRect.width / 2f, audioOutRect.height);
             DrawAudioOutSelector(audioOutRect, new GUIContent("Audio out"), target.GetOutputPort("AudioOut"), serializedObjectTree.FindProperty("audioOutSendID"), 5f);

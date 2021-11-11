@@ -9,7 +9,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Variables
         public override void OnBodyGUI()
         {
             base.OnBodyGUI();
-            NodeEditorGUIDraw.PortField(layout.DrawLine(),target.GetOutputPort("time"));
+            NodeEditorGUIDraw.PortField(layout.DrawLine(),target.GetOutputPort("time"), serializedObjectTree);
         }
 
         public override int GetWidth()

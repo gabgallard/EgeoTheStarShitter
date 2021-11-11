@@ -37,6 +37,12 @@ namespace ABXY.Layers.Editor.Graph_Variable_Editors
 
 
         protected delegate object PortDefaultDrawFunction(object defaultInput);
+
+        /// <summary>
+        /// Used to draw ports with in-node values in combine/split nodes
+        /// </summary>
+        /// <param name="port"></param>
+        /// <param name="drawDefaults"></param>
         protected void DrawPortWithDefaults(NodePort port, PortDefaultDrawFunction drawDefaults)
         {
             CombineNode node = port.node as CombineNode;
@@ -67,6 +73,7 @@ namespace ABXY.Layers.Editor.Graph_Variable_Editors
             else
                 NodeEditorGUILayout.PortField(port);
         }
+
 
         protected delegate void DelayedDefaultDrawFunction(object defaultInput, System.Action<object> OnValueChange);
         protected void DrawPortWithDefaults(NodePort port, DelayedDefaultDrawFunction drawDefaults)

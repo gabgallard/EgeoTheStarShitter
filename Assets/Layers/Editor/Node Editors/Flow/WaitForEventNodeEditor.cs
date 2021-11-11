@@ -28,8 +28,8 @@ namespace ABXY.Layers.Editor.Node_Editors.Flow
             base.OnBodyGUI();
             serializedObject.UpdateIfRequiredOrScript();
             SerializedPropertyTree eventID = serializedObject.FindProperty("eventID");
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), startPort, endPort);
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), resetPort);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), startPort, endPort, serializedObjectTree);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), resetPort, serializedObjectTree);
 
 
             List<GraphEvent> events = ((target as WaitForEvent).graph as SoundGraph).GetAllEvents();

@@ -26,14 +26,14 @@ namespace ABXY.Layers.Editor.Node_Editors.Logic
             base.OnBodyGUI();
             serializedObject.UpdateIfRequiredOrScript();
             SerializedPropertyTree comparisonOperatorProp = serializedObject.FindProperty("comparisonOperator");
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), value1Port);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), value1Port, serializedObjectTree);
 
             Rect comparisonRect = layout.DrawLine();
             DoDropdown(comparisonRect);
 
             NodeEditorGUIDraw.AddPortToRect(comparisonRect, resultPort);
 
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), value2);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), value2, serializedObjectTree);
             serializedObject.ApplyModifiedProperties();
         }
 

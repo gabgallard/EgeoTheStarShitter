@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace ABXY.Layers.Runtime
@@ -17,6 +18,7 @@ namespace ABXY.Layers.Runtime
 
         [SerializeField]
         public List<GraphVariableBase> defaultArrayElements = new List<GraphVariableBase>();
+       
 
         public GraphVariable()
         {
@@ -101,10 +103,30 @@ namespace ABXY.Layers.Runtime
             //to.arrayType = (from as GraphVariable).arrayType;
             //to.arrayElements = (from as GraphVariable).arrayElements;
         }
+
+        private GraphArrayBase cachedActualGraphArray;
+        private GraphArrayBase cachedDefaultGraphArray;
+
         public GraphArrayBase ToGraphArray(RetrievalTypes retrievalType)
         {
             System.Type genericType = typeof(GraphArray<>).MakeGenericType(ReflectionUtils.FindType(arrayType));
-            GraphArrayBase array = (GraphArrayBase)System.Activator.CreateInstance(genericType, this, retrievalType);
+
+            //checking if I have a valid cache
+            GraphArrayBase cachedValue = retrievalType == RetrievalTypes.ActualValue ? cachedActualGraphArray : cachedDefaultGraphArray;
+            if (cachedValue != null && cachedValue.GetType() == genericType)
+                return cachedValue;
+            //this, retrievalType
+            GraphArrayBase array = (GraphArrayBase)genericType.Assembly.CreateInstance(
+                genericType.FullName, false,
+                BindingFlags.Instance | BindingFlags.NonPublic,
+                null, new object[] { this, retrievalType }, null, null);
+
+            // Caching the result
+            if (retrievalType == RetrievalTypes.ActualValue)
+                cachedActualGraphArray = array;
+            else
+                cachedDefaultGraphArray = array;
+
             return array;
         }
     }

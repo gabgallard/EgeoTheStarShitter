@@ -84,6 +84,9 @@ namespace ABXY.Layers.Editor.Layers_Settings_Inspector
                         settings.ResetColors();
 
 
+                    settings.indexingStyle = (LayersSettings.IndexingStyles)EditorGUILayout.EnumPopup("Indexing Style",
+                        settings.indexingStyle);
+
                     EditorDefines defines = new EditorDefines();
                     bool hasDefine = defines.ContainsDefine("SYMPHONY_DEV");
 

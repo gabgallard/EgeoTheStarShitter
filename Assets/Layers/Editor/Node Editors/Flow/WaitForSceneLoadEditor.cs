@@ -26,12 +26,12 @@ namespace ABXY.Layers.Editor.Node_Editors.Flow
             serializedObject.UpdateIfRequiredOrScript();
             SerializedPropertyTree sceneName = serializedObject.FindProperty("sceneName");
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), beginWait, endWait);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), beginWait, endWait, serializedObjectTree);
             DrawEventDerivableProperty(layout.DrawLine(), sceneName, 
                 (target as FlowNode).GetIncomingEventParameterDefsOnPort("beginWait", new List<Node>()), (drawRect) => {
                 NodeEditorGUIDraw.PropertyField(drawRect, sceneName);
             });
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), reset);
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), reset, serializedObjectTree);
             serializedObject.ApplyModifiedProperties();
         }
     }

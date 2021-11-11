@@ -47,6 +47,19 @@ namespace ABXY.Layers.Editor.ThirdParty.Xnode {
                 return NodeEditorUtilities.NodeDefaultPath(type);
         }
 
+        public virtual string GetNodeDefaultName(Type type)
+        {
+            //Check if type has the CreateNodeMenuAttribute
+            Node.CreateNodeMenuAttribute attrib;
+            string startingName = "";
+            if (NodeEditorUtilities.GetAttrib(type, out attrib)) // Return custom name
+                startingName =  attrib.startingName;
+            
+            if (string.IsNullOrEmpty(startingName))// Return generated name
+                startingName= NodeEditorUtilities.NodeDefaultName(type);
+            return startingName;
+        }
+
         /// <summary> The order by which the menu items are displayed. </summary>
         public virtual int GetNodeMenuOrder(Type type) {
             //Check if type has the CreateNodeMenuAttribute
@@ -169,7 +182,7 @@ namespace ABXY.Layers.Editor.ThirdParty.Xnode {
             Node node = target.AddNode(type);
             Undo.RegisterCreatedObjectUndo(node, "Create Node");
             node.position = position;
-            if (node.name == null || node.name.Trim() == "") node.name = NodeEditorUtilities.NodeDefaultName(type);
+            if (node.name == null || node.name.Trim() == "") node.name = GetNodeDefaultName(type);
             if (!string.IsNullOrEmpty(AssetDatabase.GetAssetPath(target))) AssetDatabase.AddObjectToAsset(node, target);
             if (NodeEditorPreferences.GetSettings().autoSave) AssetDatabase.SaveAssets();
             NodeEditorWindow.RepaintAll();

@@ -165,10 +165,10 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
             }*/
 
         }
-        Debug.Log("cooldown bool: " + collisionSounds.CollisionCooldown);
+        //Debug.Log("cooldown bool: " + collisionSounds.CollisionCooldown);
 
         //Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}, dragging: {dragging}");
-        Debug.Log($"Collision detected!, collSpeed: {collSpeed}");
+        //Debug.Log($"Collision detected!, collSpeed: {collSpeed}");
     }
 
   // Drag and Drop :: INI

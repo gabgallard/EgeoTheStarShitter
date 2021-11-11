@@ -14,7 +14,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Signal_Sources
         public override void OnBodyGUI()
         {
             base.OnBodyGUI();
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), target.GetOutputPort("update"));
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), target.GetOutputPort("update"), serializedObjectTree);
         }
 
         public override int GetWidth()

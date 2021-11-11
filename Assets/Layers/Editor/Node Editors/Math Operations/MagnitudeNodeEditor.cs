@@ -14,7 +14,8 @@ namespace ABXY.Layers.Editor.Node_Editors
             base.OnBodyGUI();
             serializedObject.UpdateIfRequiredOrScript();
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("input"), target.GetOutputPort("output"));
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), target.GetInputPort("input"), 
+                target.GetOutputPort("output"), serializedObjectTree);
 
 
             serializedObject.ApplyModifiedProperties();

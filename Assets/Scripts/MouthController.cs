@@ -21,7 +21,10 @@ public class MouthController : MonoBehaviour
   bool closing = false;
   bool blowing = false;
 
-  void Start()
+    //SoundObjects
+    [SerializeField] EatingSounds eatingSounds;
+
+    void Start()
   {
     StopEating();
   }
@@ -59,8 +62,10 @@ public class MouthController : MonoBehaviour
   public void StartEating()
   {
     eating = true;
+
     lipUpTarget.DOMove(lipUpOpened.position, 0.5f);
     lipDownTarget.DOMove(lipDownOpened.position, 0.5f);
+        Debug.Log("eating = " + eating);
   }
 
   public void StopEating()

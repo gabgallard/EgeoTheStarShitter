@@ -10,8 +10,9 @@ public class UIController : MonoBehaviour
 
   [SerializeField] GameObject infoPage;
   Camera theCamera;
+    [SerializeField] BackgroundLoop droneSFX;
 
-  void Awake()
+    void Awake()
   {
     animator = GetComponent<Animator>();
     Instance = this;
@@ -63,4 +64,9 @@ public class UIController : MonoBehaviour
     sequence.Append(theCamera.DOColor(new Color(0.9764706f, 0.9529412f, 0.9686275f), 0.20f));
     sequence.Append(theCamera.DOColor(new Color(0f, 0f, 0f), 0.50f));
   }
+
+  void PlaybackDroneSFX()
+    {
+        droneSFX.LoopStart();
+    }
 }

@@ -35,7 +35,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Flow
 
             SerializedPropertyTree useCustomLogic = serializedObject.FindProperty("useCustomLogic");
 
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), enterPort, continueLoopPort);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), enterPort, continueLoopPort, serializedObjectTree);
 
             LayersGUIUtilities.DrawExpandableProperty(layout, conditionReachedPort,serializedObject);
 

@@ -135,7 +135,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Signal_Sources
                         MessageType.Error);
             }
 
-            NodeEditorGUIDraw.PortField(layout.DrawLine(), target.GetOutputPort("update"));
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), target.GetOutputPort("update"), serializedObjectTree);
 
 
             serializedObject.ApplyModifiedProperties();
@@ -144,6 +144,9 @@ namespace ABXY.Layers.Editor.Node_Editors.Signal_Sources
 
         private void SynchronizeDefaultValues()
         {
+            if ((target as FlowNode).soundGraph.isRunningSoundGraph)
+                return;//running soundgraphs don't have a concept of "default values"
+
             for (int index = 0; index < variablesList.List.arraySize; index++)
             {
                 SerializedPropertyTree variableProperty = variablesList.List.GetArrayElementAtIndex(index);

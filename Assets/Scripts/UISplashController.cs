@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+
 public class UISplashController : MonoBehaviour, IPointerClickHandler
 {
   Animator animator;
+    AudioSource startSFX;
 
   void Awake()
   {
@@ -16,11 +18,13 @@ public class UISplashController : MonoBehaviour, IPointerClickHandler
   void Start()
   {
     Invoke("ShowClickToStart", 3.0f);
+        startSFX = GetComponent<AudioSource>();
   }
 
   public void OnPointerClick(PointerEventData eventData)
   {
     SceneManager.LoadScene("Game");
+        startSFX.Play();
   }
 
 

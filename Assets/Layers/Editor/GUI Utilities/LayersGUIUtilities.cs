@@ -917,6 +917,15 @@ namespace ABXY.Layers.Editor
                     NodeEditorGUILayout.PropertyField(property);
                 });
         }
+        /*
+        public static void DrawExpandableProperty(NodeLayoutUtility layout, NodePort port,SerializedObjectTree serializedObjectTree)
+        {
+            if (port == null)
+                return;
+
+            DrawExpandableProperty(port.)
+            NodeEditorGUIDraw.PortField(layout.DrawLine(), port, serializedObjectTree);
+        }*/
 
         public static void DrawExpandableProperty(NodeLayoutUtility layout, SerializedPropertyTree property)
         {
@@ -943,7 +952,7 @@ namespace ABXY.Layers.Editor
         public static void DrawExpandableProperty(NodeLayoutUtility layout, NodePort nodePort, SerializedObjectTree target)
         {
             DrawExpandableProperty(nodePort.IsConnected, target, () => {
-                NodeEditorGUIDraw.PortField(layout.DrawLine(),nodePort);
+                NodeEditorGUIDraw.PortField(layout.DrawLine(),nodePort, target);
             });
         }
 
@@ -968,14 +977,14 @@ namespace ABXY.Layers.Editor
             DrawExpandableProperty(input, target, () => {
                 firstElementRect = layout.DrawLine();
                 firstElementDrawn = true;
-                NodeEditorGUIDraw.PortField(firstElementRect, input);
+                NodeEditorGUIDraw.PortField(firstElementRect, input, target);
             });
 
             DrawExpandableProperty(output, target, () => {
                 if (!firstElementDrawn)
                     firstElementRect = layout.DrawLine();
 
-                NodeEditorGUIDraw.PortField(firstElementRect, output);
+                NodeEditorGUIDraw.PortField(firstElementRect, output, target);
             });
         }
 
@@ -1197,32 +1206,38 @@ namespace ABXY.Layers.Editor
             DrawNote(controlRect, noteNumberProp);
         }
 
-        public static int DrawNote(int noteNumber)
+        public static void DrawNote(int noteNumber, System.Action<int> onChange)
         {
             Rect controlRect = EditorGUILayout.GetControlRect();
-            return DrawNote(controlRect, noteNumber);
+            DrawNote(controlRect, noteNumber,onChange);
         }
 
         public static void DrawNote(Rect controlRect, SerializedProperty noteNumberProp)
         {
-            noteNumberProp.intValue = DrawNote(controlRect, noteNumberProp.intValue);
+            DrawNote(controlRect, noteNumberProp.intValue, (newValue)=> {
+                noteNumberProp.intValue = newValue;
+                noteNumberProp.serializedObject.ApplyModifiedProperties();
+            }, noteNumberProp.displayName);
         }
 
-        public static int DrawNote(Rect controlRect, int noteNumber)
-        {
-            string noteLetter = MidiUtils.NoteNumberToName(noteNumber);
-            //int noteNumber = MidiUtils.NameToNoteNumber(noteLetter);
+        private static string[] noteNames = new string[0];
 
+        public static void DrawNote(Rect controlRect, int noteNumber, System.Action<int> onChange, string label = "Note")
+        {
+            if (noteNames.Length == 0)
+            {
+                noteNames = new string[128];
+                for (int index = 0; index < noteNames.Length; index++)
+                    noteNames[index] = MidiUtils.NoteNumberToMenuFormattedName(index);
+            }
 
             Rect numberRect = new Rect(controlRect.x, controlRect.y, controlRect.width - 35, controlRect.height);
-            noteNumber = EditorGUI.IntField(numberRect, new GUIContent("Note"), noteNumber);
+            noteNumber = EditorGUI.IntField(numberRect, new GUIContent(label), noteNumber);
 
-            EditorGUI.BeginDisabledGroup(true);
+
             Rect noteRect = new Rect(controlRect.x + controlRect.width - 35, controlRect.y, 35, controlRect.height);
-            EditorGUI.TextField(noteRect, noteLetter);
-            EditorGUI.EndDisabledGroup();
+            DrawDropdown(noteRect,MidiUtils.NoteNumberToName(noteNumber),  noteNames, false, onChange, true);
 
-            return noteNumber;
         }
         #endregion
 

@@ -54,7 +54,10 @@ namespace ABXY.Layers.Runtime.Settings
         private List<Color> type2ColorValuesPro = new List<Color>();
 
 
-        
+        public enum IndexingStyles { IndexByOne, IndexByZero}
+
+        [SerializeField]
+        public IndexingStyles indexingStyle = IndexingStyles.IndexByOne;
 
 
         private static LayersSettings cachedInstance = null;
@@ -78,6 +81,9 @@ namespace ABXY.Layers.Runtime.Settings
 
                 if (PlayerPrefs.HasKey("LayersInstallDirectory"))
                     cachedInstance.codeGenFolderID = PlayerPrefs.GetString("LayersInstallDirectory");
+
+                if (PlayerPrefs.HasKey("LayersIndexingStyle"))
+                    cachedInstance.indexingStyle = (IndexingStyles)PlayerPrefs.GetInt("LayersIndexingStyle");
 
                 Directory.CreateDirectory(Path.Combine("Assets", k_settingsPath));
                 UnityEditor.AssetDatabase.CreateAsset(cachedInstance, Path.Combine("Assets", k_settingsPath) + "/LayersSettings.asset");

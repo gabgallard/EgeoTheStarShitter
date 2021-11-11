@@ -75,7 +75,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Math_Operations
                 if (intLengthPort.IsConnected)
                     intLengthPort.ClearConnections();
 
-                NodeEditorGUIDraw.PortField(layout.DrawLine(), floatResultPort);
+                NodeEditorGUIDraw.PortField(layout.DrawLine(), floatResultPort, serializedObjectTree);
             }
 
             serializedObject.ApplyModifiedProperties();

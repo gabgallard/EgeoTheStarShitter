@@ -23,7 +23,7 @@ namespace ABXY.Layers.Editor.Node_Editors.Flow
             base.OnBodyGUI();
             serializedObject.UpdateIfRequiredOrScript();
             SerializedPropertyTree waitTimeProp = serializedObject.FindProperty("waitTime");
-            NodeEditorGUIDraw.PortPair(layout.DrawLine(), enterPort, exitPort);
+            NodeEditorGUIDraw.PortPair(layout.DrawLine(), enterPort, exitPort, serializedObjectTree);
             float labelWidth = EditorGUIUtility.labelWidth;
             EditorGUIUtility.labelWidth = 65;
             NodeEditorGUIDraw.PropertyField(layout.DrawLine(), waitTimeProp);

@@ -8,9 +8,55 @@ using UnityEngine;
 
 public class GraphArray<T> : GraphArrayBase, ICollection<T>, IEnumerable<T>, IEnumerable, IList<T>, IReadOnlyCollection<T>, IReadOnlyList<T>
 {
-    public GraphArray(GraphVariable innerVariable, GraphVariable.RetrievalTypes retrievalType) : base(innerVariable, retrievalType)
+
+    internal GraphArray(GraphVariable innerVariable, GraphVariable.RetrievalTypes retrievalType) : base(innerVariable, retrievalType)
     {
     }
+
+    /// <summary>
+    /// Creates a Graph Array from the source array. This copies all elements to the graph array
+    /// </summary>
+    /// <param name="sourceCollection"></param>
+    public GraphArray(IEnumerable<T> sourceCollection): base(null, GraphVariable.RetrievalTypes.ActualValue)
+    {
+        InitializeEmptyArray();
+        AddRange(sourceCollection);
+    }
+
+    public GraphArray() : base(null, GraphVariable.RetrievalTypes.ActualValue)
+    {
+        InitializeEmptyArray();
+    }
+
+    private void InitializeEmptyArray()
+    {
+        innerVariable = new GraphVariable();
+        innerVariable.typeName = typeof(List<GraphVariable>).FullName;
+        innerVariable.arrayType = typeof(T).FullName;
+    }
+
+
+    public static implicit operator GraphArray<T>(List<T> array)
+    {
+        return new GraphArray<T>(array);
+    }
+
+    public static implicit operator GraphArray<T>(T[] array)
+    {
+        return new GraphArray<T>(array);
+    }
+
+    public static implicit operator List<T>(GraphArray<T> array)
+    {
+        return array.ToList<T>();
+    }
+
+    public static implicit operator T[](GraphArray<T> array)
+    {
+        return array.ToArray<T>();
+    }
+
+
 
     public new T this[int index] {
         get
@@ -78,7 +124,20 @@ public class GraphArray<T> : GraphArrayBase, ICollection<T>, IEnumerable<T>, IEn
     {
         sourceArray.Select(x => (T)x.Value()).ToList().CopyTo(index, array, arrayIndex, count);
     }
-
+    /*
+    public void CopyFrom(IEnumerable<T> sourceCollection)
+    {
+        if (sourceCollection == null)
+            throw new ArgumentNullException("Source IEnumerable cannot be null");
+        foreach (T element in sourceCollection)
+        {
+            GraphVariableBase elementVar = new GraphVariableBase();
+            elementVar.typeName = typeof(T).FullName;
+            elementVar.SetValue(element);
+            elementVar.variableID = System.Guid.NewGuid().ToString();
+            innerVariable.arrayElements.Add(elementVar);
+        }
+    }*/
 
     public bool Exists(Predicate<T> match)
     {
@@ -148,6 +207,7 @@ public class GraphArray<T> : GraphArrayBase, ICollection<T>, IEnumerable<T>, IEn
 
         GraphVariableBase newElement = new GraphVariableBase();
         newElement.typeName = innerVariable.arrayType;
+        newElement.variableID = System.Guid.NewGuid().ToString();
         newElement.SetValue(item);
         sourceArray.Insert(index,newElement);
     }

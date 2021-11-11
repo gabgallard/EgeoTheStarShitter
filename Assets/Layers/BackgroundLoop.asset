@@ -1,0 +1,776 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6660803922182694662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07d5a5b184c5a14c9b533b9dae41980, type: 3}
+  m_Name: Play
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 450.07733, y: 21.14833}
+  ports:
+    keys:
+    - combinedVolume
+    - combinedPan
+    - play
+    - midiOut
+    - audioOut
+    - pause
+    - resume
+    - stop
+    - playFinished
+    - dynamicInput_0
+    - dynamicInput_1
+    - dynamicInput_2
+    - dynamicInput_3
+    - da187a8a-cf38-46a6-9fc3-a968af96e160
+    - 85792227-4d9c-4f99-8604-5707973ad914
+    values:
+    - _fieldName: combinedVolume
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: combinedPan
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: play
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: 3b0dd2ec-5326-49de-bb16-fb351e89004d
+        node: {fileID: 6575631750977762567}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: midiOut
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: audioOut
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.AudioFlow, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: audioIn
+        node: {fileID: 5691174195931193523}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: pause
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: resume
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: stop
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: d3f45b8d-bf1b-47cc-bef1-11b2b9fd4a5f
+        node: {fileID: 6575631750977762567}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: playFinished
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: dynamicInput_0
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.AudioFlow, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 1
+    - _fieldName: dynamicInput_1
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 1
+    - _fieldName: dynamicInput_2
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: dynamicInput_3
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: da187a8a-cf38-46a6-9fc3-a968af96e160
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+    - _fieldName: 85792227-4d9c-4f99-8604-5707973ad914
+      _node: {fileID: -6660803922182694662}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 1
+  lastDrawSize: {x: 270, y: 348}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: 1c290bc1-b662-4370-a59a-1c3611443215
+  timelineData:
+  - backingObject: {fileID: 8300000, guid: eca0b86dba9719c4495e5587e916dcde, type: 3}
+    _rowNumber: 0
+    exposed: 0
+    oneShot: 0
+    _length: 9.995979309082031
+    _startTime: 0
+    _interiorStartTime: 0
+    _playnodeDataItemTypes: 0
+    eventLabel: Audio Timeline Item
+    eventParameters: []
+    _itemID: da187a8a-cf38-46a6-9fc3-a968af96e160
+    owningPlayNode: {fileID: -6660803922182694662}
+  - backingObject: {fileID: 11400000, guid: e39a6b5940f348d4786c82611cc39d72, type: 2}
+    _rowNumber: 0
+    exposed: 0
+    oneShot: 0
+    _length: 9.990000000000004
+    _startTime: 0
+    _interiorStartTime: 0
+    _playnodeDataItemTypes: 3
+    eventLabel: Loop
+    eventParameters: []
+    _itemID: 85792227-4d9c-4f99-8604-5707973ad914
+    owningPlayNode: {fileID: -6660803922182694662}
+  tracks:
+  - trackLabel: DroneLoop
+    volume: 1
+    stereoPan: 0
+    audioOutNodeName: dynamicInput_0
+    audioOutSendName: 
+    midiOutNodeName: dynamicInput_1
+    volumeInNodeName: dynamicInput_2
+    panInNodeName: dynamicInput_3
+    exposed: 1
+  bpms: []
+  defaultBPM:
+    time: 0
+    backingBPM: 120
+  timeSignatures: []
+  defaultTimeSignature:
+    backingNumerator: 4
+    time: 0
+  previewAudioType: 0
+  eventPreviewType: 1
+  combinedVolume: 1
+  combinedPan: 0
+  playFinishedWhen: 0
+  endTime: 9.98
+  audioOut: {fileID: 0}
+  audioFlowOutID: 
+  currentState: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c732b7ca623984290ed573673d53ac, type: 3}
+  m_Name: BackgroundLoop
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 6575631750977762567}
+  - {fileID: 5691174195931193523}
+  - {fileID: -6660803922182694662}
+  _owningMono: {fileID: 0}
+  isCurrentlyInPool: 0
+  subgraphNode: {fileID: 0}
+  comment: 
+  lastAccessDSPTime: 755.712
+  _graphID: f4a8e77622abe5e4abe43c193b3e2ab8
+--- !u!114 &5691174195931193523
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0e06e359f0f6047918ac8e3f61ade7, type: 3}
+  m_Name: Audio Out
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 848.8942, y: 32.31832}
+  ports:
+    keys:
+    - audioIn
+    - audioSettings
+    - bypassEffects
+    - bypassListener
+    - bypassReverb
+    - volume
+    - audioMixerGroup
+    - priority
+    - pitch
+    - stereoPan
+    - worldPosition
+    - playAtTransform
+    - reverbZoneMixCurve
+    - reverbZoneMix
+    - spreadCurve
+    - spread
+    - spatialCurve
+    - spatialBlend
+    - dopplerLevel
+    - volumeFalloffCurve
+    - minDistance
+    - maxDistance
+    - playFinished
+    values:
+    - _fieldName: audioIn
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.AudioFlow, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: audioOut
+        node: {fileID: -6660803922182694662}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: audioSettings
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: ABXY.Layers.Runtime.AudioSettingsData, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: bypassEffects
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: bypassListener
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: bypassReverb
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: volume
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: audioMixerGroup
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: UnityEngine.Audio.AudioMixerGroup, UnityEngine.AudioModule,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: priority
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: pitch
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: stereoPan
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: worldPosition
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: playAtTransform
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: reverbZoneMixCurve
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: reverbZoneMix
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: spreadCurve
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: spread
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: spatialCurve
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: spatialBlend
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: dopplerLevel
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: volumeFalloffCurve
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: minDistance
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: maxDistance
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: playFinished
+      _node: {fileID: 5691174195931193523}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+  lastDrawSize: {x: 300, y: 714}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: 9473b39d-9878-4549-b77b-b632be90fc48
+  audioIn: {fileID: 0}
+  bypassEffects: 0
+  bypassEffectsInstance: 0
+  bypassListener: 0
+  bypassListenerInstance: 0
+  bypassReverb: 0
+  bypassReverbInstance: 0
+  volume: 1
+  volumeInstance: 0
+  audioMixerGroup: {fileID: 4967392681758118930, guid: 9a9b2376dc550124c97e730c2478ad66, type: 2}
+  audioMixerGroupInstance: 0
+  priority: 128
+  priorityInstance: 0
+  pitch: 1
+  pitchInstance: 0
+  stereoPan: 0
+  stereoPanInstance: 0
+  worldPosition: {x: 0, y: 0, z: 0}
+  worldPositionInstance: 0
+  playAtTransform: {fileID: 0}
+  playAtTransformInstance: 0
+  settingsSource: 0
+  shareSettings: 2
+  reverbZoneMixCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMix: 1
+  spreadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spread: 0
+  spatialCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spatialBlend: 0
+  dopplerLevel: 0
+  dopplerLevelInstance: 0
+  volumeFalloffCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.002
+      value: 1
+      inSlope: -500.20065
+      outSlope: -500.20065
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.004
+      value: 0.5
+      inSlope: -125.05016
+      outSlope: -125.05016
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.008
+      value: 0.25
+      inSlope: -31.26254
+      outSlope: -31.26254
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.016
+      value: 0.125
+      inSlope: -7.815635
+      outSlope: -7.815635
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.032
+      value: 0.0625
+      inSlope: -1.9539088
+      outSlope: -1.9539088
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.064
+      value: 0.03125
+      inSlope: -0.4884772
+      outSlope: -0.4884772
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.128
+      value: 0.015625
+      inSlope: -0.1221193
+      outSlope: -0.1221193
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.256
+      value: 0.0078125
+      inSlope: -0.030529825
+      outSlope: -0.030529825
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.512
+      value: 0.00390625
+      inSlope: -0.0076324563
+      outSlope: -0.0076324563
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.002
+      inSlope: -0.002000801
+      outSlope: -0.002000801
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minDistance: 1
+  maxDistance: 500
+  rolloffMode: 0
+  sendList: []
+--- !u!114 &6575631750977762567
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bd96483a0a6574397104559d90f74c, type: 3}
+  m_Name: Graph Data
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -150.38599, y: -38.374332}
+  ports:
+    keys:
+    - update
+    - playFinished
+    - 3b0dd2ec-5326-49de-bb16-fb351e89004d
+    - d3f45b8d-bf1b-47cc-bef1-11b2b9fd4a5f
+    values:
+    - _fieldName: update
+      _node: {fileID: 6575631750977762567}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: playFinished
+      _node: {fileID: 6575631750977762567}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: 3b0dd2ec-5326-49de-bb16-fb351e89004d
+      _node: {fileID: 6575631750977762567}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: play
+        node: {fileID: -6660803922182694662}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 1
+    - _fieldName: d3f45b8d-bf1b-47cc-bef1-11b2b9fd4a5f
+      _node: {fileID: 6575631750977762567}
+      _typeQualifiedName: ABXY.Layers.Runtime.FlowTypes.LayersEvent, SymphonyRuntime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: stop
+        node: {fileID: -6660803922182694662}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 1
+  lastDrawSize: {x: 356, y: 415}
+  variablesDrivenByParameters: []
+  expanded: 1
+  serializedID: 
+  variables: []
+  events:
+  - eventName: LoopStart
+    onGraphEventCalled:
+      m_PersistentCalls:
+        m_Calls: []
+    onGraphEventCalledEphemeral:
+      m_PersistentCalls:
+        m_Calls: []
+    expose: 1
+    expanded: 1
+    eventID: 3b0dd2ec-5326-49de-bb16-fb351e89004d
+    parameters: []
+  - eventName: LoopEnd
+    onGraphEventCalled:
+      m_PersistentCalls:
+        m_Calls: []
+    onGraphEventCalledEphemeral:
+      m_PersistentCalls:
+        m_Calls: []
+    expose: 0
+    expanded: 1
+    eventID: d3f45b8d-bf1b-47cc-bef1-11b2b9fd4a5f
+    parameters: []
+  poolSize: 1
+  globals: {fileID: 0}

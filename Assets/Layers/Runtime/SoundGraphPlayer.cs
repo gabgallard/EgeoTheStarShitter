@@ -7,7 +7,7 @@ namespace ABXY.Layers.Runtime
     [ExecuteInEditMode]
     public abstract class SoundGraphPlayer : PlayerBase
     {
-    
+
         public SoundGraph runtimeGraphCopy { get; private set; }
 
 
@@ -17,18 +17,18 @@ namespace ABXY.Layers.Runtime
             // loading the soundgraph from asset if necessary
 
 
-            
+
 
         }
 
-    
+
         protected override void Start()
         {
 
             if (Application.isPlaying)
                 runtimeGraphCopy?.GraphStart();
 
-        
+
         }
         protected override void OnEnable()
         {
@@ -41,23 +41,21 @@ namespace ABXY.Layers.Runtime
             if (Application.isPlaying && playOnAwake)
                 RunStartingEvents();
 
-           
+
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
             DisconnectFromSoundGraph();
-            
+
         }
 
         private void Update()
         {
             // If I don't have a reference to the soundgraph, I load it from disk. I don't need to do this in built players
-#if UNITY_EDITOR
-            if (soundGraph == null)
-                LoadGraph();
-#endif
+            LoadGraphIfNeeded();
+
             /*
             if (soundGraph == null)
                 LoadGraph();
@@ -78,6 +76,14 @@ namespace ABXY.Layers.Runtime
             }*/
         }
 
+        private void LoadGraphIfNeeded()
+        {
+#if UNITY_EDITOR
+            if (soundGraph == null)
+                LoadGraph();
+#endif
+        }
+
         /// <summary>
         /// Connects the player to a soundgraph instance at runtime, or the sound graph asset at edit time
         /// </summary>
@@ -85,6 +91,8 @@ namespace ABXY.Layers.Runtime
         {
             if (Application.isPlaying) // Then need to set up runtime graph
             {
+                // loading asset if editor and necessary
+                LoadGraphIfNeeded();
 
                 // Creating the runtime graph
                 runtimeGraphCopy = SoundgraphPool.GetInstance(soundGraph, this);
@@ -142,6 +150,13 @@ namespace ABXY.Layers.Runtime
             runtimeGraphCopy = null;
         }
 
+        public List<AudioSource> GetAudioSourcesInUse()
+        {
+            if (runtimeGraphCopy != null)
+                return runtimeGraphCopy.GetAudioSourcesInUse();
+            else
+                return soundGraph.GetAudioSourcesInUse();
+        }
 
         /// <summary>
         /// At runtime, we want to copy the variables list from the graph to the player so they are operating on
@@ -198,7 +213,7 @@ namespace ABXY.Layers.Runtime
             if (_soundGraph != null)
             {
                 List<GraphVariable> assetVariables = runtimeGraphCopy.GetAllVariables();
-                foreach(var playerVariable in localVariablesList)
+                foreach (var playerVariable in localVariablesList)
                 {
                     GraphVariable targetAssetVariable = assetVariables.Find(x => x.variableID == playerVariable.variableID);
                     if (targetAssetVariable != null)
@@ -274,12 +289,12 @@ namespace ABXY.Layers.Runtime
             if (runtimeGraphCopy == null)
                 return;
 
-            foreach(StartingEvent startingEvent in startingEvents)
+            foreach (StartingEvent startingEvent in startingEvents)
             {
                 Dictionary<string, object> data = new Dictionary<string, object>();
                 foreach (GraphVariable variable in startingEvent.parameters)
                     data.Add(variable.name, variable.Value());
-                runtimeGraphCopy.CallEvent(startingEvent.eventName, AudioSettings.dspTime, data,0);
+                runtimeGraphCopy.CallEvent(startingEvent.eventName, AudioSettings.dspTime, data, 0);
             }
 
         }
@@ -309,7 +324,7 @@ namespace ABXY.Layers.Runtime
                 return;
 
             GraphVariable localvariable = localVariablesList.Find(x => x.name == variableName);
-           // GraphVariable graphVariable = runtimeGraphCopy.GetGraphVariable(variableName, true);
+            // GraphVariable graphVariable = runtimeGraphCopy.GetGraphVariable(variableName, true);
             if (localvariable != null/* && graphVariable != null*/)
             {
                 localvariable.SetValue(value);
@@ -324,7 +339,7 @@ namespace ABXY.Layers.Runtime
         /// <returns></returns>
         protected object GetVariable(string variableName)
         {
-            SoundGraph targetSoundgraph  = soundGraph;
+            SoundGraph targetSoundgraph = soundGraph;
             if (runtimeGraphCopy != null)
                 targetSoundgraph = runtimeGraphCopy;
 
@@ -343,12 +358,12 @@ namespace ABXY.Layers.Runtime
 
         protected void TriggerEvent(string eventName, double time, Dictionary<string, object> data)
         {
-            runtimeGraphCopy?.CallEvent(eventName, time, data,0);
+            runtimeGraphCopy?.CallEvent(eventName, time, data, 0);
         }
 
         public void RegisterEventListener(string eventName, UnityEngine.Events.UnityAction<double, Dictionary<string, object>> onEventCalled)
         {
-            runtimeGraphCopy?.RegisterEventListener(eventName,onEventCalled);
+            runtimeGraphCopy?.RegisterEventListener(eventName, onEventCalled);
         }
 
         public void UnRegisterEventListener(string eventName, UnityEngine.Events.UnityAction<double, Dictionary<string, object>> onEventCalled)
@@ -400,7 +415,7 @@ namespace ABXY.Layers.Runtime
         {
             List<GraphVariable> originalVariables = soundGraph.GetAllVariables();
             List<GraphVariable> copiedVariables = soundGraph.GetAllVariables();
-            foreach(GraphVariable copiedVar in copiedVariables)
+            foreach (GraphVariable copiedVar in copiedVariables)
             {
                 GraphVariable originalVar = originalVariables.Find(x => x.name == copiedVar.name && x.typeName == copiedVar.typeName);
                 if (originalVar != null)

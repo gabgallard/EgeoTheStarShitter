@@ -372,6 +372,7 @@ MonoBehaviour:
     - maxDistance
     - playFinished
     - playAtTransform
+    - dopplerLevel
     values:
     - _fieldName: audioIn
       _node: {fileID: 8071809231888227461}
@@ -574,21 +575,40 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 0
+    - _fieldName: dopplerLevel
+      _node: {fileID: 8071809231888227461}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
   lastDrawSize: {x: 300, y: 714}
   variablesDrivenByParameters: []
   expanded: 1
   serializedID: 21441d5e-f551-4068-8752-fbb8609dd810
   audioIn: {fileID: 0}
   bypassEffects: 0
+  bypassEffectsInstance: 0
   bypassListener: 0
+  bypassListenerInstance: 0
   bypassReverb: 0
+  bypassReverbInstance: 0
   volume: 1
+  volumeInstance: 0
   audioMixerGroup: {fileID: 0}
+  audioMixerGroupInstance: 0
   priority: 128
+  priorityInstance: 0
   pitch: 1
+  pitchInstance: 0
   stereoPan: 0
+  stereoPanInstance: 0
   worldPosition: {x: 0, y: 0, z: 0}
+  worldPositionInstance: 0
   playAtTransform: {fileID: 0}
+  playAtTransformInstance: 0
   settingsSource: 0
   shareSettings: 0
   reverbZoneMixCurve:
@@ -639,6 +659,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   spatialBlend: 0
+  dopplerLevel: 1
+  dopplerLevelInstance: 0
   volumeFalloffCurve:
     serializedVersion: 2
     m_Curve:

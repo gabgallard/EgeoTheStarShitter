@@ -33,8 +33,15 @@ public class EgeoController : MonoBehaviour
 
   void Update()
   {
-    if(Input.GetKeyDown(KeyCode.S))
-      StartShitting();
+    #if UNITY_EDITOR
+        DebugKeys();
+    #endif
+  }
+
+  void DebugKeys()
+  {
+      if(Input.GetKeyDown(KeyCode.S))
+          StartShitting();
   }
 
   void ShitStar()

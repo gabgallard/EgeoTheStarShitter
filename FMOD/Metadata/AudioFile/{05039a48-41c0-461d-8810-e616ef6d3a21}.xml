@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{05039a48-41c0-461d-8810-e616ef6d3a21}">
+		<property name="assetPath">
+			<value>sfx_smelling_05.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{be1e18ad-5dc6-4116-b503-0e50a49c9e49}</destination>
+		</relationship>
+	</object>
+</objects>

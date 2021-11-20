@@ -69,8 +69,12 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     }
 
     if(!underForces && dragging)
-      transform.position = MouseCursor2D() + cursorOffset;
-  }
+    { transform.position = MouseCursor2D() + cursorOffset; }
+    /*
+    collidePlanetSound.setParameterByName("Magnitude", value);
+    collideStarSound.setParameterByName("Magnitude", value);
+    */
+    }
 
   void StartShaking()
   {
@@ -129,12 +133,14 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     string objectAType = this.tag;
     string objectBType = collisionInfo.gameObject.tag;
     float magnitude = collisionInfo.relativeVelocity.magnitude;
+    float collSpeed = Mathf.InverseLerp(0f, 10f, magnitude);
 
-    if (!dragging)
+        if (!dragging)
         {
             if (objectBType == "Planet")
             {
-                collidePlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollidePlanet");
+                collidePlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollidePlanet"); 
+                collidePlanetSound.setParameterByName("Magnitude", collSpeed);
                 collidePlanetSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
                 collidePlanetSound.start();
                 collidePlanetSound.release();
@@ -142,14 +148,15 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
             else if (objectBType == "Star")
             {
                 collideStarSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollideStar");
+                collideStarSound.setParameterByName("Magnitude", collSpeed);
                 collideStarSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
                 collideStarSound.start();
                 collideStarSound.release();
             }
         }
-
-    Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
-  }
+        Debug.Log($"magnitude: {magnitude}, collSpeed: {collSpeed}");
+        //Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
+    }
 
   // Drag and Drop :: INI
   public void OnPointerDown(PointerEventData eventData)

@@ -3,6 +3,7 @@
 {d844d9c9-c88b-4037-8783-12b696696feb} bus:/
 {e42ba5dd-965c-4ab0-8222-85bf13fb6121} bus:/Backgr
 {11d09026-ee0e-4ed0-ada2-a633f290f696} bus:/Egeo
+{5ddc9e2b-0aec-4f35-9a3a-a8369cf00f35} bus:/Other
 {f10156f9-91a4-479e-a360-6845bfee56a2} bus:/Planets
 {5cc20f3a-6c43-4200-9d2d-9de2c43c0711} bus:/Reverb
 {7ee7b411-fe14-4dc2-8988-97b991f8beee} bus:/Stars
@@ -18,6 +19,7 @@
 {7969692e-ba5e-4bed-b42a-111206f3d158} event:/EgeoSmelling
 {4d357e05-3658-4296-8d06-16d2b8ea078c} event:/EgeoSwalling
 {7a097a5a-4090-462d-867f-6caae1120ff2} event:/Pause
+{c3fbfede-6abf-44bc-82c6-119d5c5663eb} event:/SfxThunder
 {479da112-dee0-401f-8142-1e177e37dd9b} event:/SpawnPlanet
 {f2a61fc2-cf56-4658-a1c8-225824eddb79} event:/SpawnStar
 {da148f97-e33e-4855-9f47-e6ac6eb7c527} parameter:/Magnitude

@@ -31,7 +31,7 @@ public class PlanetSpawnerController : MonoBehaviour
     planets = new List<GameObject>();
   }
 
-  void Update()
+    void Update()
   {
     if(!loading && !EgeoController.Instance.UniverseFinished && Time.time > nextSpawnAt && planets.Count < maxNumOfPlanets)
       SpawnPlanet(Random.Range(1, numOfPlanetsOnSpawn));
@@ -47,11 +47,12 @@ public class PlanetSpawnerController : MonoBehaviour
   {
     SpawnPlanet(numOfPlanetsAtStart);
     loading = false;
-        //Sound
-        planetSpawnSound = FMODUnity.RuntimeManager.CreateInstance("event:/SpawnPlanet");
-        planetSpawnSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        planetSpawnSound.start();
-        planetSpawnSound.release();
+
+    //Sound
+    planetSpawnSound = FMODUnity.RuntimeManager.CreateInstance("event:/SpawnPlanet");
+    planetSpawnSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+    planetSpawnSound.start();
+    planetSpawnSound.release();
   }
 
   void SpawnPlanet(int numPlanets = 1)
@@ -64,7 +65,10 @@ public class PlanetSpawnerController : MonoBehaviour
       planets.Add(planet);
 
       //Sound
-      FMODUnity.RuntimeManager.PlayOneShot("event:/SpawnPlanet");
+      planetSpawnSound = FMODUnity.RuntimeManager.CreateInstance("event:/SpawnPlanet");
+      planetSpawnSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+      planetSpawnSound.start();
+      planetSpawnSound.release();
     }
     theCollider.enabled = false;
 

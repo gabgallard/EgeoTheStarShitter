@@ -25,7 +25,7 @@ public class EgeoController : MonoBehaviour
 
   public bool UniverseFinished = false;
 
-  void Awake()
+    void Awake()
   {
     Instance = this;
     numStarsForAWonderfulUniverse = RandomDeviation(numStarsForAWonderfulUniverse);

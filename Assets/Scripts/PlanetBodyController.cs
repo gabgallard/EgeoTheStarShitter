@@ -14,7 +14,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   [SerializeField] GameObject planet;
   [SerializeField] string bodyType;
   [SerializeField] float blowForce = 10;
-
+  
   Vector3 cursorOffset;
   Material material;
   Joint2D springJoint;
@@ -28,7 +28,13 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   Transform egeoMouthInside;
 
-  void Awake()
+  //FMOD Event instances
+  private FMOD.Studio.EventInstance clickPlanetSound;
+  private FMOD.Studio.EventInstance clickStarSound;
+  private FMOD.Studio.EventInstance collidePlanetSound;
+  private FMOD.Studio.EventInstance collideStarSound;
+
+    void Awake()
   {
     springJoint = GetComponent<SpringJoint2D>();
     theRigidbody = GetComponent<Rigidbody2D>();
@@ -124,6 +130,24 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     string objectBType = collisionInfo.gameObject.tag;
     float magnitude = collisionInfo.relativeVelocity.magnitude;
 
+    if (!dragging)
+        {
+            if (objectBType == "Planet")
+            {
+                collidePlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollidePlanet");
+                collidePlanetSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+                collidePlanetSound.start();
+                collidePlanetSound.release();
+            }
+            else if (objectBType == "Star")
+            {
+                collideStarSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollideStar");
+                collideStarSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+                collideStarSound.start();
+                collideStarSound.release();
+            }
+        }
+
     Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
   }
 
@@ -136,7 +160,23 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       StopSpringJoint();
       dragging = true;
 
-      Debug.Log($"OnPointerDown(), tag: {gameObject.tag}");
+            //Sound 
+            if (gameObject.tag == "Planet")
+            {
+                clickPlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/ClickPlanet");
+                clickPlanetSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+                clickPlanetSound.start();
+                clickPlanetSound.release();
+            }
+            else if (gameObject.tag == "Star")
+            {
+                clickStarSound = FMODUnity.RuntimeManager.CreateInstance("event:/ClickStar");
+                clickStarSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+                clickStarSound.start();
+                clickStarSound.release();
+            }
+
+            Debug.Log($"OnPointerDown(), tag: {gameObject.tag}");
     }
   }
 

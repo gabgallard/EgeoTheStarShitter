@@ -11,7 +11,11 @@ public class UIController : MonoBehaviour
   [SerializeField] GameObject infoPage;
   Camera theCamera;
 
-  void Awake()
+  //Pause Sound behaviour event
+  FMOD.Studio.EventInstance Pause;
+  private bool pauseState;
+
+    void Awake()
   {
     animator = GetComponent<Animator>();
     Instance = this;
@@ -22,9 +26,14 @@ public class UIController : MonoBehaviour
   void Start()
   {
     animator.SetTrigger("Intro");
+
+    //initialiting pause sound conditions
+    pauseState = false;
+    Pause = FMODUnity.RuntimeManager.CreateInstance("event:/Pause");
+    
   }
 
-  void StartSky()
+    void StartSky()
   {
     PlanetSpawnerController.Instance.FirstSpawn();
   }
@@ -37,7 +46,23 @@ public class UIController : MonoBehaviour
   {
     infoPage.SetActive(!infoPage.activeSelf);
     infoPage.transform.Find("Scroll").GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
-  }
+
+        //Fmod Pause Event
+        //still not working well. Needs debugging
+
+    if (!pauseState)
+        {
+            Pause.start();
+            Pause.keyOff();
+            pauseState = true;
+        }
+    else if (pauseState)
+        {
+            Pause.release();
+            Pause.keyOff();
+            pauseState = false;
+        }
+   }
 
   [ContextMenu("XXX")]
   public void ShowWonderfulUniverseMessage()
@@ -53,4 +78,12 @@ public class UIController : MonoBehaviour
     sequence.Append(theCamera.DOColor(new Color(0.9764706f, 0.9529412f, 0.9686275f), 0.20f));
     sequence.Append(theCamera.DOColor(new Color(0f, 0f, 0f), 0.50f));
   }
+
+  //FMOD event
+  void PlaybackBckgrSound()
+   {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/BckgrLoop");
+   }
 }
+
+

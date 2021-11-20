@@ -13,8 +13,10 @@
 {e8ee22f4-cc7d-48c3-bcc4-b3a909341350} event:/ClickStar
 {c0859d98-05b8-43a4-a289-1a3091480f41} event:/CollidePlanet
 {17b590f5-89c5-4b6f-98c2-aa4103c3b3e3} event:/CollideStar
+{715eda66-7721-4246-8532-d8526d769922} event:/EgeoBlowing
 {8726bdef-4426-4832-a761-afcf0b8dbf78} event:/EgeoChewing
 {7969692e-ba5e-4bed-b42a-111206f3d158} event:/EgeoSmelling
+{4d357e05-3658-4296-8d06-16d2b8ea078c} event:/EgeoSwalling
 {7a097a5a-4090-462d-867f-6caae1120ff2} event:/Pause
 {479da112-dee0-401f-8142-1e177e37dd9b} event:/SpawnPlanet
 {f2a61fc2-cf56-4658-a1c8-225824eddb79} event:/SpawnStar

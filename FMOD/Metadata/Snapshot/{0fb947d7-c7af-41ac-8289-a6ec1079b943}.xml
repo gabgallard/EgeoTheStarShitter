@@ -4,6 +4,9 @@
 		<property name="name">
 			<value>Game</value>
 		</property>
+		<property name="behavior">
+			<value>1</value>
+		</property>
 		<relationship name="mixer">
 			<destination>{f6c4a95c-15cf-4f25-b8da-50bb928470a1}</destination>
 		</relationship>
@@ -20,10 +23,10 @@
 			<destination>{3a2b4608-a578-4100-8232-4e7bd8ec4056}</destination>
 		</relationship>
 		<relationship name="snapshotProperties">
-			<destination>{59eca8da-bbfc-4990-8e53-0ab3eae46e15}</destination>
+			<destination>{8dc0630e-b420-41c8-b094-d07be4173643}</destination>
 		</relationship>
 		<relationship name="snapshotTracks">
-			<destination>{0ccf2547-d491-4626-bb1e-9de6377ce229}</destination>
+			<destination>{c9227843-679f-4cbb-8abc-e41901f39eaa}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{898bfe8d-bd6c-46b2-82a0-3d7e53a5e911}">
@@ -34,20 +37,37 @@
 	<object class="MarkerTrack" id="{652264b9-902c-43d8-af9f-675ffcc25cfd}" />
 	<object class="Timeline" id="{93fa3d68-ef1a-47b2-82e3-f7190d7c999c}" />
 	<object class="SnapshotMasterTrack" id="{3a2b4608-a578-4100-8232-4e7bd8ec4056}" />
-	<object class="SnapshotProperty" id="{59eca8da-bbfc-4990-8e53-0ab3eae46e15}">
+	<object class="SnapshotProperty" id="{8dc0630e-b420-41c8-b094-d07be4173643}">
 		<property name="propertyName">
 			<value>volume</value>
 		</property>
 		<property name="value">
 			<value>0</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{210fedbb-de30-4abf-9766-552e835697a1}</destination>
+		</relationship>
 		<relationship name="automatableObject">
 			<destination>{d844d9c9-c88b-4037-8783-12b696696feb}</destination>
 		</relationship>
 	</object>
-	<object class="SnapshotTrack" id="{0ccf2547-d491-4626-bb1e-9de6377ce229}">
+	<object class="SnapshotTrack" id="{c9227843-679f-4cbb-8abc-e41901f39eaa}">
 		<relationship name="mixerStrip">
 			<destination>{d844d9c9-c88b-4037-8783-12b696696feb}</destination>
 		</relationship>
+	</object>
+	<object class="ADSRModulator" id="{210fedbb-de30-4abf-9766-552e835697a1}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>value</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackShape">
+			<value>-0.356008708</value>
+		</property>
+		<property name="releaseTime">
+			<value>60000</value>
+		</property>
 	</object>
 </objects>

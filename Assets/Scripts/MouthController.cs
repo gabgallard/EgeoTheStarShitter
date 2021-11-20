@@ -44,12 +44,14 @@ public class MouthController : MonoBehaviour
     position = lipDownClosed.position;
     position.y = position.y - movement;
     lipDownTarget.transform.position = position;
-  }
+   }
 
   public void StartSmeling()
   {
     DOTween.To(() => actualLipMovementAmplitude, x => actualLipMovementAmplitude = x, lipMovementAmplitudeWhenSmeling, 1);
-  }
+    //Sound
+    FMODUnity.RuntimeManager.PlayOneShot("event:/EgeoSmelling");
+    }
 
   public void StopSmeling()
   {
@@ -61,7 +63,9 @@ public class MouthController : MonoBehaviour
     eating = true;
     lipUpTarget.DOMove(lipUpOpened.position, 0.5f);
     lipDownTarget.DOMove(lipDownOpened.position, 0.5f);
-  }
+        //Sound
+        FMODUnity.RuntimeManager.PlayOneShot("event:/EgeoSwalling");
+    }
 
   public void StopEating()
   {
@@ -75,7 +79,7 @@ public class MouthController : MonoBehaviour
     closing = true;
     lipUpTarget.DOMove(lipUpClosed.position, 0.5f);
     lipDownTarget.DOMove(lipDownClosed.position, 0.5f).OnComplete(StopClosing);
-  }
+   }
 
   void StopClosing()
   {
@@ -85,6 +89,11 @@ public class MouthController : MonoBehaviour
   public void StartBlowing()
   {
     blowing = true;
+        
+        //Sound
+        FMODUnity.RuntimeManager.PlayOneShot("event:/EgeoBlowing");
+        //
+
     Sequence sequence = DOTween.Sequence();
     sequence.Append(lipUpTarget.DOMove(lipDownClosed.position, 0.5f));
     sequence.Append(lipUpTarget.DOMove(lipUpOpened.position, 0.1f));

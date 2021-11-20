@@ -20,7 +20,8 @@ public class UISplashController : MonoBehaviour, IPointerClickHandler
 
   public void OnPointerClick(PointerEventData eventData)
   {
-    SceneManager.LoadScene("Game");
+    FMODUnity.RuntimeManager.PlayOneShot("event:/ClickMenu");
+        SceneManager.LoadScene("Game");
   }
 
 

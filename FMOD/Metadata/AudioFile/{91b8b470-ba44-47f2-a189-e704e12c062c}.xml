@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{614053a8-9c7b-49cf-a2ff-b879d9da1210}">
+	<object class="AudioFile" id="{91b8b470-ba44-47f2-a189-e704e12c062c}">
 		<property name="assetPath">
-			<value>sfx_thunder.wav</value>
+			<value>sfx_blowing_04.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
 		</property>
 		<property name="channelCount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="length">
-			<value>13.9449375</value>
+			<value>2</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{be1e18ad-5dc6-4116-b503-0e50a49c9e49}</destination>

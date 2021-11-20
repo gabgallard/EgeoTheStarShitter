@@ -19,6 +19,8 @@ public class StarSpawnerController : MonoBehaviour
   [SerializeField] float temporalMass = 10.0f;
   [SerializeField] float temporalMassDuration = 1.0f;
 
+  private FMOD.Studio.EventInstance starSpawnSound;
+
   void Awake()
   {
     Instance = this;
@@ -48,6 +50,12 @@ public class StarSpawnerController : MonoBehaviour
     Rigidbody2D bodyRigidbody = body.gameObject.GetComponent<Rigidbody2D>();
     bodyRigidbody.AddForce((target.position - body.position) * RandomDeviation(force), ForceMode2D.Impulse);
 
+        //Sound
+        starSpawnSound = FMODUnity.RuntimeManager.CreateInstance("event:/SpawnStar");
+        starSpawnSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        starSpawnSound.start();
+        starSpawnSound.release();
+
     yield return new WaitForSeconds(RandomDeviation(firstProjectionDuration));
 
     float previousDrag = bodyRigidbody.drag;
@@ -57,7 +65,7 @@ public class StarSpawnerController : MonoBehaviour
 
     yield return new WaitForSeconds(RandomDeviation(temporalMassDuration));
     bodyRigidbody.drag = previousDrag;
-  }
+    }
 
   float RandomDeviation(float number) {
     return Random.Range(number - (number / 2), number + (number / 2));

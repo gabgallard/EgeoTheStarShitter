@@ -77,16 +77,17 @@ public class EgeoController : MonoBehaviour
 
   IEnumerator SpawnStarCoroutine()
   {
-    bottomController.StartSmeling();
+    bottomController.StartSmeling(); // Bottom starts vibrating
     yield return new WaitForSeconds(RandomDeviation(bottomFullDuration));
 
-    bottomController.StopSmeling();
-    bottomController.StartEating();
+    bottomController.StopSmeling(); // Bottom stops vibrating
+    bottomController.StartEating(); // Bottom opens
     yield return new WaitForSeconds(RandomDeviation(shittingDuration));
 
-    ShitStar();
+    ShitStar(); // Shoot stars
     yield return new WaitForSeconds(RandomDeviation(afterShittingDuration));
-    bottomController.StopEating();
+
+    bottomController.StopEating(); // Bottom closes
   }
 
   public void Blow(PlanetBodyController planetBodyController)

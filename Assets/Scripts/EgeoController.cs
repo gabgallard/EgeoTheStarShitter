@@ -78,14 +78,17 @@ public class EgeoController : MonoBehaviour
   IEnumerator SpawnStarCoroutine()
   {
     bottomController.StartSmeling(); // Bottom starts vibrating
-    yield return new WaitForSeconds(RandomDeviation(bottomFullDuration));
+    float duration = RandomDeviation(bottomFullDuration);
+    yield return new WaitForSeconds(duration);
 
     bottomController.StopSmeling(); // Bottom stops vibrating
     bottomController.StartEating(); // Bottom opens
-    yield return new WaitForSeconds(RandomDeviation(shittingDuration));
+    duration = RandomDeviation(bottomFullDuration);
+    yield return new WaitForSeconds(duration);
 
     ShitStar(); // Shoot stars
-    yield return new WaitForSeconds(RandomDeviation(afterShittingDuration));
+    duration = RandomDeviation(bottomFullDuration);
+    yield return new WaitForSeconds(RandomDeviation(duration));
 
     bottomController.StopEating(); // Bottom closes
   }

@@ -70,12 +70,18 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     }
 
     if(!underForces && dragging)
-    { transform.position = MouseCursor2D() + cursorOffset; }
+      MoveTowardMouseCursor();
+
     /*
     collidePlanetSound.setParameterByName("Magnitude", value);
     collideStarSound.setParameterByName("Magnitude", value);
     */
-    }
+  }
+
+  void MoveTowardMouseCursor()
+  {
+    theRigidbody.MovePosition(MouseCursor2D() + cursorOffset);
+  }
 
   void StartShaking()
   {

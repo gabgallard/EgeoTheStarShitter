@@ -1141,7 +1141,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Egeo is an experimental artistic project. Original idea, programming and
-    Graphics: <b>Fernando Guillen</b>. Music and Sound Effects: <b>WIP</b>'
+    Graphics: <b>Alberto Bueno</b>. Music and Sound Design: <b>Gabriel Gallardo</b>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b3132256e79cd4663850d968a5fadfc2, type: 2}
   m_sharedMaterial: {fileID: -5217915002131764241, guid: b3132256e79cd4663850d968a5fadfc2, type: 2}

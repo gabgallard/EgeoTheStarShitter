@@ -434,7 +434,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350693858}
-  - component: {fileID: 350693859}
   m_Layer: 7
   m_Name: Solvers
   m_TagString: Mouth
@@ -459,22 +458,6 @@ Transform:
   m_Father: {fileID: 874558786}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &350693859
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350693857}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!1 &361752087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,9 +1788,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.01, y: -0.11}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.09
 --- !u!114 &874558788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2973,7 +2956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8422068582972842632, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 8.483
+      value: -11.98
       objectReference: {fileID: 0}
     - target: {fileID: -6879965807727053135, guid: 66181a2c31d06474cb94077c19440888, type: 3}
       propertyPath: m_LocalRotation.w

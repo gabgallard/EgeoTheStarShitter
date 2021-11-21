@@ -14,7 +14,8 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   [SerializeField] GameObject planet;
   [SerializeField] string bodyType;
   [SerializeField] float blowForce = 10;
-  
+  [SerializeField] float topLimitCollisionMagnitude = 20;
+
   Vector3 cursorOffset;
   Material material;
   Joint2D springJoint;
@@ -133,13 +134,13 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     string objectAType = this.tag;
     string objectBType = collisionInfo.gameObject.tag;
     float magnitude = collisionInfo.relativeVelocity.magnitude;
-    float collSpeed = Mathf.InverseLerp(0f, 10f, magnitude);
+    float collSpeed = Mathf.Lerp(0f, 10f, magnitude / topLimitCollisionMagnitude);
 
         if (!dragging)
         {
             if (objectBType == "Planet")
             {
-                collidePlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollidePlanet"); 
+                collidePlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollidePlanet");
                 collidePlanetSound.setParameterByName("Magnitude", collSpeed);
                 collidePlanetSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
                 collidePlanetSound.start();
@@ -167,7 +168,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       StopSpringJoint();
       dragging = true;
 
-            //Sound 
+            //Sound
             if (gameObject.tag == "Planet")
             {
                 clickPlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/ClickPlanet");

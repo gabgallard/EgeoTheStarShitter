@@ -20,6 +20,8 @@ public class EgeoController : MonoBehaviour
   [SerializeField] float shittingDuration = 1;
   [SerializeField] float afterShittingDuration = 2;
 
+  private FMOD.Studio.EventInstance stomachSound;
+
   float foodOnStomach = 0;
   int numOfStars = 0;
 
@@ -84,6 +86,13 @@ public class EgeoController : MonoBehaviour
     bottomController.StopSmeling(); // Bottom stops vibrating
     bottomController.StartEating(); // Bottom opens
     duration = RandomDeviation(bottomFullDuration);
+
+    // stomach sound event
+    stomachSound = FMODUnity.RuntimeManager.CreateInstance("event:/EgeoStomach");
+    stomachSound.start();
+    stomachSound.release();
+    //
+
     yield return new WaitForSeconds(duration);
 
     ShitStar(); // Shoot stars

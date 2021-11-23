@@ -17,6 +17,7 @@
 {715eda66-7721-4246-8532-d8526d769922} event:/EgeoBlowing
 {8726bdef-4426-4832-a761-afcf0b8dbf78} event:/EgeoChewing
 {7969692e-ba5e-4bed-b42a-111206f3d158} event:/EgeoSmelling
+{0f892996-0996-47d5-8538-ef8dfcb336fc} event:/EgeoStomach
 {4d357e05-3658-4296-8d06-16d2b8ea078c} event:/EgeoSwalling
 {7a097a5a-4090-462d-867f-6caae1120ff2} event:/Pause
 {c3fbfede-6abf-44bc-82c6-119d5c5663eb} event:/SfxThunder

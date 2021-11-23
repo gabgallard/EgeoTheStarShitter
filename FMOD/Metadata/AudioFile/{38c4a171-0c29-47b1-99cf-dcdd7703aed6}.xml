@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{38c4a171-0c29-47b1-99cf-dcdd7703aed6}">
+		<property name="assetPath">
+			<value>sfx_stomach_03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{be1e18ad-5dc6-4116-b503-0e50a49c9e49}</destination>
+		</relationship>
+	</object>
+</objects>

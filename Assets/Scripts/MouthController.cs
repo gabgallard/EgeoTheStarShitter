@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
 
 public class MouthController : MonoBehaviour
@@ -20,6 +21,14 @@ public class MouthController : MonoBehaviour
   bool eating = false;
   bool closing = false;
   bool blowing = false;
+  bool smelling = false;
+  string mouthPhase = null;
+
+  float previousMovementPerlinValue;
+
+  public UnityEvent mouthClosingEvent;
+  public UnityEvent mouthOpeningEvent;
+
 
   void Start()
   {
@@ -29,12 +38,19 @@ public class MouthController : MonoBehaviour
   void Update()
   {
     if(!eating && !closing && !blowing)
+    {
       MouthClosedAnimation();
+
+    }
+
+    if(smelling)
+      CheckLipsDirectionChange();
   }
 
   void MouthClosedAnimation()
   {
-    float movement = actualLipMovementAmplitude * Mathf.PerlinNoise(Time.time * lipMovementSpeed, 0.0f);
+    float perlinValue = Mathf.PerlinNoise(Time.time * lipMovementSpeed, 0.0f);
+    float movement = actualLipMovementAmplitude * perlinValue;
     movement = movement - (actualLipMovementAmplitude / 2.0f);
 
     Vector3 position = lipUpClosed.position;
@@ -44,18 +60,47 @@ public class MouthController : MonoBehaviour
     position = lipDownClosed.position;
     position.y = position.y - movement;
     lipDownTarget.transform.position = position;
-   }
+  }
+
+  void CheckLipsDirectionChange()
+  {
+    float actualPerlinValue = Mathf.PerlinNoise(Time.time * lipMovementSpeed, 0.0f);
+    float actualPerlinValue_minus_1 = Mathf.PerlinNoise((Time.time - Time.deltaTime) * lipMovementSpeed, 0.0f);
+    float actualPerlinValue_minus_2 = Mathf.PerlinNoise((Time.time - (Time.deltaTime * 2))* lipMovementSpeed, 0.0f);
+
+    if(
+        mouthPhase != "closing" &&
+        (actualPerlinValue < actualPerlinValue_minus_1) &&
+        (actualPerlinValue_minus_1 > actualPerlinValue_minus_2)
+    )
+    {
+        // Debug.Log($"{actualPerlinValue}, ${actualPerlinValue_minus_1}, ${actualPerlinValue_minus_2} => Mouth closing");
+        mouthPhase = "closing";
+        mouthClosingEvent.Invoke();
+    } else if(
+        mouthPhase != "opening" &&
+        (actualPerlinValue > actualPerlinValue_minus_1) &&
+        (actualPerlinValue_minus_1 < actualPerlinValue_minus_2)
+    )
+    {
+        // Debug.Log($"{actualPerlinValue}, ${actualPerlinValue_minus_1}, ${actualPerlinValue_minus_2} => Mouth opening");
+        mouthPhase = "opening";
+        mouthOpeningEvent.Invoke();
+    }
+  }
 
   public void StartSmeling()
   {
     DOTween.To(() => actualLipMovementAmplitude, x => actualLipMovementAmplitude = x, lipMovementAmplitudeWhenSmeling, 1);
     //Sound
     FMODUnity.RuntimeManager.PlayOneShot("event:/EgeoSmelling");
-    }
+    smelling = true;
+  }
 
   public void StopSmeling()
   {
     DOTween.To(() => actualLipMovementAmplitude, x => actualLipMovementAmplitude = x, lipMovementAmplitude, 1);
+    smelling = false;
   }
 
   public void StartEating()
@@ -89,7 +134,7 @@ public class MouthController : MonoBehaviour
   public void StartBlowing()
   {
     blowing = true;
-        
+
         //Sound
         FMODUnity.RuntimeManager.PlayOneShot("event:/EgeoBlowing");
         //

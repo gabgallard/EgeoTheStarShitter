@@ -7,18 +7,13 @@ public class UIController : MonoBehaviour
     public static UIController Instance;
     Animator animator;
 
-
     [SerializeField] GameObject infoPage;
     Camera theCamera;
 
+    //FMOD stuff
     public FMODUnity.StudioEventEmitter loopSoundEmitter;
     public GameObject winStateParameterChanger;
-
-    //FMOD events
     private FMOD.Studio.EventInstance sfxThunder;
-    FMOD.Studio.EventInstance pause;
-
-    private bool pauseState;
 
     void Awake()
     {
@@ -31,13 +26,6 @@ public class UIController : MonoBehaviour
     void Start()
     {
         animator.SetTrigger("Intro");
-        //initialiting pause sound conditions
-        pauseState = false;
-    }
-
-    private void Update()
-    {
-
     }
 
     void StartSky()
@@ -53,22 +41,6 @@ public class UIController : MonoBehaviour
     {
         infoPage.SetActive(!infoPage.activeSelf);
         infoPage.transform.Find("Scroll").GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
-
-        //Fmod Pause Event
-        //still not working well. Needs debugging
-
-        if (!pauseState)
-        {
-            pause.start();
-            pause.keyOff();
-            pauseState = true;
-        }
-        else if (pauseState)
-        {
-            pause.release();
-            pause.keyOff();
-            pauseState = false;
-        }
     }
 
     [ContextMenu("XXX")]
@@ -93,11 +65,18 @@ public class UIController : MonoBehaviour
         sequence.Append(theCamera.DOColor(new Color(0f, 0f, 0f), 0.50f));
     }
 
-    //FMOD event
-    void PlaybackBckgrSound()
+    //text sounds
+    void PlaybackText1()
     {
-        //bckgrLoop.start();
-        //FMODUnity.RuntimeManager.PlayOneShot("event:/BckgrLoop");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CinText1");
+    }
+    void PlaybackText2()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CinText2");
+    }
+    void PlaybackText3()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CinText3");
     }
 }
 

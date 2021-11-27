@@ -9,6 +9,9 @@
 {7ee7b411-fe14-4dc2-8988-97b991f8beee} bus:/Stars
 {b4075733-74b6-46d4-8eed-ac9719244192} bus:/UI
 {654f7607-f022-4a0f-8dec-b6f1c948971d} event:/BckgrLoop
+{2b78b168-bb3a-4ab4-adb6-64d562ac09b8} event:/CinText1
+{8fac928a-6f9f-48fd-9b7f-b3679db2fdbe} event:/CinText2
+{05d6ca5a-419c-47fa-8adf-b40a594359d1} event:/CinText3
 {65047cbd-739a-4cec-9ffc-376912641d67} event:/ClickMenu
 {d12389eb-4dee-4312-acce-64b1265ad31c} event:/ClickPlanet
 {e8ee22f4-cc7d-48c3-bcc4-b3a909341350} event:/ClickStar

@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class MouthSoundEffectController : MonoBehaviour
 {
-    AudioSource audioSource;
-    [SerializeField] AudioClip chewClip;
+    private FMOD.Studio.EventInstance chewingSound;
 
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     public void PlayOpenMouthSound()
     {
+
+        chewingSound = FMODUnity.RuntimeManager.CreateInstance("event:/EgeoChewing");
+        chewingSound.start();
+
         Debug.Log("PlayOpenMouthSound()");
-        audioSource.PlayOneShot(chewClip);
+
+        chewingSound.release();
     }
 }

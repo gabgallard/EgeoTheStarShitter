@@ -8,9 +8,9 @@ Play the game at: https://arturitoproductions.itch.io/egeo-the-star-shitter
 
 Egeo is an experimental artistic project.
 
-Original idea, programming and Graphics: **alberto bueno**..
+Original idea, programming and Graphics: **Alberto Bueno**..
 
-Music and Sound Effects: **WIP**.
+Music and Sound Effects: **Gabriel Gallardo**.
 
 The original illustration is an interpretation from a Berlin street art graffiti
 

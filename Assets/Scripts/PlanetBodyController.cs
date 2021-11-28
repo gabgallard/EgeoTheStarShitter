@@ -15,6 +15,7 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   [SerializeField] string bodyType;
   [SerializeField] float blowForce = 10;
   [SerializeField] float topLimitCollisionMagnitude = 20;
+  [SerializeField] float bottomLimitCollisionMagnitude = 1;
 
   Vector3 cursorOffset;
   Material material;
@@ -137,33 +138,35 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   void OnCollisionEnter2D(Collision2D collisionInfo)
   {
-    string objectAType = this.tag;
-    string objectBType = collisionInfo.gameObject.tag;
-    float magnitude = collisionInfo.relativeVelocity.magnitude;
-    float collSpeed = Mathf.Lerp(0f, 10f, magnitude / topLimitCollisionMagnitude);
+    if (!dragging)
+    {
+        string objectAType = this.tag;
+        string objectBType = collisionInfo.gameObject.tag;
+        float magnitude = collisionInfo.relativeVelocity.magnitude;
+        float collSpeed = Mathf.Lerp(0f, 10f, magnitude / topLimitCollisionMagnitude);
 
-        if (!dragging)
+        // Debug.Log($"magnitude: {magnitude}, collSpeed: {collSpeed}");
+
+        if (magnitude >= bottomLimitCollisionMagnitude && objectBType == "Planet")
         {
-            if (objectBType == "Planet")
-            {
-                collidePlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollidePlanet");
-                collidePlanetSound.setParameterByName("Magnitude", collSpeed);
-                collidePlanetSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-                collidePlanetSound.start();
-                collidePlanetSound.release();
-            }
-            else if (objectBType == "Star")
-            {
-                collideStarSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollideStar");
-                collideStarSound.setParameterByName("Magnitude", collSpeed);
-                collideStarSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-                collideStarSound.start();
-                collideStarSound.release();
-            }
+            collidePlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollidePlanet");
+            collidePlanetSound.setParameterByName("Magnitude", collSpeed);
+            collidePlanetSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            collidePlanetSound.start();
+            collidePlanetSound.release();
         }
-        Debug.Log($"magnitude: {magnitude}, collSpeed: {collSpeed}");
-        //Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
+        else if (objectBType == "Star")
+        {
+            collideStarSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollideStar");
+            collideStarSound.setParameterByName("Magnitude", collSpeed);
+            collideStarSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            collideStarSound.start();
+            collideStarSound.release();
+        }
     }
+
+    // Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
+  }
 
   // Drag and Drop :: INI
   public void OnPointerDown(PointerEventData eventData)

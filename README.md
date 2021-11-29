@@ -4,11 +4,11 @@ This Universe was created so Egeo can eat. Egeo is not on a good mood today. "Ea
 
 Better experience with high volume or headphones
 
+Experimental art experience in the form of an atmospheric puzzle mini-game. The gameplay is around 5 minutes.​
+
 Play the game at: https://arturitoproductions.itch.io/egeo-the-star-shitter
 
 ## Credits
-
-Egeo is an experimental artistic project.
 
 Original idea, programming and Graphics: **Alberto Bueno**..
 

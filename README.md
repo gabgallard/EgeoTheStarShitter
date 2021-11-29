@@ -12,7 +12,7 @@ Play the game at: https://arturitoproductions.itch.io/egeo-the-star-shitter
 
 Original idea, programming and Graphics: **Alberto Bueno**..
 
-Music and Sound Design: **Gabriel Gallardo**.
+Interactive Sound Design: **Gabriel Gallardo Alarcon**.
 
 The original illustration is an interpretation from a Berlin street art graffiti
 

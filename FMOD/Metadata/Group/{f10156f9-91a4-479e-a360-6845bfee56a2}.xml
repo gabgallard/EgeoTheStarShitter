@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{f10156f9-91a4-479e-a360-6845bfee56a2}">
+		<property name="name">
+			<value>Planets</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{d2ab8a6e-bf74-44aa-ae26-3a38410bc662}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{2649bd6d-6430-4a7d-8587-4e54c3ffbf69}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{d844d9c9-c88b-4037-8783-12b696696feb}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{d2ab8a6e-bf74-44aa-ae26-3a38410bc662}">
+		<relationship name="effects">
+			<destination>{fc9b103e-f640-46a7-abf8-0c61cda7080d}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{2649bd6d-6430-4a7d-8587-4e54c3ffbf69}" />
+	<object class="MixerBusFader" id="{fc9b103e-f640-46a7-abf8-0c61cda7080d}" />
+</objects>

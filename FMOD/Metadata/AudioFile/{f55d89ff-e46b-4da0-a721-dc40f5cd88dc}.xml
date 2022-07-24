@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f55d89ff-e46b-4da0-a721-dc40f5cd88dc}">
+		<property name="assetPath">
+			<value>sfx_swallow_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{be1e18ad-5dc6-4116-b503-0e50a49c9e49}</destination>
+		</relationship>
+	</object>
+</objects>

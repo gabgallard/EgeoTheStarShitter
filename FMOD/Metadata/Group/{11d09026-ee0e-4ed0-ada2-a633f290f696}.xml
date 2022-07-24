@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{11d09026-ee0e-4ed0-ada2-a633f290f696}">
+		<property name="name">
+			<value>Egeo</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{62c3cc0e-eb10-4963-b8b8-7437c60566dc}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{85618cc9-ddc9-424c-893c-e02f5191a520}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{d844d9c9-c88b-4037-8783-12b696696feb}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{62c3cc0e-eb10-4963-b8b8-7437c60566dc}">
+		<relationship name="effects">
+			<destination>{f1ab7586-6ab3-4a56-aa34-5e0e189b697e}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{85618cc9-ddc9-424c-893c-e02f5191a520}" />
+	<object class="MixerBusFader" id="{f1ab7586-6ab3-4a56-aa34-5e0e189b697e}" />
+</objects>

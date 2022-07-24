@@ -14,6 +14,8 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
   [SerializeField] GameObject planet;
   [SerializeField] string bodyType;
   [SerializeField] float blowForce = 10;
+  [SerializeField] float topLimitCollisionMagnitude = 20;
+  [SerializeField] float bottomLimitCollisionMagnitude = 1;
 
   Vector3 cursorOffset;
   Material material;
@@ -28,7 +30,13 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   Transform egeoMouthInside;
 
-  void Awake()
+  //FMOD Event instances
+  private FMOD.Studio.EventInstance clickPlanetSound;
+  private FMOD.Studio.EventInstance clickStarSound;
+  private FMOD.Studio.EventInstance collidePlanetSound;
+  private FMOD.Studio.EventInstance collideStarSound;
+
+    void Awake()
   {
     springJoint = GetComponent<SpringJoint2D>();
     theRigidbody = GetComponent<Rigidbody2D>();
@@ -63,7 +71,17 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
     }
 
     if(!underForces && dragging)
-      transform.position = MouseCursor2D() + cursorOffset;
+      MoveTowardMouseCursor();
+
+    /*
+    collidePlanetSound.setParameterByName("Magnitude", value);
+    collideStarSound.setParameterByName("Magnitude", value);
+    */
+  }
+
+  void MoveTowardMouseCursor()
+  {
+    theRigidbody.MovePosition(MouseCursor2D() + cursorOffset);
   }
 
   void StartShaking()
@@ -120,11 +138,34 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
 
   void OnCollisionEnter2D(Collision2D collisionInfo)
   {
-    string objectAType = this.tag;
-    string objectBType = collisionInfo.gameObject.tag;
-    float magnitude = collisionInfo.relativeVelocity.magnitude;
+    if (!dragging)
+    {
+        string objectAType = this.tag;
+        string objectBType = collisionInfo.gameObject.tag;
+        float magnitude = collisionInfo.relativeVelocity.magnitude;
+        float collSpeed = Mathf.Lerp(0f, 10f, magnitude / topLimitCollisionMagnitude);
 
-    Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
+        // Debug.Log($"magnitude: {magnitude}, collSpeed: {collSpeed}");
+
+        if (magnitude >= bottomLimitCollisionMagnitude && objectBType == "Planet")
+        {
+            collidePlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollidePlanet");
+            collidePlanetSound.setParameterByName("Magnitude", collSpeed);
+            collidePlanetSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            collidePlanetSound.start();
+            collidePlanetSound.release();
+        }
+        else if (objectBType == "Star")
+        {
+            collideStarSound = FMODUnity.RuntimeManager.CreateInstance("event:/CollideStar");
+            collideStarSound.setParameterByName("Magnitude", collSpeed);
+            collideStarSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            collideStarSound.start();
+            collideStarSound.release();
+        }
+    }
+
+    // Debug.Log($"Collision detected!, objectAType: {objectAType}, objectBType: {objectBType}, magnitude: {magnitude}");
   }
 
   // Drag and Drop :: INI
@@ -136,7 +177,23 @@ public class PlanetBodyController : MonoBehaviour, IPointerDownHandler, IPointer
       StopSpringJoint();
       dragging = true;
 
-      Debug.Log($"OnPointerDown(), tag: {gameObject.tag}");
+            //Sound
+            if (gameObject.tag == "Planet")
+            {
+                clickPlanetSound = FMODUnity.RuntimeManager.CreateInstance("event:/ClickPlanet");
+                clickPlanetSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+                clickPlanetSound.start();
+                clickPlanetSound.release();
+            }
+            else if (gameObject.tag == "Star")
+            {
+                clickStarSound = FMODUnity.RuntimeManager.CreateInstance("event:/ClickStar");
+                clickStarSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+                clickStarSound.start();
+                clickStarSound.release();
+            }
+
+            Debug.Log($"OnPointerDown(), tag: {gameObject.tag}");
     }
   }
 

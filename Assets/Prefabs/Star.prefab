@@ -11,6 +11,30 @@ PrefabInstance:
       propertyPath: bodyType
       value: star
       objectReference: {fileID: 0}
+    - target: {fileID: 569011677, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
+      propertyPath: topLimitCollisionMagnitude
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021805310068801379, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/ClickStar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021805310068801379, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -387046668
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021805310068801379, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1220791421
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021805310068801379, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1447836484
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021805310068801379, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1343435785
+      objectReference: {fileID: 0}
     - target: {fileID: 1947866007180688151, guid: 4f97cac3f93fe4a6c9991c1bb095897f, type: 3}
       propertyPath: m_TagString
       value: Star
